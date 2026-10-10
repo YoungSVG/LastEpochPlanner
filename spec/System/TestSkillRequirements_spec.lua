@@ -107,4 +107,24 @@ describe("Client skill equipment requirements", function ()
 		assert.is_true(not env.player.modDB:GetCondition("RadiantLanceNoShield", otherCfg))
 		assert.are.equals(1, env.player.modDB:More(otherCfg, "Damage"))
 	end)
+
+	it("scales specialization values by points without scaling their stat divisors", function ()
+		local cfg = { skillGrantedEffect = { id = "RadiantLance" }, flags = ModFlag.Spell, keywordFlags = KeywordFlag.Spell }
+		local wrath = { id = "ra1an-21", alloc = 3, skillId = "RadiantLance", stats = { "+12% Damage", "+1 Mana Cost" } }
+		build.spec.tree:ProcessStats(wrath)
+		assert.are.equals(1.36, wrath.modList:More(cfg, "Damage"))
+		assert.are.equals(3, wrath.modList:Sum("BASE", cfg, "ManaCost"))
+		wrath.alloc = 1
+		build.spec.tree:ProcessStats(wrath)
+		assert.are.equals(1.12, wrath.modList:More(cfg, "Damage"))
+		local aegis = { id = "ra1an-14", alloc = 3, skillId = "RadiantLance",
+			stats = { "+1 Lightning Spell Damage per 300 Block Effectiveness" } }
+		build.spec.tree:ProcessStats(aegis)
+		aegis.modList.actor.output = { BlockEffectiveness = 450 }
+		assert.are.equals("+3 Lightning Spell Damage per 300 Block Effectiveness", aegis.sd[1])
+		assert.are.equals(4.5, aegis.modList:Sum("BASE", cfg, "LightningMin"))
+		assert.are.equals(4.5, aegis.modList:Sum("BASE", cfg, "LightningMax"))
+		cfg.skillGrantedEffect.id = "LightningBlast"
+		assert.are.equals(0, aegis.modList:Sum("BASE", cfg, "LightningMin"))
+	end)
 end)
