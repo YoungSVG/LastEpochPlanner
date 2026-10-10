@@ -158,6 +158,24 @@ subtype 43) is Roughspun Tunic, while current Cloth Armor is subtype 72. A saved
 name-only item cannot be migrated safely without knowing its source version.
 This report does not itself migrate saved builds.
 
+Two client 1.5.2.2 unique tooltips disagree with the gameplay roll slots.
+Dragonsong's fire attack/cast speed text names roll 7, but both underlying stats
+use roll 3. Chorus of Anurok's shared cold-resistance text names roll 0, but the
+player and minion stats use rolls 0 and 1 respectively. The converter corrects
+the first association and emits separate resistance lines for the second.
+It validates the known stat signatures and tooltip text before applying either
+correction, so changed source layouts require review. Native evidence:
+`ItemEquipManager.UpdateStats` at RVA `0x1439510` loads `UniqueItemMod.rollID`
+(offset `0x15`) at `0x143a426`, calls `ItemData.getUniqueRoll`, then passes that
+byte to `UniqueItemMod.getValue`. Tooltip placeholders are not used for gameplay.
+
+Trigger restrictions also require native checks. For example,
+`CharacterMutator.AttemptSmiteFromThrowingHit` at RVA `0x262d5b0` counts timestamps
+from the previous two seconds and rejects another cast at ten entries (comparison
+at `0x262d7c1`). The shorter generated modifier description omits this limit.
+This is a shared rolling window, not a 0.2-second cooldown; a rate-only model
+cannot reproduce its burst timing or allocate its shared budget among sources.
+
 ```powershell
 python helperScripts/build_client_release.py --baseline src --trees ..\client-trees-compiled --skills ..\client-skills-compiled --icons ..\client-icons-compiled --output src
 ```

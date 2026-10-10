@@ -33,6 +33,34 @@ def number(value):
     return f"{clean_number(value):g}"
 
 
+def unique_tooltip(props, item, description_id, text):
+    """Use gameplay roll slots for the two verified client tooltip mismatches."""
+    key = (item["uniqueID"], description_id)
+    if key not in ((243, 2), (430, 1)):
+        return [tooltip(text)]
+
+    indices = (7, 8) if key == (243, 2) else (2, 3)
+    expected = ((2, 8, 1, 3), (3, 8, 1, 3)) if key == (243, 2) else ((14, 0, 0, 0), (14, 8192, 0, 1))
+    mods = [item["mods"][i] for i in indices]
+    for mod, signature in zip(mods, expected):
+        actual = (mod["property"], mod["tags"], mod["type"], mod["rollID"])
+        if actual != signature or not mod["canRoll"] or mod["specialTag"] or mod.get("extraTag", 0):
+            raise ValueError(f"Client unique roll correction needs review: {key}")
+
+    if key == (430, 1):
+        # The shared tooltip uses roll 0 for both actors; gameplay uses slots 0/1.
+        if text != "+[50,75,0]% Cold Resistance for you and your Minions":
+            raise ValueError(f"Client unique tooltip correction needs review: {key}")
+        return [(props.render(m, m["value"], m["maxValue"]), m["rollID"], [m["rollID"]]) for m in mods]
+
+    # Dragonsong's speed tooltip refers to slot 7, while both stats use slot 3.
+    if any(clean_number(m["value"]) != 0.12 or clean_number(m["maxValue"]) != 0.17 for m in mods):
+        raise ValueError(f"Client unique roll correction needs review: {key}")
+    if text != "+[12,17,7]% increased Attack and Cast Speed with Fire Skills":
+        raise ValueError(f"Client unique tooltip correction needs review: {key}")
+    return [tooltip(text.replace("[12,17,7]", "[12,17,3]"))]
+
+
 def plain(text):
     text = re.sub(r"</?(?:color|b|i|size|style)(?:=[^>]*)?>", "", text)
     return " ".join(text.replace("\\n", " ").split())
@@ -242,11 +270,11 @@ def build_items(source, baseline, output):
                 if data["setRequirement"]:
                     continue
                 text = props.english["Item_Names"].get(f"Unique_Tooltip_{desc_id}_{uid}", data["description"])
-                line, roll_id, all_rolls = tooltip(text)
-                mods.append(line)
-                roll_ids.append(roll_id)
-                if len(set(all_rolls)) > 1:
-                    multi_roll_lines.append({"uniqueID": uid, "line": len(mods), "rollIds": all_rolls})
+                for line, roll_id, all_rolls in unique_tooltip(props, item, desc_id, text):
+                    mods.append(line)
+                    roll_ids.append(roll_id)
+                    if len(set(all_rolls)) > 1:
+                        multi_roll_lines.append({"uniqueID": uid, "line": len(mods), "rollIds": all_rolls})
         uniques[str(uid)] = {
             "name": props.english["Item_Names"].get(f"Unique_Name_{uid}", item["displayName"] or item["name"]),
             "baseTypeID": item["baseType"], "subTypeID": item["subTypes"][0],
