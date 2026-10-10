@@ -30,6 +30,7 @@ return {
 	["sndr1-30"] = {
 		["+15% Third Strike Damage"] = {
 			mod("Damage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
 		},
 	},
 	["sndr1-23"] = {

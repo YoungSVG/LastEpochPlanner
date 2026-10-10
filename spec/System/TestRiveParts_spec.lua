@@ -71,6 +71,37 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(nil, ailmentOutput("Ailment_Bleed"))
 	end)
 
+	it("inherits Brutality damage only for ailments applied by the third strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit\n100% Chance to Ignite on Hit\n100% increased Damage"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			selectPart(part)
+			baseline[part] = { ailmentOutput("Ailment_Bleed").TotalDPS, ailmentOutput("Ailment_Ignite").TotalDPS }
+		end
+		allocate("sndr1-30", 3)
+		for part = 1, 3 do
+			selectPart(part)
+			local multiplier = part == 3 and 1.45 or 1
+			assert.are.equals(multiplier, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[part][1], 2))
+			assert.are.equals(multiplier, round(ailmentOutput("Ailment_Ignite").TotalDPS / baseline[part][2], 2))
+		end
+		allocate("sndr1-30", 1)
+		selectPart(3)
+		assert.are.equals(1.15, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[3][1], 2))
+		allocate("sndr1-30", 0)
+		selectPart(3)
+		assert.are.equals(baseline[3][1], ailmentOutput("Ailment_Bleed").TotalDPS)
+		build.skillsTab:SelSkill(1, "Fireball")
+		selectPart(1)
+		local fireballBleed = ailmentOutput("Ailment_Bleed", "Fireball").TotalDPS
+		allocate("sndr1-30", 3)
+		selectPart(1)
+		assert.are.equals(fireballBleed, ailmentOutput("Ailment_Bleed", "Fireball").TotalDPS)
+	end)
+
 	it("weights bleed and ignite from each applying strike across the entire combo", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")
@@ -78,6 +109,7 @@ describe("Rive strike calculations", function ()
 		allocate("sndr1-10", 2)
 		allocate("sndr1-31", 3)
 		allocate("sndr1-15", 4)
+		allocate("sndr1-30", 3)
 		local strikes = {}
 		for part = 1, 3 do
 			local out = selectPart(part)

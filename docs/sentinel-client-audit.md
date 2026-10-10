@@ -103,6 +103,20 @@ that continue ticking during subsequent strikes. Tests compare all four
 Cadence/Double Slash sequences against independently selected-strike outputs,
 including a selected third strike with no ignite of its own.
 
+Brutality's untagged damage multiplier also applies to ailments inflicted by
+strike 3. In client 1.5.2.2, `ChanceToApplyAilmentsOnHit.Apply` (`0x2185c70`)
+passes `GetStats()` to `AilmentApplication.Apply` with `scaleWithStats = true`.
+The overload at `0x282c850` forwards those stats to
+`AilmentReceiver.ApplyAilment` (`0x2830ef0`), which calls
+`DamageStats.buildDamageStats` at `0x283198c` using the ailment's base damage,
+its tags (including `AT.Ailment`, bit 25), and the supplied stats. Brutality's
+`Stats.MoreStat` has property Damage and no tag restriction, so it remains
+eligible. The planner explicitly forwards this audited multiplier through
+`SourceAilmentDamage`, evaluated against the applying strike. It does not copy
+all source damage modifiers, which could duplicate global bonuses or import
+hit-only modifiers. Tests cover bleed and ignite, point scaling/refunds,
+global damage modifiers, other skills and weighted combo bleed.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
