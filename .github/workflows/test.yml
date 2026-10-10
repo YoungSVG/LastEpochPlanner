@@ -64,6 +64,8 @@ jobs:
         run: luajit spec/Standalone/Importers.lua
       - name: Test defence formulas without application initialization
         run: luajit spec/Standalone/DefenceMath.lua
+      - name: Test native tree sprite loading
+        run: luajit spec/Standalone/TreeSprites.lua
       - name: Report coverage
         continue-on-error: true # Coverage report may fail if the coveralls.io server is overloaded
         run: cd src; luacov-coveralls --repo-token=${{ secrets.github_token }} -e TestData -e Data -e runtime
