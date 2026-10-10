@@ -133,6 +133,9 @@ python helperScripts/test_client_skills.py
 
 This produces three player skills and two Tide Elemental attacks. Cast times
 use the actor's own base speed multiplier (1.1 for MainPlayer, 1.0 for the tide
-elemental), multiplied by the ability's speed multiplier. The staged definitions
+elemental), multiplied by the ability's speed multiplier. Shield requirements
+use the serialized `requiresSheild` field; permitted weapon IDs are resolved
+through the same client's ItemList. Unknown required weapon IDs fail conversion.
+Shield-requiring spells retain their spell damage calculation. The staged definitions
 still require the separate runtime mutations, including Radiant Lance's block
 scaling, before they can replace a complete supported gameplay version.

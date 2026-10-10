@@ -79,6 +79,18 @@ def convert_skill(prefab, props, actor_speed, minion=False):
         stats["cost"] = {"Mana": clean_number(ability["manaCost"])}
     entry = {"name": ability["abilityName"], "skillTypeTags": ability["tags"],
              "castTime": cast_time(ability, actor_speed), "baseFlags": flags, "stats": stats}
+    # The misspelling is the client's serialized field name.
+    if ability.get("requiresSheild"):
+        flags["requiresShield"] = True
+    if ability.get("requireWeaponType"):
+        weapons = {row["baseTypeID"]: row["displayName"]
+                   for row in props.table("ItemList")["EquippableItems"] if row["isWeapon"]}
+        permitted = ability["permittedWeaponTypes"]
+        if not permitted or any(key not in weapons for key in permitted):
+            raise ValueError("Missing or unknown required weapon types")
+        entry["weaponTypes"] = {weapons[key]: True for key in permitted}
+    if ability.get("requiresDualWielding"):
+        raise ValueError("Dual wield requirement needs explicit conversion")
     base_mods = []
     for attribute in ability["attributeScaling"]:
         for stat in attribute["stats"]:

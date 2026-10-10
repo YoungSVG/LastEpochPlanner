@@ -259,12 +259,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillPartCalcs = nil
 	end
 
-	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
-		-- Skill requires a shield to be equipped
-		skillFlags.disable = true
-		activeSkill.disableReason = "This skill requires a Shield"
-	end
-
 	if skillFlags.shieldAttack then
 		-- Special handling for Spectral Shield Throw
 		skillFlags.weapon2Attack = true
@@ -316,6 +310,12 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if skillFlags.attack then
 			skillFlags.bothWeaponAttack = skillFlags.weapon1Attack and skillFlags.weapon2Attack
 		end
+	end
+
+	if (skillTypes[SkillType.RequiresShield] or skillFlags.requiresShield or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
+		-- Check after weapon compatibility so its fallback cannot hide the missing shield.
+		skillFlags.disable = true
+		activeSkill.disableReason = "This skill requires a Shield"
 	end
 
 	-- Build skill mod flag set

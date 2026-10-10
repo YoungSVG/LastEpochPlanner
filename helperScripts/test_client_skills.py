@@ -1,11 +1,39 @@
 """Regressions for the 1.5.2.2 prefab-to-planner skill conversion."""
 import unittest
 from copy import deepcopy
+from unittest.mock import Mock
 
 from build_client_skills import cast_time, convert_skill, validate_sources
 
 
 class SkillConversionTests(unittest.TestCase):
+    def test_equipment_requirements_keep_client_weapon_ids_and_shield_flag(self):
+        ability = {"m_Name": "RadiantLance", "abilityName": "Radiant Lance", "tags": 258,
+                   "playerAbilityID": "ra1an", "useDuration": 0.9, "speedMultiplier": 1,
+                   "channelled": 0, "instantCastForPlayer": 0, "maxCharges": 0,
+                   "manaCost": 24, "attributeScaling": [], "requiresSheild": 1}
+        damage = {"damage": [0, 0, 0, 100, 0, 0, 0], "critChance": 0.05,
+                  "critMultiplier": 2, "isHit": 1, "addedDamageScaling": 5}
+        prefab = {"ability": ability, "objects": [{"class": "DamageEnemyOnHit",
+                  "data": {"damageTags": 256, "baseDamageStats": damage}}]}
+        skill = convert_skill(prefab, None, 1.1)
+        self.assertTrue(skill["baseFlags"]["requiresShield"])
+        self.assertNotIn("shieldAttack", skill["baseFlags"])
+        self.assertNotIn("weaponTypes", skill)
+        ability.update(requiresSheild=0, requireWeaponType=1, permittedWeaponTypes=[6, 9])
+        props = Mock()
+        props.table.return_value = {"EquippableItems": [
+            {"baseTypeID": 6, "displayName": "Dagger", "isWeapon": 1},
+            {"baseTypeID": 9, "displayName": "One-Handed Sword", "isWeapon": 1},
+            {"baseTypeID": 23, "displayName": "Bow", "isWeapon": 1}]}
+        skill = convert_skill(prefab, props, 1.1)
+        self.assertEqual({"Dagger": True, "One-Handed Sword": True}, skill["weaponTypes"])
+        self.assertNotIn("requiresShield", skill["baseFlags"])
+        for permitted in ([], [999]):
+            ability["permittedWeaponTypes"] = permitted
+            with self.assertRaisesRegex(ValueError, "required weapon"):
+                convert_skill(prefab, props, 1.1)
+
     def test_source_fingerprints_reject_mixed_builds_with_the_same_version(self):
         core = {"clientVersion": "1.5.2.2", "unityVersion": "6000.4.8f1", "buildHash": "build-a",
                 "sources": [{"path": path, "bytes": 123, "sha256": "a" * 64} for path in (
