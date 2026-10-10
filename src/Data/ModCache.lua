@@ -523,7 +523,6 @@ c[" Fire Explosion -> Cold Damage"]={nil," Fire Explosion -> Cold Damage "}
 c[" Fire Rune Embers While Not In Flame Rush"]={nil," Fire Rune Embers While Not In Flame Rush "}
 c[" Fire and Lightning Damage Trail"]={nil," Fire and Lightning Damage Trail "}
 c[" Fireball on Kill or Boss or Rare Hit"]={nil," Fireball on Kill or Boss or Rare Hit "}
-c[" First And Second Strike Never Crit"]={nil," First And Second Strike Never Crit "}
 c[" First Strike Wave Of Energy"]={nil," First Strike Wave Of Energy "}
 c[" Fissure Fire Damage on Hit"]={nil," Fissure Fire Damage on Hit "}
 c[" Fissure Spreads Ignite Stacks"]={nil," Fissure Spreads Ignite Stacks "}
@@ -1105,7 +1104,6 @@ c[" Teleport with Crowstorm"]={nil," Teleport with Crowstorm "}
 c[" Tempest on non-hits"]={nil," Tempest on non-hits "}
 c[" Tethered To Frenzy Totem"]={nil," Tethered To Frenzy Totem "}
 c[" Third Cast Behind Target"]={nil," Third Cast Behind Target "}
-c[" Third Strike Double Crit Chance"]={nil," Third Strike Double Crit Chance "}
 c[" Thorn Burst Retaliation"]={nil," Thorn Burst Retaliation "}
 c[" Thorn Shield -> Werebear Transform"]={nil," Thorn Shield -> Werebear Transform "}
 c[" Thorn Shield Can Only Target You"]={nil," Thorn Shield Can Only Target You "}
@@ -1821,7 +1819,6 @@ c["+1% Fire Penetration Per 100% Increased Healing Effectiveness"]={{[1]={[1]={s
 c["+1% Fire Penetration Per 5 Strength"]={{[1]={[1]={div=5,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="FirePenetration",type="BASE",value=1}},nil}
 c["+1% Fire Res Shred Chance Per 2 Strength"]={{},"  Res Shred Chance  "}
 c["+1% Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}},nil}
-c["+1% First And Second Strike Base Crit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=1}}," First And Second Strike Base  "}
 c["+1% First Strike Leech"]={{}," First Strike Leech "}
 c["+1% Frailty Chance Per Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Frailty",type="BASE",value=1}},nil}
 c["+1% Freeze Rate Multiplier Per 2 Attunement"]={{}," Freeze Rate Multiplier  "}
@@ -2110,7 +2107,6 @@ c["+10% Fire Damage Over Time"]={{[1]={flags=4104,keywordFlags=0,name="FireDamag
 c["+10% Fire Penetration"]={{[1]={flags=0,keywordFlags=0,name="FirePenetration",type="BASE",value=10}},nil}
 c["+10% Fire Penetration with Ignite"]={{[1]={[1]={skillName="Ignite",type="SkillName"},flags=0,keywordFlags=0,name="FirePenetration",type="BASE",value=10}},"  with  "}
 c["+10% Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=10}},nil}
-c["+10% First And Second Strike Attack Speed"]={{[1]={flags=3584,keywordFlags=0,name="Speed",type="BASE",value=10}}," First And Second Strike  "}
 c["+10% First Attack Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=10}}," First Attack  "}
 c["+10% First Attack Ignite Duration"]={{[1]={[1]={skillName="Ignite",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=10}}," First Attack   "}
 c["+10% Flurry Swipes Damage"]={{[1]={[1]={skillName="Flurry",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=10}},"  Swipes  "}
@@ -3269,7 +3265,6 @@ c["+15% Storm Bolt Damage"]={{[1]={[1]={skillName="Storm Bolt",type="SkillName"}
 c["+15% Summoning Speed"]={{}," Summoning Speed "}
 c["+15% Symbols Of Hope Gain Rate"]={{},"  Gain Rate "}
 c["+15% Target Area and Damage Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=15}}," Target  and Damage Area "}
-c["+15% Third Strike Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=15}}," Third Strike  "}
 c["+15% Threat Generated"]={{}," Threat Generated "}
 c["+15% Throwing Bleed Chance"]={{[1]={flags=8388608,keywordFlags=1024,name="ChanceToTriggerOnHit_Ailment_Bleed",type="BASE",value=15}},nil}
 c["+15% Time Rot Chance With Buff"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_TimeRot",type="BASE",value=15}},"  With Buff "}
@@ -4152,7 +4147,6 @@ c["+2% Shared Spell Lightning Penetration Per 5 Attunement"]={{[1]={[1]={div=5,s
 c["+2% Slow Duration Per Dexterity"]={{[1]={[1]={stat="Dex",type="PerStat"},[2]={skillName="Slow",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=2}},nil}
 c["+2% Smite Base Crit Chance"]={{[1]={[1]={skillName="Smite",type="SkillName"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=2}},"  Base  "}
 c["+2% Spell Health Leech"]={{[1]={flags=0,keywordFlags=256,name="Life",type="BASE",value=2}},"   Leech "}
-c["+2% Third Strike Base Crit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=2}}," Third Strike Base  "}
 c["+2% Throwing Leech"]={{},"  Leech "}
 c["+2% Void Penetration"]={{[1]={flags=0,keywordFlags=0,name="VoidPenetration",type="BASE",value=2}},nil}
 c["+2% chance to gain Frenzy for 3 seconds when you Echo an ability"]={{[1]={flags=0,keywordFlags=0,name="Condition:Frenzy",type="FLAG",value=true}},"  when you Echo an ability "}
@@ -7249,7 +7243,6 @@ c["+50% Spreading Distance"]={{}," Spreading Distance "}
 c["+50% Spreading Flames Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_SpreadingFlames",type="BASE",value=50}},nil}
 c["+50% Stun Chance"]={{}," Stun Chance "}
 c["+50% Third Strike Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=50}}," Third Strike  "}
-c["+50% Third Strike Critical Multiplier"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}}," Third Strike  "}
 c["+50% Third Strike Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}}," Third Strike  "}
 c["+50% Thunder Tempest Shock Chance "]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Shock",type="BASE",value=50}}," Thunder Tempest   "}
 c["+50% Time Rot Chance On Skill Echo"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_TimeRot",type="BASE",value=50}},"  On Skill Echo "}
