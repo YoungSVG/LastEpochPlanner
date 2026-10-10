@@ -14,6 +14,20 @@ local m_max = math.max
 
 local tempTable1 = {}
 
+-- Recursive trigger cycles are not supported by the calculation model.
+-- Check the entire ancestry, since two different skills can trigger each other.
+function calcs.canTriggerSkill(group, skillId)
+	if group.skillId == skillId then
+		return false
+	end
+	for sourceId in string.gmatch(group.source or "", "[^/]+") do
+		if sourceId == skillId then
+			return false
+		end
+	end
+	return true
+end
+
 -- Initialise modifier database with stats and conditions common to all actors
 function calcs.initModDB(env, modDB)
 	for _, damageType in ipairs(DamageTypes) do
@@ -829,8 +843,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				cache = GlobalCache.cachedData["CACHE"][uuid]
 				local activeSkill = cache.ActiveSkill
 				for skillId, skill in pairsSortByKey(data.skills) do
-					-- Skills that trigger itself is not supported
-					if skillId ~= activeSkill.activeEffect.grantedEffect.id then
+					if calcs.canTriggerSkill(group, skillId) then
 						local triggerChance = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg,
 							"ChanceToTriggerOnHit_" .. skillId)
 						if triggerChance > 0 then
