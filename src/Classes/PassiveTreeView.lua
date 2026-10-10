@@ -13,6 +13,7 @@ local m_max = math.max
 local m_floor = math.floor
 local band = bit.band
 local b_rshift = bit.rshift
+local loadNodeSprite = LoadModule("Modules/TreeSprites").new(LoadModule("TreeData/ClientSprites"), NewImageHandle)
 
 local PassiveTreeViewClass = newClass("PassiveTreeView", function (self)
 	self.tooltip = new("Tooltip")
@@ -419,20 +420,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		-- Normal node (includes keystones and notables)
 		if node.icon and not node.sprites then
 			if not tree.spriteMap[node.icon] then
-				local sheet = {}
-				sheet.handle = NewImageHandle()
-				sheet.handle:Load("TreeData/sprites/" .. node.icon .. ".png")
-				sheet.width, sheet.height = sheet.handle:ImageSize()
-
-				tree.spriteMap[node.icon] = {
-					handle = sheet.handle,
-					width = sheet.width,
-					height = sheet.height,
-					[1] = 0,
-					[2] = 0,
-					[3] = 1,
-					[4] = 1
-				}
+				tree.spriteMap[node.icon] = loadNodeSprite(node.icon)
 			end
 			node.sprites = tree.spriteMap[node.icon]
 		end
