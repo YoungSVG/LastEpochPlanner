@@ -44,6 +44,11 @@ class ItemConversionTests(unittest.TestCase):
     def test_integer_health_keeps_integer_roll_precision(self):
         self.assertEqual("{rounding:Integer}+(66-113) Health", self.render(7, 66, 113))
 
+    def test_added_to_flag_does_not_invent_a_skill_level_label(self):
+        self.props.master[7] = {"displayAsAddedTo": 1, "displayAddedAsPercentage": 1}
+        self.props.english["Descriptors"]["7,0,0,0,2"] = "All Resistances"
+        self.assertEqual("+10% to All Resistances", self.render(7, 0.1, 0.1))
+
     def test_leech_uses_tenths_of_percent(self):
         self.assertEqual("{rounding:Tenth}(1.5-2.5)% of Damage Leeched as Health", self.render(51, 0.15, 0.25))
 

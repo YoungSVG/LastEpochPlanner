@@ -116,7 +116,7 @@ class Properties:
         if mode == 0 and low > 0 and not info.get("dontDisplayPlus") and kind != 1:
             value = "+" + value
         if kind == 2:
-            description = "to Level of " + description
+            description = "to " + description
         line = value + " " + description
         if low != high:
             rounding = info.get("roundingForAdded", 0) if mode == 0 else 0 if mode == 1 else info.get("roundingForMore", 0)
