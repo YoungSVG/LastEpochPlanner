@@ -28,7 +28,7 @@ local formList = {
 	["^(%d+)%% slower"] = "RED",
 	["^([%+%-]?[%d%.]+)%%"] = "BASE_MORE",
 	["^([%+%-]?[%d%.]+)"] = "BASE",
-	["^([%+%-][%d%.]+)%%? to"] = "BASE",
+	["^([%+%-]?[%d%.]+)%%? to"] = "BASE",
 	["^([%+%-]?[%d%.]+)%%? of"] = "BASE",
 	["^([%+%-][%d%.]+)%%? base"] = "BASE",
 	["^([%+%-]?[%d%.]+)%%? additional"] = "BASE",
@@ -64,6 +64,7 @@ local modNameList = {
 	["maximum health"] = "Life",
 	["mana"] = "Mana",
 	["maximum mana"] = "Mana",
+	["health and mana"] = { "Life", "Mana" },
 	["mana regen"] = "ManaRegen",
 	["mana cost"] = "ManaCost",
 	-- Primary defences
@@ -160,6 +161,11 @@ local modNameList = {
 
 for i, stat in ipairs(LongAttributes) do
 	modNameList[stat:lower()] = Attributes[i]
+	for j, other in ipairs(LongAttributes) do
+		if i ~= j then
+			modNameList[stat:lower() .. " and " .. other:lower()] = { Attributes[i], Attributes[j] }
+		end
+	end
 end
 
 for skillId, skill in pairs(data.skills) do
@@ -174,6 +180,10 @@ for skillId, skill in pairs(data.skills) do
 		if skill.baseFlags.ailment then
 			modNameList["to apply " .. skill.name:lower()] = "ChanceToTriggerOnHit_" .. skillId
 			modNameList["to inflict " .. skill.name:lower()] = "ChanceToTriggerOnHit_" .. skillId
+			if skill.altName then
+				modNameList["to apply " .. skill.altName:lower()] = "ChanceToTriggerOnHit_" .. skillId
+				modNameList["to inflict " .. skill.altName:lower()] = "ChanceToTriggerOnHit_" .. skillId
+			end
 		end
 		modNameList[skill.name:lower() .. " stacks"] = { "ChanceToTriggerOnHit_" .. skillId, flags = ModFlag.Hit, mult = 100 }
 		modNameList[skill.name:lower() .. " stacks applied"] = { "ChanceToTriggerOnHit_" .. skillId, flags = ModFlag.Hit, mult = 100 }
@@ -200,6 +210,29 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 modNameList["penetration"] = "Penetration"
+modNameList["penetration against all resistances"] = "Penetration"
+modNameList["fire, necrotic, and void penetration"] = { "FirePenetration", "NecroticPenetration", "VoidPenetration" }
+for _, first in ipairs(DamageTypes) do
+	for _, second in ipairs(DamageTypes) do
+		if first ~= second then
+			local prefix = first:lower() .. " and " .. second:lower()
+			for phrase, suffix in pairs({ damage = "Damage", penetration = "Penetration", ["damage over time taken"] = "DamageTakenOverTime" }) do
+				modNameList[prefix .. " " .. phrase] = { first .. suffix, second .. suffix }
+			end
+		end
+	end
+end
+for phrase, ailments in pairs({
+	["to electrify and slow"] = { "Electrify", "Slow" },
+	["to shock ignite and chill"] = { "Shock", "Ignite", "Chill" },
+	["to ignite, chill, shock, bleed, slow, poison, and blind"] = { "Ignite", "Chill", "Shock", "Bleed", "Slow", "Poison", "Blind" },
+}) do
+	local names = { flags = ModFlag.Hit }
+	for _, ailment in ipairs(ailments) do
+		t_insert(names, "ChanceToTriggerOnHit_Ailment_" .. ailment)
+	end
+	modNameList[phrase] = names
+end
 
 -- List of modifier flags
 local modFlagList = {
@@ -211,6 +244,10 @@ local modFlagList = {
 	["minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["with elemental spells"] = { keywordFlags = bor(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire) },
 	["minion"] = { addToMinion = true },
+	["for you and your minions"] = { addToMinion = true, shared = true },
+	["for your minions"] = { addToMinion = true },
+	["for minions"] = { addToMinion = true },
+	["%(multiplicative with other modifiers%)"] = {},
 	["shared"] = { addToMinion = true, shared = true },
 	-- can be ignored since the cooldown is already part of the triggered skill data
 	["%(%d+ second cooldown%)"] = {},
@@ -238,7 +275,23 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 -- List of modifier flags/tags that appear at the start of a line
-local preFlagList = {}
+local preFlagList = {
+	["^you and your minions have "] = { addToMinion = true, shared = true },
+	["^minions deal "] = { addToMinion = true },
+	["^minions have "] = { addToMinion = true },
+	["^minions take "] = { addToMinion = true, modSuffix = "Taken" },
+	["^your minions' spells and bow attacks deal "] = { addToMinion = true, keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Bow) },
+}
+
+-- Consume compound scopes before matching skill names such as "Melee Attack".
+local compoundFlagList = {
+	["with spells and attacks"] = { keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Melee, KeywordFlag.Throwing, KeywordFlag.Bow) },
+	["with spells and melee attacks"] = { keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Melee) },
+	["with fire skills and necrotic skills"] = { keywordFlags = bor(KeywordFlag.Fire, KeywordFlag.Necrotic) },
+	["for damage over time spells"] = { flags = ModFlag.Dot, keywordFlags = KeywordFlag.Spell },
+	["for your minions' damage over time spells"] = { flags = ModFlag.Dot, keywordFlags = KeywordFlag.Spell, addToMinion = true },
+	["with melee damage"] = { keywordFlags = KeywordFlag.Melee },
+}
 
 -- List of modifier tags
 local modTagList = {
@@ -259,6 +312,7 @@ local modTagList = {
 	["while unarmed"] = { tag = { type = "Condition", var = "Unarmed" } },
 	["while moving"] = { tag = { type = "Condition", var = "Moving" } },
 	["while channell?ing"] = { tag = { type = "Condition", var = "Channelling" } },
+	["while not channell?ing"] = { tag = { type = "Condition", var = "Channelling", neg = true } },
 	["while leeching"] = { tag = { type = "Condition", var = "Leeching" } },
 	["while frozen"] = { tag = { type = "Condition", var = "Frozen" } },
 	["while cursed"] = { tag = { type = "Condition", var = "Cursed" } },
@@ -333,6 +387,9 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 local specialModList = {
+	["^you cannot deal critical strikes$"] = { flag("NeverCrit") },
+	["^minions cannot deal critical strikes$"] = { mod("MinionModifier", "LIST", { mod = flag("NeverCrit") }) },
+	["^your critical strikes do not deal additional damage$"] = { flag("NoCritMultiplier") },
 	["no cooldown"] = { flag("NoCooldown") },
 	[" ?always crits?.* above (%d+) mana"] = function (num)
 		num = tonumber(num)
@@ -395,8 +452,14 @@ local skillNameList = {}
 
 for _, skill in pairs(data.skills) do
 	skillNameList[skill.name:lower()] = { tag = { type = "SkillName", skillName = skill.name } }
+	skillNameList[skill.name:lower() .. "'s"] = { tag = { type = "SkillName", skillName = skill.name } }
 	skillNameList["for " .. skill.name:lower()] = { tag = { type = "SkillName", skillName = skill.name } }
 end
+skillNameList["for judgement and javelin"] = { tag = { type = "SkillName", skillNameList = { "Judgement", "Javelin" } } }
+skillNameList["chill, shock, and ignite"] = { tag = { type = "SkillName", skillNameList = { "Chill", "Shock", "Ignite" } } }
+skillNameList["of ignite, chill, shock, fire resistance shred, cold resistance shred, and lightning resistance shred%."] = {
+	tag = { type = "SkillName", skillNameList = { "Ignite", "Chill", "Shock", "Shred Fire Resistance", "Shred Cold Resistance", "Shred Lightning Resistance" } },
+}
 
 local preSkillNameList = {}
 
@@ -501,6 +564,8 @@ local function parseMod(line, order)
 	end
 
 	-- Scan for modifier name and skill name
+	local compoundFlag
+	compoundFlag, line = scan(line, compoundFlagList)
 	local modName, nameCap
 	if order == 2 and not skillTag then
 		skillTag, line = scan(line, skillNameList)
@@ -590,7 +655,7 @@ local function parseMod(line, order)
 	local baseKeywordFlags = 0
 	local tagList = {}
 	local misc = {}
-	local dataList = { modName, preFlag, modTag, modTag2, skillTag, modExtraTags }
+	local dataList = { modName, preFlag, modTag, modTag2, skillTag, modExtraTags, compoundFlag }
 	tableInsertAll(dataList, modFlags)
 	for _, data in pairs(dataList) do
 		if type(data) == "table" then

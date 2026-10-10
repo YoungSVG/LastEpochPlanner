@@ -67,8 +67,16 @@ function importer.decodeItem(itemData, context)
 					for i, modLine in ipairs(uniqueBase.mods) do
 						if hasRange(modLine) then
 							local rollId = uniqueBase.rollIds[i]
-							local range = itemData["data"][uniqueIDIndex + 2 + rollId]
-							table.insert(item.explicitMods, "{unique}{range: " .. range .. "}" .. modLine)
+							if type(rollId) == "table" then
+								local ranges = {}
+								for n, id in ipairs(rollId) do
+									ranges[n] = itemData["data"][uniqueIDIndex + 2 + id]
+								end
+								table.insert(item.explicitMods, "{unique}" .. context.applyRange(modLine, ranges))
+							else
+								local range = itemData["data"][uniqueIDIndex + 2 + rollId]
+								table.insert(item.explicitMods, "{unique}{range: " .. range .. "}" .. modLine)
+							end
 						else
 							table.insert(item.explicitMods, "{unique}" .. modLine)
 						end

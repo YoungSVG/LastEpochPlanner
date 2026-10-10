@@ -73,3 +73,73 @@ This checks atlas bounds, file presence, logical dimensions, shared texture
 handles, sprite caching, and fallback loading. CI also runs the full application
 and saved-build checks. Installing an icon export does not itself change the
 active gameplay data version.
+
+## Item conversion (staged)
+
+```powershell
+python helperScripts/build_client_items.py --source ..\client-export --baseline src/Data --output ..\client-items
+python helperScripts/test_client_items.py
+```
+
+The client exporter also extracts the English localization tables. The item
+converter uses their property descriptors and tooltip ordering, preserves
+descending roll ranges, and records independent roll IDs for compound lines.
+Historical base names are retained as `legacyNames` when the base and subtype
+IDs match; the runtime resolves these without duplicating crafting entries.
+
+The 1.5.2.2 conversion currently produces 922 named bases, 489 uniques, and 6,238
+affix tiers. These outputs are intermediate files, not the active application
+database. Before installing them, compare parsed modifiers against the existing
+data and review combined tooltip descriptions against the underlying modifiers.
+In particular, Chorus of the Anurok has different underlying roll IDs for player
+and minion cold resistance despite a shared tooltip placeholder. Dragonsong's
+speed tooltip refers to roll 7 while its underlying speed modifiers use roll 3.
+Do not assume tooltip placeholder IDs alone prove the saved gameplay roll mapping.
+
+Updated parsing also fixes an existing Druid mastery omission: `20% increased
+health and mana` now contributes both bonuses. In the `tornado_dot` fixture,
+health changes from 3,786 to 4,181 and mana from 304 to 360; its dependent defence
+outputs and serialized player-stat snapshot change accordingly.
+
+## Ability and summoned-actor prefabs
+
+```powershell
+python helperScripts/export_client_skill_prefabs.py --game "D:\Steam\steamapps\common\Last Epoch" --assemblies ..\client-assemblies --source ..\client-export --output ..\client-skills --client-version 1.5.2.2 --ability Fireball --ability Dreamslash --ability RadiantLance --ability PrimalistSummonElemental
+```
+
+This exports the selected ability prefab components, follows `ActorReference`
+for summons, and resolves the summoned actor's keyed ability references through
+`AbilityManager`. It walks only each prefab's object hierarchy. The example
+exports six abilities and one actor, including Elemental Bolt and Geyser, and
+writes a manifest with the source-file fingerprints. Unknown ability names,
+ambiguous prefab roots, external actor references, and nested summons fail
+explicitly instead of producing a silently incomplete export.
+
+Keep the core export and installation on the same client build. The skill
+converter checks version metadata and matching SHA-256 fingerprints for shared
+source files, requiring the executable, IL2CPP metadata, and PermaLoad bundle.
+It rejects mixed exports before reading property tables or writing definitions.
+These raw
+prefabs contain base damage and actor configuration; they do not by themselves
+implement skill-tree mutations or establish the final combat calculation.
+
+The export also records the MainPlayer ability-use component. To convert the
+new 1.5 base definitions without replacing the active database:
+
+```powershell
+python helperScripts/build_client_skills.py --source ..\client-skills --core ..\client-export --output ..\client-skills-compiled
+python helperScripts/test_client_skills.py
+```
+
+This produces three player skills and two Tide Elemental attacks. Cast times
+use the actor's own base speed multiplier (1.1 for MainPlayer, 1.0 for the tide
+elemental), multiplied by the ability's speed multiplier. Shield requirements
+use the serialized `requiresSheild` field; permitted weapon IDs are resolved
+through the same client's ItemList. Unknown required weapon IDs fail conversion.
+Shield-requiring spells retain their spell damage calculation. Radiant Lance's
+base damage multiplier uses fractional uncapped block chance. Native evidence:
+`RadiantLanceMutator.getTempStats` at RVA `0x224bb40` reads `SP.BlockChance` (29)
+and passes the positive value unchanged to the damage stat's more multiplier.
+This path is skipped when `noShieldRequirement` is set. The staged definitions
+still require specialization mutations (including that shield-removal node)
+before they can replace a complete supported gameplay version.

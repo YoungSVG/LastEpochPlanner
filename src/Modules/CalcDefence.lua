@@ -229,6 +229,7 @@ function calcs.defence(env, actor)
 			"Total: " .. output.BlockChance + output.BlockChanceOverCap .. "%",
 		}
 	end
+	output.UncappedBlockChance = output.BlockChance + output.BlockChanceOverCap
 	if modDB:Flag(nil, "CannotBlockAttacks") or enemyDB:Flag(nil, "CannotBeBlocked") then
 		output.BlockChance = 0
 	end

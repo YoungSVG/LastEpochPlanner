@@ -17,20 +17,20 @@
 		<PlayerStat stat="Dex" value="14"></PlayerStat>
 		<PlayerStat stat="Int" value="31"></PlayerStat>
 		<PlayerStat stat="Att" value="35"></PlayerStat>
-		<PlayerStat stat="TotalEHP" value="22707.533118736"></PlayerStat>
-		<PlayerStat stat="FireMaximumHitTaken" value="23820.150673045"></PlayerStat>
-		<PlayerStat stat="LightningMaximumHitTaken" value="23820.150673045"></PlayerStat>
-		<PlayerStat stat="ColdMaximumHitTaken" value="23820.150673045"></PlayerStat>
-		<PlayerStat stat="PhysicalMaximumHitTaken" value="31572.153085341"></PlayerStat>
-		<PlayerStat stat="PoisonMaximumHitTaken" value="23820.150673045"></PlayerStat>
-		<PlayerStat stat="NecroticMaximumHitTaken" value="19850.125560871"></PlayerStat>
-		<PlayerStat stat="VoidMaximumHitTaken" value="18609.492713317"></PlayerStat>
-		<PlayerStat stat="Life" value="3786"></PlayerStat>
-		<PlayerStat stat="Spec:LifeInc" value="10"></PlayerStat>
+		<PlayerStat stat="TotalEHP" value="25076.649754209"></PlayerStat>
+		<PlayerStat stat="FireMaximumHitTaken" value="26305.348643424"></PlayerStat>
+		<PlayerStat stat="LightningMaximumHitTaken" value="26305.348643424"></PlayerStat>
+		<PlayerStat stat="ColdMaximumHitTaken" value="26305.348643424"></PlayerStat>
+		<PlayerStat stat="PhysicalMaximumHitTaken" value="34866.131022137"></PlayerStat>
+		<PlayerStat stat="PoisonMaximumHitTaken" value="26305.348643424"></PlayerStat>
+		<PlayerStat stat="NecroticMaximumHitTaken" value="21921.12386952"></PlayerStat>
+		<PlayerStat stat="VoidMaximumHitTaken" value="20551.053627675"></PlayerStat>
+		<PlayerStat stat="Life" value="4181"></PlayerStat>
+		<PlayerStat stat="Spec:LifeInc" value="30"></PlayerStat>
 		<PlayerStat stat="LifeRegenRecovery" value="112.6"></PlayerStat>
 		<PlayerStat stat="LifeLeechGainRate" value="0"></PlayerStat>
-		<PlayerStat stat="Mana" value="304"></PlayerStat>
-		<PlayerStat stat="Spec:ManaInc" value="0"></PlayerStat>
+		<PlayerStat stat="Mana" value="360"></PlayerStat>
+		<PlayerStat stat="Spec:ManaInc" value="20"></PlayerStat>
 		<PlayerStat stat="ManaRegenRecovery" value="12"></PlayerStat>
 		<PlayerStat stat="ManaLeechGainRate" value="0"></PlayerStat>
 		<PlayerStat stat="Ward" value="0"></PlayerStat>

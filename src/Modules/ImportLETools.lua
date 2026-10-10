@@ -128,7 +128,13 @@ function importer.decodeCharacter(saveContent, context)
 					item["rarity"] = "UNIQUE"
 				end
 				for i, modLine in ipairs(uniqueBase.mods) do
-					if hasRange(modLine) then
+					if hasRange(modLine) and type(uniqueBase.rollIds[i]) == "table" then
+						local ranges = {}
+						for n, id in ipairs(uniqueBase.rollIds[i]) do
+							ranges[n] = itemData.ur and itemData.ur[id + 1] or defaultAffixQuality
+						end
+						table.insert(item.explicitMods, "{unique}" .. context.applyRange(modLine, ranges))
+					elseif hasRange(modLine) then
 						local range = defaultAffixQuality
 						if itemData['ur'] and #itemData['ur'] > 0 then
 							range = itemData["ur"][uniqueBase.rollIds[i] + 1]

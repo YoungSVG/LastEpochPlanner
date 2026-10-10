@@ -520,6 +520,7 @@ return {
 		["TripleDamageChance"] = 0,
 		["TripleDamageChanceOnCrit"] = 0,
 		["TripleDamageEffect"] = 0,
+		["UncappedBlockChance"] = 83,
 		["UntypedNotHitChance"] = 0,
 		["VaalArcticArmourLife"] = 0,
 		["VaalArcticArmourMitigation"] = 0,

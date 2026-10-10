@@ -6,6 +6,9 @@
 local mod, flag, skill = ...
 
 local result = {
+	["damage_+%_final_per_uncapped_block_chance"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "UncappedBlockChance", continuous = true }),
+	},
 	--
 	-- Skill data modifiers
 	--

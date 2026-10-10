@@ -235,6 +235,16 @@ function ModStoreClass:GetMultiplier(var, cfg, noMod)
 		(not noMod and self:Sum("BASE", cfg, multiplierName[var]) or 0)
 end
 
+-- Continuous stat scaling must also bypass whole-percent MORE aggregation.
+function ModStoreClass:IsContinuousMod(mod)
+	for _, tag in ipairs(mod) do
+		if tag.type == "PerStat" and tag.continuous then
+			return true
+		end
+	end
+	return false
+end
+
 function ModStoreClass:GetStat(stat, cfg)
 	if stat == "ManaReservedPercent" then
 		local reservedPercentMana = 0
@@ -386,7 +396,10 @@ function ModStoreClass:EvalMod(mod, cfg)
 			else
 				base = target:GetStat(tag.stat, cfg)
 			end
-			local mult = m_floor(base / (tag.div or 1) + 0.0001)
+			local mult = base / (tag.div or 1)
+			if not tag.continuous then
+				mult = m_floor(mult + 0.0001)
+			end
 			local limitTotal
 			if tag.limit or tag.limitVar then
 				local limit = tag.limit or self:GetMultiplier(tag.limitVar, cfg)

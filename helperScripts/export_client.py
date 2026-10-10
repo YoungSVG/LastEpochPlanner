@@ -18,7 +18,7 @@ CORE_CLASSES = {
     "AbilityPropertyList", "PropertyList", "PlayerPropertyList", "SetBonusesList",
     "UniqueList", "ExtraStatData", "ItemList", "AffixList", "CharacterClass",
     "GearSpriteList", "GlobalTreeData", "PassivePanelData", "SkillTreeData",
-    "IdolAltarPropertyList", "TrackerPropertyList", "Ability", "Ailment",
+    "IdolAltarPropertyList", "TrackerPropertyList", "Ability", "AbilityManager", "Ailment",
 }
 
 
@@ -207,6 +207,60 @@ class ClientExporter:
         write_json(self.output / "manifest.json", manifest)
         print("Wrote source manifest", flush=True)
 
+    def export_localization(self):
+        folder = self.data / "StreamingAssets/aa/StandaloneWindows64"
+        paths = [folder / "localization-assets-shared_assets_all.bundle",
+                 folder / "localization-string-tables-english(en)_assets_all.bundle"]
+        tables = {}
+        for path in paths:
+            self.used_sources.add(path)
+            env = UnityPy.load(str(path))
+            for obj in env.objects:
+                if obj.type.name == "MonoBehaviour":
+                    # Addressable string tables retain their serialized type trees.
+                    data = obj.read_typetree()
+                    if "m_Entries" in data or "m_TableData" in data:
+                        if obj.path_id in tables:
+                            raise ValueError(f"Duplicate localization object: {obj.path_id}")
+                        tables[obj.path_id] = data
+        english = {}
+        orphaned = []
+        conflicts = []
+        for table in tables.values():
+            if "m_TableData" not in table:
+                continue
+            if table["m_LocaleId"]["m_Code"] != "en":
+                raise ValueError("Expected English client localization")
+            shared = tables[table["m_SharedData"]["m_PathID"]]
+            keys = {entry["m_Id"]: entry["m_Key"] for entry in shared["m_Entries"]}
+            values = {}
+            ambiguous = set()
+            for entry in table["m_TableData"]:
+                if entry["m_Id"] not in keys:
+                    # Unity tables can retain translations for deleted shared keys.
+                    # They cannot be addressed by a current localization key.
+                    orphaned.append({"table": table["m_Name"], "id": entry["m_Id"]})
+                    continue
+                key = keys[entry["m_Id"]]
+                if key in ambiguous:
+                    continue
+                if key in values and values[key] != entry["m_Localized"]:
+                    conflicts.append({"table": table["m_Name"], "key": key,
+                                      "values": [values.pop(key), entry["m_Localized"]]})
+                    ambiguous.add(key)
+                    continue
+                values[key] = entry["m_Localized"]
+            english[table["m_Name"].removesuffix("_en")] = values
+        required = {"Item_Names", "Item_Affixes", "Properties", "Descriptors", "Abilities", "Skills", "Ailments"}
+        if not required.issubset(english):
+            raise ValueError(f"Missing localization tables: {sorted(required - english.keys())}")
+        write_json(self.output / "english.json", english)
+        write_json(self.output / "orphaned-localization-entries.json", orphaned)
+        # Do not choose arbitrary translations for ambiguous keys. Converters
+        # can use the owning asset's fallback text and report those cases.
+        write_json(self.output / "conflicting-localization-entries.json", conflicts)
+        print(f"Exported {len(english)} English localization tables", flush=True)
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -222,6 +276,7 @@ def main():
     exporter.export_core()
     exporter.export_skill_catalog()
     exporter.export_trees()
+    exporter.export_localization()
     exporter.finish()
 
 

@@ -40,14 +40,13 @@ function itemLib.applyRange(line, range, valueScalar, rounding)
 		precision = 10
 	elseif rounding == "Thousandth" then
 		precision = 1000
+	elseif rounding == "TenThousandth" then
+		precision = 10000
 	end
 	-- If there is a percent, we need to divide the precision by 100
 	if line:find("%%") and precision >= 100 then
 		precision = precision / 100
 	end
-
-	-- range is actually given as a roll (TODO:rename)
-	range = range / 255.0
 
 	local numbers = 0
 	if not valueScalar then
@@ -66,10 +65,13 @@ function itemLib.applyRange(line, range, valueScalar, rounding)
 				max = max * valueScalar
 				max = m_floor(max * precision + 0.5) / precision
 				numbers = numbers + 1
-				local numVal = (tonumber(min) + range * (tonumber(max) - tonumber(min) + 1 / precision))
-				numVal = m_floor(numVal * precision) / precision
-				if numVal > max then
-					numVal = max
+				local roll = (type(range) == "table" and range[numbers] or range) / 255.0
+				local direction = max >= min and 1 or -1
+				local numVal = tonumber(min) + roll * (tonumber(max) - tonumber(min) + direction / precision)
+				if direction == 1 then
+					numVal = m_min(m_floor(numVal * precision) / precision, max)
+				else
+					numVal = m_max(-m_floor(-numVal * precision) / precision, max)
 				end
 				return (numVal < 0 and "" or plus) .. tostring(numVal)
 			end)
