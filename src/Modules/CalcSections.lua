@@ -653,9 +653,9 @@ return {
 				{ format = "{0:output:BlockEffectiveness}", { breakdown = "BlockEffectiveness" }, { modName = "BlockEffectiveness" }, },
 			},
 			{
-				label = "Damage Taken on Block",
+				label = "Taken From Block",
 				haveOutput = "ShowBlockEffect",
-				{ format = "{1:output:DamageTakenOnBlock}%", { breakdown = "BlockEffect" }, { modName = { "BlockEffectiveness" }, }, },
+				{ format = "{0:output:DamageTakenOnBlock}%", { breakdown = "BlockEffect" }, { modName = { "BlockEffect" }, }, },
 			},
 			{ label = "Life on Block", haveOutput = "LifeOnBlock", { format = "{0:output:LifeOnBlock}", { modName = "LifeOnBlock" }, }, },
 			{ label = "Mana on Block", haveOutput = "ManaOnBlock", { format = "{0:output:ManaOnBlock}", { modName = "ManaOnBlock" }, }, },

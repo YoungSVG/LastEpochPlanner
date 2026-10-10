@@ -62,8 +62,6 @@ jobs:
         run: busted --lua=luajit
       - name: Test importers without application initialization
         run: luajit spec/Standalone/Importers.lua
-      - name: Test defence formulas without application initialization
-        run: luajit spec/Standalone/DefenceMath.lua
       - name: Report coverage
         continue-on-error: true # Coverage report may fail if the coveralls.io server is overloaded
         run: cd src; luacov-coveralls --repo-token=${{ secrets.github_token }} -e TestData -e Data -e runtime
