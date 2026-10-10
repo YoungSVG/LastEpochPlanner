@@ -404,6 +404,14 @@ data.minions = readJsonFile("Data/minions.json")
 
 -- Item bases
 data.itemBases = readJsonFile("Data/Bases/bases.json")
+data.itemBaseAliases = {}
+for name, base in pairs(data.itemBases) do
+	for _, alias in ipairs(base.legacyNames or {}) do
+		assert(not data.itemBases[alias], "Legacy item name conflicts with a current base: " .. alias)
+		assert(not data.itemBaseAliases[alias], "Duplicate legacy item name: " .. alias)
+		data.itemBaseAliases[alias] = name
+	end
+end
 data.LETools_itemBases = readJsonFile("Data/LEToolsImport/bases.json")
 data.LETools_affixes = readJsonFile("Data/LEToolsImport/affixes.json")
 

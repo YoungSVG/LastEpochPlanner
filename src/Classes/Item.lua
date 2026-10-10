@@ -220,8 +220,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				local baseName
 				if not self.base and (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
 					-- Exact match (affix-less magic and normal items)
-					if data.itemBases[self.name] then
-						baseName = self.name
+					if data.itemBases[self.name] or data.itemBaseAliases[self.name] then
+						baseName = data.itemBaseAliases[self.name] or self.name
 					else
 						local bestMatch = { length = -1 }
 						-- Partial match (magic items with affixes)
@@ -232,6 +232,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								bestMatch.length = e - s
 								bestMatch.e = e
 								bestMatch.s = s
+							end
+						end
+						for alias, canonicalName in pairs(data.itemBaseAliases) do
+							local s, e = self.name:find(alias, 1, true)
+							if s and e and (e - s > bestMatch.length) then
+								bestMatch.match = canonicalName
+								bestMatch.length = e - s
+								bestMatch.s, bestMatch.e = s, e
 							end
 						end
 						if bestMatch.match then
@@ -245,6 +253,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if not baseName then
 					baseName = line
 				end
+				baseName = data.itemBaseAliases[baseName] or baseName
 				local base = data.itemBases[baseName]
 				if base then
 					-- Items with variants can have multiple bases

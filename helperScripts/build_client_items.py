@@ -152,10 +152,19 @@ def tooltip(text):
     return plain(text), roll_id, roll_ids
 
 
+def legacy_names(name, previous_name, previous):
+    """Preserve saved item names across repeated client updates."""
+    names = set(previous.get("legacyNames", []))
+    if previous_name:
+        names.add(previous_name)
+    return sorted(names - {name})
+
+
 def build_items(source, baseline, output):
     props = Properties(source)
     old_bases = read_json(baseline / "Bases/bases.json")
     old_by_id = {(b["baseTypeID"], b["subTypeID"]): b for b in old_bases.values()}
+    old_names = {(b["baseTypeID"], b["subTypeID"]): name for name, b in old_bases.items()}
     bases = {}
     for base in props.table("ItemList")["EquippableItems"]:
         bid = base["baseTypeID"]
@@ -166,6 +175,11 @@ def build_items(source, baseline, output):
             name = props.english["Item_Names"].get(f"Item_SubType_Name_{bid}_{sid}", item["displayName"] or item["name"])
             previous = old_by_id.get((bid, sid), {})
             entry = deepcopy(previous)
+            names = legacy_names(name, old_names.get((bid, sid)), previous)
+            if names:
+                entry["legacyNames"] = names
+            else:
+                entry.pop("legacyNames", None)
             entry.update({"type": base["displayName"], "baseTypeID": bid, "subTypeID": sid,
                           "req": {"level": item["levelRequirement"]},
                           "affixEffectModifier": clean_number(base["affixEffectModifier"]),

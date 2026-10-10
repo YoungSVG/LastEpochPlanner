@@ -1,10 +1,16 @@
 """Regression cases for serialized item values and tooltip roll associations."""
 import unittest
 
-from build_client_items import Properties, tooltip
+from build_client_items import Properties, tooltip, legacy_names
 
 
 class ItemConversionTests(unittest.TestCase):
+    def test_renamed_base_keeps_old_names_across_updates(self):
+        self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Outcast Cage", {}))
+        self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Pariah Shroud", {"legacyNames": ["Outcast Cage"]}))
+        self.assertEqual(["Pariah Shroud"], legacy_names("Outcast Cage", "Pariah Shroud", {"legacyNames": ["Outcast Cage"]}))
+        self.assertEqual([], legacy_names("New Base", None, {}))
+
     def setUp(self):
         self.props = Properties.__new__(Properties)
         # Relevant flags and descriptor text from the 1.5.2.2 client.
