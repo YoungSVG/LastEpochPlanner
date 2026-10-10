@@ -19,7 +19,7 @@
 		<PlayerStat stat="Dex" value="11"></PlayerStat>
 		<PlayerStat stat="Int" value="11"></PlayerStat>
 		<PlayerStat stat="Att" value="4"></PlayerStat>
-		<PlayerStat stat="TotalEHP" value="14429.798062978"></PlayerStat>
+		<PlayerStat stat="TotalEHP" value="25024.074300448"></PlayerStat>
 		<PlayerStat stat="FireMaximumHitTaken" value="13988.662162194"></PlayerStat>
 		<PlayerStat stat="LightningMaximumHitTaken" value="9069.5721710926"></PlayerStat>
 		<PlayerStat stat="ColdMaximumHitTaken" value="9069.5721710926"></PlayerStat>
@@ -44,7 +44,7 @@
 		<PlayerStat stat="Armour" value="4938"></PlayerStat>
 		<PlayerStat stat="Spec:ArmourInc" value="40"></PlayerStat>
 		<PlayerStat stat="PhysicalDamageReduction" value="63.373887497339"></PlayerStat>
-		<PlayerStat stat="BlockChance" value="0"></PlayerStat>
+		<PlayerStat stat="BlockChance" value="83"></PlayerStat>
 		<PlayerStat stat="BlockEffectiveness" value="2079"></PlayerStat>
 		<PlayerStat stat="AttackDodgeChance" value="0"></PlayerStat>
 		<PlayerStat stat="SpellDodgeChance" value="0"></PlayerStat>
