@@ -160,6 +160,31 @@ def legacy_names(name, previous_name, previous):
     return sorted(names - {name})
 
 
+def resolve_legacy_name_conflicts(bases):
+    """Current client names take precedence over aliases from older versions."""
+    conflicts = []
+    for name, base in bases.items():
+        aliases = sorted(set(base.get("legacyNames", []) + base.get("legacyNameConflicts", [])))
+        reused = []
+        for alias in aliases:
+            if alias in bases:
+                reused.append(alias)
+                conflicts.append({"legacyName": alias, "renamedBase": name,
+                                  "oldBaseTypeID": base["baseTypeID"], "oldSubTypeID": base["subTypeID"],
+                                  "currentBaseTypeID": bases[alias]["baseTypeID"],
+                                  "currentSubTypeID": bases[alias]["subTypeID"]})
+        remaining = [alias for alias in aliases if alias not in bases]
+        if remaining:
+            base["legacyNames"] = remaining
+        else:
+            base.pop("legacyNames", None)
+        if reused:
+            base["legacyNameConflicts"] = reused
+        else:
+            base.pop("legacyNameConflicts", None)
+    return conflicts
+
+
 def build_items(source, baseline, output):
     props = Properties(source)
     old_bases = read_json(baseline / "Bases/bases.json")
@@ -197,6 +222,7 @@ def build_items(source, baseline, output):
                 raise ValueError(f"Duplicate base item name: {name}")
             bases[name] = entry
 
+    name_conflicts = resolve_legacy_name_conflicts(bases)
     uniques = {}
     multi_roll_lines = []
     for item in props.table("UniqueList")["uniques"]:
@@ -252,6 +278,7 @@ def build_items(source, baseline, output):
     write_json(output / "Uniques/uniques.json", uniques)
     write_json(output / "ModItem.json", affixes)
     write_json(output / "multi-roll-tooltip-lines.json", multi_roll_lines)
+    write_json(output / "base-name-conflicts.json", name_conflicts)
     print({"bases": len(bases), "uniques": len(uniques), "affixTiers": len(affixes), "multiRollLines": len(multi_roll_lines)})
 
 

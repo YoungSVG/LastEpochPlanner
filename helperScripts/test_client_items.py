@@ -1,10 +1,22 @@
 """Regression cases for serialized item values and tooltip roll associations."""
 import unittest
 
-from build_client_items import Properties, tooltip, legacy_names
+from build_client_items import Properties, tooltip, legacy_names, resolve_legacy_name_conflicts
 
 
 class ItemConversionTests(unittest.TestCase):
+    def test_reused_current_name_is_not_installed_as_a_legacy_alias(self):
+        bases = {
+            "Roughspun Tunic": {"baseTypeID": 1, "subTypeID": 43, "legacyNames": ["Cloth Armor", "Older Tunic"]},
+            "Cloth Armor": {"baseTypeID": 1, "subTypeID": 72},
+        }
+        conflicts = resolve_legacy_name_conflicts(bases)
+        self.assertEqual(["Older Tunic"], bases["Roughspun Tunic"]["legacyNames"])
+        self.assertEqual(43, conflicts[0]["oldSubTypeID"])
+        self.assertEqual(72, conflicts[0]["currentSubTypeID"])
+        self.assertEqual("Cloth Armor", conflicts[0]["legacyName"])
+        self.assertEqual(conflicts, resolve_legacy_name_conflicts(bases))
+
     def test_renamed_base_keeps_old_names_across_updates(self):
         self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Outcast Cage", {}))
         self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Pariah Shroud", {"legacyNames": ["Outcast Cage"]}))

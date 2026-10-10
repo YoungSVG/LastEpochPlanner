@@ -150,6 +150,14 @@ remaining specialization mutations before replacing a supported gameplay version
 
 ## Assembling the staged release
 
+The item converter writes `base-name-conflicts.json` when an old base name is
+reused by another current base. Current names take priority over legacy aliases;
+the renamed base retains the conflicting name in `legacyNameConflicts` for a
+future version-aware migration. In client 1.5.2.2, old Cloth Armor (base type 1,
+subtype 43) is Roughspun Tunic, while current Cloth Armor is subtype 72. A saved
+name-only item cannot be migrated safely without knowing its source version.
+This report does not itself migrate saved builds.
+
 ```powershell
 python helperScripts/build_client_release.py --baseline src --trees ..\client-trees-compiled --skills ..\client-skills-compiled --icons ..\client-icons-compiled --output src
 ```
