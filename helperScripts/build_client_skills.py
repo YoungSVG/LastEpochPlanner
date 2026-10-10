@@ -77,6 +77,9 @@ def convert_skill(prefab, props, actor_speed, minion=False):
         stats["cooldown"] = clean_number(1 / ability["chargesGainedPerSecond"])
     if ability["manaCost"]:
         stats["cost"] = {"Mana": clean_number(ability["manaCost"])}
+    if ability["m_Name"] == "RadiantLance":
+        # RadiantLanceMutator.getTempStats: SP.BlockChance (29), without rounding.
+        stats["damage_+%_final_per_uncapped_block_chance"] = 1
     entry = {"name": ability["abilityName"], "skillTypeTags": ability["tags"],
              "castTime": cast_time(ability, actor_speed), "baseFlags": flags, "stats": stats}
     # The misspelling is the client's serialized field name.

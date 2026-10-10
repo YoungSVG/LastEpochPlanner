@@ -18,6 +18,7 @@ class SkillConversionTests(unittest.TestCase):
                   "data": {"damageTags": 256, "baseDamageStats": damage}}]}
         skill = convert_skill(prefab, None, 1.1)
         self.assertTrue(skill["baseFlags"]["requiresShield"])
+        self.assertEqual(1, skill["stats"]["damage_+%_final_per_uncapped_block_chance"])
         self.assertNotIn("shieldAttack", skill["baseFlags"])
         self.assertNotIn("weaponTypes", skill)
         ability.update(requiresSheild=0, requireWeaponType=1, permittedWeaponTypes=[6, 9])

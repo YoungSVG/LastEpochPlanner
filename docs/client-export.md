@@ -136,6 +136,10 @@ use the actor's own base speed multiplier (1.1 for MainPlayer, 1.0 for the tide
 elemental), multiplied by the ability's speed multiplier. Shield requirements
 use the serialized `requiresSheild` field; permitted weapon IDs are resolved
 through the same client's ItemList. Unknown required weapon IDs fail conversion.
-Shield-requiring spells retain their spell damage calculation. The staged definitions
-still require the separate runtime mutations, including Radiant Lance's block
-scaling, before they can replace a complete supported gameplay version.
+Shield-requiring spells retain their spell damage calculation. Radiant Lance's
+base damage multiplier uses fractional uncapped block chance. Native evidence:
+`RadiantLanceMutator.getTempStats` at RVA `0x224bb40` reads `SP.BlockChance` (29)
+and passes the positive value unchanged to the damage stat's more multiplier.
+This path is skipped when `noShieldRequirement` is set. The staged definitions
+still require specialization mutations (including that shield-removal node)
+before they can replace a complete supported gameplay version.

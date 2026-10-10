@@ -93,6 +93,7 @@ end
 
 function ModListClass:MoreInternal(context, cfg, flags, keywordFlags, source, ...)
 	local result = 1
+	local continuousResult = 1
 	local modPrecision = nil
 	for i = 1, select('#', ...) do
 		local modResult = 1 --The more multipliers for each mod are computed to the nearest percent then applied.
@@ -100,7 +101,9 @@ function ModListClass:MoreInternal(context, cfg, flags, keywordFlags, source, ..
 		for i = 1, #self do
 			local mod = self[i]
 			if mod.name == modName and mod.type == "MORE" and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
-				if mod[1] then
+				if context:IsContinuousMod(mod) then
+					continuousResult = continuousResult * (1 + (context:EvalMod(mod, cfg) or 0) / 100)
+				elseif mod[1] then
 					modResult = modResult * (1 + (context:EvalMod(mod, cfg) or 0) / 100)
 				else
 					modResult = modResult * (1 + mod.value / 100)
@@ -124,7 +127,7 @@ function ModListClass:MoreInternal(context, cfg, flags, keywordFlags, source, ..
 	if self.parent then
 		result = result * self.parent:MoreInternal(context, cfg, flags, keywordFlags, source, ...)
 	end
-	return result
+	return result * continuousResult
 end
 
 function ModListClass:FlagInternal(context, cfg, flags, keywordFlags, source, ...)
