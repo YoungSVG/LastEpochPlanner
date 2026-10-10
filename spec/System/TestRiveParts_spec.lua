@@ -22,6 +22,7 @@ describe("Rive strike calculations", function ()
 				return GlobalCache.cachedData.CACHE[cacheSkillUUID(skill, env)].Env.player.output
 			end
 		end
+		return nil
 	end
 
 	it("applies ignite chance only on the specified strike and preserves chances above 100 percent", function ()
