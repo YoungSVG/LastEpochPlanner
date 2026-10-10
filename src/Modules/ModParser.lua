@@ -180,6 +180,10 @@ for skillId, skill in pairs(data.skills) do
 		if skill.baseFlags.ailment then
 			modNameList["to apply " .. skill.name:lower()] = "ChanceToTriggerOnHit_" .. skillId
 			modNameList["to inflict " .. skill.name:lower()] = "ChanceToTriggerOnHit_" .. skillId
+			if skill.altName then
+				modNameList["to apply " .. skill.altName:lower()] = "ChanceToTriggerOnHit_" .. skillId
+				modNameList["to inflict " .. skill.altName:lower()] = "ChanceToTriggerOnHit_" .. skillId
+			end
 		end
 		modNameList[skill.name:lower() .. " stacks"] = { "ChanceToTriggerOnHit_" .. skillId, flags = ModFlag.Hit, mult = 100 }
 		modNameList[skill.name:lower() .. " stacks applied"] = { "ChanceToTriggerOnHit_" .. skillId, flags = ModFlag.Hit, mult = 100 }
@@ -274,6 +278,19 @@ end
 local preFlagList = {
 	["^you and your minions have "] = { addToMinion = true, shared = true },
 	["^minions deal "] = { addToMinion = true },
+	["^minions have "] = { addToMinion = true },
+	["^minions take "] = { addToMinion = true, modSuffix = "Taken" },
+	["^your minions' spells and bow attacks deal "] = { addToMinion = true, keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Bow) },
+}
+
+-- Consume compound scopes before matching skill names such as "Melee Attack".
+local compoundFlagList = {
+	["with spells and attacks"] = { keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Melee, KeywordFlag.Throwing, KeywordFlag.Bow) },
+	["with spells and melee attacks"] = { keywordFlags = bor(KeywordFlag.Spell, KeywordFlag.Melee) },
+	["with fire skills and necrotic skills"] = { keywordFlags = bor(KeywordFlag.Fire, KeywordFlag.Necrotic) },
+	["for damage over time spells"] = { flags = ModFlag.Dot, keywordFlags = KeywordFlag.Spell },
+	["for your minions' damage over time spells"] = { flags = ModFlag.Dot, keywordFlags = KeywordFlag.Spell, addToMinion = true },
+	["with melee damage"] = { keywordFlags = KeywordFlag.Melee },
 }
 
 -- List of modifier tags
@@ -295,6 +312,7 @@ local modTagList = {
 	["while unarmed"] = { tag = { type = "Condition", var = "Unarmed" } },
 	["while moving"] = { tag = { type = "Condition", var = "Moving" } },
 	["while channell?ing"] = { tag = { type = "Condition", var = "Channelling" } },
+	["while not channell?ing"] = { tag = { type = "Condition", var = "Channelling", neg = true } },
 	["while leeching"] = { tag = { type = "Condition", var = "Leeching" } },
 	["while frozen"] = { tag = { type = "Condition", var = "Frozen" } },
 	["while cursed"] = { tag = { type = "Condition", var = "Cursed" } },
@@ -434,8 +452,14 @@ local skillNameList = {}
 
 for _, skill in pairs(data.skills) do
 	skillNameList[skill.name:lower()] = { tag = { type = "SkillName", skillName = skill.name } }
+	skillNameList[skill.name:lower() .. "'s"] = { tag = { type = "SkillName", skillName = skill.name } }
 	skillNameList["for " .. skill.name:lower()] = { tag = { type = "SkillName", skillName = skill.name } }
 end
+skillNameList["for judgement and javelin"] = { tag = { type = "SkillName", skillNameList = { "Judgement", "Javelin" } } }
+skillNameList["chill, shock, and ignite"] = { tag = { type = "SkillName", skillNameList = { "Chill", "Shock", "Ignite" } } }
+skillNameList["of ignite, chill, shock, fire resistance shred, cold resistance shred, and lightning resistance shred%."] = {
+	tag = { type = "SkillName", skillNameList = { "Ignite", "Chill", "Shock", "Shred Fire Resistance", "Shred Cold Resistance", "Shred Lightning Resistance" } },
+}
 
 local preSkillNameList = {}
 
@@ -540,6 +564,8 @@ local function parseMod(line, order)
 	end
 
 	-- Scan for modifier name and skill name
+	local compoundFlag
+	compoundFlag, line = scan(line, compoundFlagList)
 	local modName, nameCap
 	if order == 2 and not skillTag then
 		skillTag, line = scan(line, skillNameList)
@@ -629,7 +655,7 @@ local function parseMod(line, order)
 	local baseKeywordFlags = 0
 	local tagList = {}
 	local misc = {}
-	local dataList = { modName, preFlag, modTag, modTag2, skillTag, modExtraTags }
+	local dataList = { modName, preFlag, modTag, modTag2, skillTag, modExtraTags, compoundFlag }
 	tableInsertAll(dataList, modFlags)
 	for _, data in pairs(dataList) do
 		if type(data) == "table" then

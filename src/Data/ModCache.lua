@@ -1502,7 +1502,7 @@ c["+1 Reveal Duration (seconds)"]={{[1]={flags=0,keywordFlags=0,name="Duration",
 c["+1 Ricochets"]={{}," Ricochets "}
 c["+1 Ricochets "]={{}," Ricochets  "}
 c["+1 Rime Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="BASE",value=1}}," Rime  "}
-c["+1 Runebolt's element always matches the last skill you used directly that had a single elemental tag"]={{}," 's element always matches the last skill you used directly that had a single  tag "}
+c["+1 Runebolt's element always matches the last skill you used directly that had a single elemental tag"]={{},"  element always matches the last skill you used directly that had a single  tag "}
 c["+1 Runebolts that have a different element to the last Runebolt you cast grant you a stack of Numeromancy (up to 5) and refresh the duration of existing stacks"]={{[1]={[1]={skillName="Runebolt",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="BASE",value=1}}," s that have a different element to the last Runebolt you cast grant you a stack of Numeromancy (up to 5) and refresh the  of existing stacks "}
 c["+1 Runic Energy Per 10 Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=1}}," Runic Energy Per 10  "}
 c["+1 Runic Energy Stacks Per Second"]={{}," Runic Energy Stacks Per Second "}
@@ -1935,7 +1935,7 @@ c["+10 Armor per Stack of Perfection"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["+10 Armor per Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},nil}
 c["+10 Attunement"]={{[1]={flags=0,keywordFlags=0,name="Att",type="BASE",value=10}},nil}
 c["+10 Blood Spectre Mana Consumed"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=10}}," Blood Spectre  Consumed "}
-c["+10 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=10}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+10 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=10}}}},"   per Attached   affected by Dread Shade "}
 c["+10 Companion Dodge Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=10}}," Companion  "}
 c["+10 Cooldown (seconds)"]={{}," Cooldown (seconds) "}
 c["+10 Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=10}},nil}
@@ -2483,7 +2483,7 @@ c["+1080 Block Effectiveness"]={{[1]={flags=0,keywordFlags=0,name="BlockEffectiv
 c["+109 Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=109}},nil}
 c["+11 Attunement"]={{[1]={flags=0,keywordFlags=0,name="Att",type="BASE",value=11}},nil}
 c["+11 Bow Cold Damage"]={{[1]={flags=0,keywordFlags=2048,name="ColdDamage",type="BASE",value=11}},nil}
-c["+11 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=11}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+11 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=11}}}},"   per Attached   affected by Dread Shade "}
 c["+11 Curse Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="Damage",type="BASE",value=11}}," Curse   "}
 c["+11 Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=11}},nil}
 c["+11 Health"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=11}},nil}
@@ -2961,7 +2961,7 @@ c["+14 Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=14}
 c["+14 Bow Cold Damage"]={{[1]={flags=0,keywordFlags=2048,name="ColdDamage",type="BASE",value=14}},nil}
 c["+14 Channel Cost"]={{}," Channel Cost "}
 c["+14 Cinder Strike Melee Damage per Level of Falconry While Unarmed"]={{[1]={[1]={type="Multiplier",var="Level"},[2]={type="Condition",var="Unarmed"},[3]={skillName="Cinder Strike",type="SkillName"},flags=0,keywordFlags=512,name="Damage",type="BASE",value=14}},"     of Falconry  "}
-c["+14 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=14}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+14 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=14}}}},"   per Attached   affected by Dread Shade "}
 c["+14 Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=14}},nil}
 c["+14 Endurance Threshold"]={{[1]={flags=0,keywordFlags=0,name="EnduranceThreshold",type="BASE",value=14}},nil}
 c["+14 Health"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=14}},nil}
@@ -5062,7 +5062,7 @@ c["+266 Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=26
 c["+266 Minion Armor"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=266}}}},nil}
 c["+27 Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=27}},nil}
 c["+27 Armor for Totems"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=27}},"  for Totems "}
-c["+27 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=27}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+27 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=27}}}},"   per Attached   affected by Dread Shade "}
 c["+27 Endurance Threshold"]={{[1]={flags=0,keywordFlags=0,name="EnduranceThreshold",type="BASE",value=27}},nil}
 c["+27 Health Regen"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=27}},nil}
 c["+27 Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=27}},nil}
@@ -5218,7 +5218,7 @@ c["+3 Bow Damage For Ballista"]={{[1]={[1]={skillName="Ballista",type="SkillName
 c["+3 Bow Fire Damage"]={{[1]={flags=0,keywordFlags=2048,name="FireDamage",type="BASE",value=3}},nil}
 c["+3 Bow Lightning Damage"]={{[1]={flags=0,keywordFlags=2048,name="LightningDamage",type="BASE",value=3}},nil}
 c["+3 Bow Physical Damage"]={{[1]={flags=0,keywordFlags=2048,name="PhysicalDamage",type="BASE",value=3}},nil}
-c["+3 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=3}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+3 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=3}}}},"   per Attached   affected by Dread Shade "}
 c["+3 Cooldown (seconds)"]={{}," Cooldown (seconds) "}
 c["+3 Cooldown Duration"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="BASE",value=3}},nil}
 c["+3 Daggers Thrown"]={{}," Daggers Thrown "}
@@ -6135,7 +6135,7 @@ c["+4 Black Arrows Dropped by Dark Quiver"]={{}," Black Arrows Dropped by  "}
 c["+4 Bow Damage"]={{[1]={flags=0,keywordFlags=2048,name="Damage",type="BASE",value=4}},nil}
 c["+4 Bow Physical Damage"]={{[1]={flags=0,keywordFlags=2048,name="PhysicalDamage",type="BASE",value=4}},nil}
 c["+4 Cinder Strike Melee Damage per Falcon Hit in the past 6 seconds if you are unarmed"]={{[1]={[1]={skillName="Cinder Strike",type="SkillName"},flags=8388608,keywordFlags=512,name="Damage",type="BASE",value=4}},"    per Falc in the past 6 seconds if you are unarmed "}
-c["+4 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=4}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+4 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=4}}}},"   per Attached   affected by Dread Shade "}
 c["+4 Cold Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=4}},nil}
 c["+4 Companion Melee Physical Damage"]={{[1]={flags=0,keywordFlags=512,name="PhysicalDamage",type="BASE",value=4}}," Companion   "}
 c["+4 Companion Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="Damage",type="BASE",value=4}}," Companion   "}
@@ -6866,7 +6866,7 @@ c["+5 Bow Fire Damage"]={{[1]={flags=0,keywordFlags=2048,name="FireDamage",type=
 c["+5 Bow Lightning Damage"]={{[1]={flags=0,keywordFlags=2048,name="LightningDamage",type="BASE",value=5}},nil}
 c["+5 Bow Physical Damage"]={{[1]={flags=0,keywordFlags=2048,name="PhysicalDamage",type="BASE",value=5}},nil}
 c["+5 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="BASE",value=5}},nil}
-c["+5 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=5}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+5 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=5}}}},"   per Attached   affected by Dread Shade "}
 c["+5 Cooldown"]={{}," Cooldown "}
 c["+5 Cooldown (seconds)"]={{}," Cooldown (seconds) "}
 c["+5 Cooldown Duration (Seconds)"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="BASE",value=5}},nil}
@@ -7484,7 +7484,7 @@ c["+6 Armor per Idol in a Refracted Slot"]={{[1]={flags=0,keywordFlags=0,name="A
 c["+6 Attunement"]={{[1]={flags=0,keywordFlags=0,name="Att",type="BASE",value=6}},nil}
 c["+6 Bees Per 10 Seconds"]={{}," Bees Per 10 Seconds "}
 c["+6 Bow Damage"]={{[1]={flags=0,keywordFlags=2048,name="Damage",type="BASE",value=6}},nil}
-c["+6 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=6}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+6 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=6}}}},"   per Attached   affected by Dread Shade "}
 c["+6 Cooldown"]={{}," Cooldown "}
 c["+6 Cooldown (seconds)"]={{}," Cooldown (seconds) "}
 c["+6 Damage Reflected Per Vitality"]={{[1]={[1]={stat="Vit",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=6}},"  Reflected  "}
@@ -7959,7 +7959,7 @@ c["+7 Bow Fire Damage"]={{[1]={flags=0,keywordFlags=2048,name="FireDamage",type=
 c["+7 Bow Lightning Damage"]={{[1]={flags=0,keywordFlags=2048,name="LightningDamage",type="BASE",value=7}},nil}
 c["+7 Bow Physical Damage"]={{[1]={flags=0,keywordFlags=2048,name="PhysicalDamage",type="BASE",value=7}},nil}
 c["+7 Bow Physical Damage for Ballistae"]={{[1]={[1]={skillName="Ballista",type="SkillName"},flags=0,keywordFlags=2048,name="PhysicalDamage",type="BASE",value=7}},"   e "}
-c["+7 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=7}}}},"  with s and Attacks per Attached   affected by Dread Shade "}
+c["+7 Cold Damage with Spells and Attacks per Attached Infernal Shade for Minions affected by Dread Shade"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={skillName="Infernal Shade",type="SkillName"},flags=0,keywordFlags=3840,name="ColdDamage",type="BASE",value=7}}}},"   per Attached   affected by Dread Shade "}
 c["+7 Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=7}},nil}
 c["+7 Dodge Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=7}},nil}
 c["+7 Dodge Rating per Equipped Corrupted Idol"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=7}},"  per Equipped Corrupted Idol "}
@@ -10728,7 +10728,7 @@ c["15% of Current Health and Ward lost when you use Evade"]={{[1]={flags=0,keywo
 c["15% of Current Mana gained as Ward when you cast a Fire Spell"]={{[1]={flags=0,keywordFlags=264,name="Mana",type="BASE",value=15}}," Current  gained as Ward when you cast a   "}
 c["15% of Damage Dealt to Mana Before Health"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}},"  Dealt to Mana Before Health "}
 c["15% of Damage Reflected"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}},"  Reflected "}
-c["15% of Lethal Mirage's remaining cooldown recovered on Melee Hit (up to 12 times)"]={{}," 's remaining cooldown recovered  (up to 12 times) "}
+c["15% of Lethal Mirage's remaining cooldown recovered on Melee Hit (up to 12 times)"]={{},"  remaining cooldown recovered  (up to 12 times) "}
 c["15% of Lightning Damage Leeched as Health"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="BASE",value=15}},"  Leeched as Health "}
 c["15% of Maximum Health gained as Endurance Threshold"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=15}},"  gained as Endurance Threshold "}
 c["15% of Minion Damage Leeched as Health on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=8389120,keywordFlags=0,name="Damage",type="BASE",value=15}}}},"   Leeched as Health  "}
@@ -10881,7 +10881,7 @@ c["17% Reduced Health Cost of Spells"]={{[1]={flags=0,keywordFlags=256,name="Lif
 c["17% chance for Hungering Souls to fire 6 Additional Projectiles"]={{[1]={[1]={skillName="Hungering Souls",type="SkillName"},flags=0,keywordFlags=8,name="ProjectileCount",type="BASE",value=17}},"  to  6 Additional  "}
 c["17% chance to cast Maelstrom every 3 seconds"]={{[1]={flags=0,keywordFlags=0,name="ChanceToTriggerOnHit_Maelstrom",type="BASE",value=17}},"  every 3 seconds "}
 c["17% chance to create a Shockwave on hit with Upheaval"]={{}," to create a wave  with Upheaval "}
-c["17% chance to recover 8% of Aerial Assault's remaining cooldown on Throwing Hit (up to 3 times)"]={{}," to recover 8% of 's remaining cooldown on   (up to 3 times) "}
+c["17% chance to recover 8% of Aerial Assault's remaining cooldown on Throwing Hit (up to 3 times)"]={{}," to recover 8% of  remaining cooldown on   (up to 3 times) "}
 c["17% increased Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=17}},nil}
 c["17% increased Block Effectiveness"]={{[1]={flags=0,keywordFlags=0,name="BlockEffectiveness",type="INC",value=17}},nil}
 c["17% increased Bow Attack Speed"]={{[1]={flags=3584,keywordFlags=2048,name="Speed",type="INC",value=17}},nil}
