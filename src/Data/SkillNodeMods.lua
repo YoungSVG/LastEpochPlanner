@@ -42,6 +42,15 @@ return {
 			mod("AreaOfEffect", "INC", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
 		},
 	},
+	["sndr1-7"] = {
+		["+12% Third Strike Damage"] = {
+			mod("Damage", "MORE", 12, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 12, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["5 Mana Gained"] = {
+			mod("ManaOnHit", "BASE", 5, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["sndr1-23"] = {
 		[" Skips Third Strike"] = {
 			mod("Condition:RiveSkipThirdStrike", "FLAG", true),

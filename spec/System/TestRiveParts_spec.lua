@@ -134,6 +134,43 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(before, selectPart(1).TotalDPS)
 	end)
 
+	it("applies Azure Crescendo damage and mana recovery only on the third strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			local output = selectPart(part)
+			baseline[part] = { hit = output.TotalDPS, bleed = ailmentOutput("Ailment_Bleed").TotalDPS, mana = output.Mana }
+		end
+		allocate("sndr1-7", 3)
+		for part = 1, 3 do
+			local output = selectPart(part)
+			local multiplier = part == 3 and 1.36 or 1
+			assert.are.equals(multiplier, round(output.TotalDPS / baseline[part].hit, 2))
+			assert.are.equals(multiplier, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[part].bleed, 2))
+			assert.are.equals(baseline[part].mana, output.Mana)
+			assert.are.equals(part == 3 and 15 or 0, output.ManaOnHit)
+			assert.are.equals(round(15 / output.RiveComboDuration, 6), round(output.RiveComboManaOnHitRate, 6))
+		end
+		allocate("sndr1-21", 1)
+		local cadence = selectPart(1)
+		assert.are.equals(round(15 / cadence.RiveComboDuration, 6), round(cadence.RiveComboManaOnHitRate, 6))
+		allocate("sndr1-23", 1)
+		assert.are.equals(0, selectPart(1).RiveComboManaOnHitRate)
+		allocate("sndr1-21", 0)
+		assert.are.equals(0, selectPart(1).RiveComboManaOnHitRate)
+		allocate("sndr1-23", 0)
+		allocate("sndr1-7", 1)
+		assert.are.equals(5, selectPart(3).ManaOnHit)
+		allocate("sndr1-7", 0)
+		assert.are.equals(0, selectPart(3).RiveComboManaOnHitRate)
+		build.skillsTab:SelSkill(1, "Fireball")
+		allocate("sndr1-7", 3)
+		assert.are.equals(0, selectPart(1).ManaOnHit)
+	end)
+
 	it("weights bleed and ignite from each applying strike across the entire combo", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

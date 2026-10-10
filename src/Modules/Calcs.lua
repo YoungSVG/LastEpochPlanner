@@ -374,6 +374,7 @@ function calcs.buildOutput(build, mode)
 			output.RiveComboDuration = combo.duration
 			output.RiveComboBleedDPS = combo.bleedDPS
 			output.RiveComboIgniteDPS = combo.igniteDPS
+			output.RiveComboManaOnHitRate = combo.manaOnHitRate
 			env.riveCombo = combo
 		end
 		for _, skill in ipairs(env.player.activeSkillList) do

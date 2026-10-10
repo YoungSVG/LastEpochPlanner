@@ -44,6 +44,7 @@ function calcs.riveCombo(env)
 	local ailments = {}
 	local duration, damage = 0, 0
 	local bleedDamage, igniteDamage = 0, 0
+	local manaGained = 0
 	for _, part in ipairs(sequence) do
 		if not outputs[part] then
 			-- CALCULATOR does not write to the shared skill-output cache. Override
@@ -76,6 +77,8 @@ function calcs.riveCombo(env)
 		local time = 1 / output.Speed
 		duration = duration + time
 		damage = damage + output.TotalDPS * time
+		-- Single-target gain: one hit opportunity per strike, never per ailment tick.
+		manaGained = manaGained + (output.ManaOnHit or 0) * (output.HitChance or 100) / 100
 		bleedDamage = bleedDamage + (ailments[part].bleed and ailments[part].bleed.TotalDPS or 0) * time
 		igniteDamage = igniteDamage + (ailments[part].ignite and ailments[part].ignite.TotalDPS or 0) * time
 	end
@@ -89,5 +92,6 @@ function calcs.riveCombo(env)
 		ailments = ailments,
 		bleedDPS = bleedDamage / duration,
 		igniteDPS = igniteDamage / duration,
+		manaOnHitRate = manaGained / duration,
 	}
 end

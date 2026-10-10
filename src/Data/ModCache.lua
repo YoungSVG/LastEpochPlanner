@@ -2728,7 +2728,6 @@ c["+12% Shock Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTrigger
 c["+12% Shurikens Frequency"]={{},"  Frequency "}
 c["+12% Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="Damage",type="MORE",value=12}},nil}
 c["+12% Spell Damage To Shocked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=256,name="Damage",type="MORE",value=12}},nil}
-c["+12% Third Strike Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=12}}," Third Strike  "}
 c["+12% Thorn Burst Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=12}}," Thorn Burst  "}
 c["+12% Thorn Burst Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=12}}," Thorn Burst  "}
 c["+12% Thorn Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=12}}," Thorn  "}

@@ -126,6 +126,18 @@ and the untagged damage multiplier is also forwarded to its ailments. Tests
 cover 1/4/0 points, all three strikes, bleed/ignite, another skill and the combo
 with Iron Reach and Brutality allocated together.
 
+Azure Crescendo (`sndr1-7`, native branch `0x251ea91`) adds 0.12 more untagged
+damage per point to the third strike and 5 mana per point to its
+`manaToRestoreIfHits` field. `Rive3Mutator.Mutate` at `0x2268217` assigns that
+amount to the hit-resource component and sets `limittedTimes = true` and
+`remainingTimes = 1`. The planner applies the damage multiplier to strike 3
+and its ailments and represents the mana gain with strike-3 `ManaOnHit`.
+The combo mana-on-hit row uses one hit opportunity per occurrence and divides
+expected mana gained by cycle duration. It is a single-target calculation;
+multi-target hit probability, mana caps and echo recovery are not modelled.
+Tests cover damage/bleed, unchanged maximum mana, 1/3/0 points, all four
+sequences and isolation from Fireball. Ordinary mana regeneration is separate.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
