@@ -87,14 +87,21 @@ descending roll ranges, and records independent roll IDs for compound lines.
 Historical base names are retained as `legacyNames` when the base and subtype
 IDs match; the runtime resolves these without duplicating crafting entries.
 
-The 1.5.2.2 conversion currently produces 922 named bases, 489 uniques, and 6,238
-affix tiers. These outputs are intermediate files, not the active application
-database. Before installing them, compare parsed modifiers against the existing
-data and review combined tooltip descriptions against the underlying modifiers.
-In particular, Chorus of the Anurok has different underlying roll IDs for player
-and minion cold resistance despite a shared tooltip placeholder. Dragonsong's
-speed tooltip refers to roll 7 while its underlying speed modifiers use roll 3.
-Do not assume tooltip placeholder IDs alone prove the saved gameplay roll mapping.
+The 1.5.2.2 conversion produces 922 named bases, 489 uniques, and 6,238 affix tiers.
+These tables are installed in `src/Data` in the development branch, together with
+a regenerated modifier cache and import snapshots. Item tables are shared across
+tree versions: retaining the 1.4 default tree does not retain the old item data.
+This is not yet a complete 1.5 release. Remaining work includes set bonuses,
+shared trigger limits, unsupported unique mechanics, version-aware migration of
+reused base names, and updated online item identifiers.
+
+Reviewed snapshot changes include the Primordial Blood gloves' attack/cast speed,
+Taste of Blood's rolled bleed duration, newly recognized Smite and Magma Shards
+triggers, and a corrupted idol resistance changing from 1% to the client's 0.8%.
+The Warpath fixture now selects Warpath as its main skill because its recognized
+trigger chain has higher total damage than directly casting Smite; the selected
+skill's individual damage statistics consequently change as well. These snapshots
+check reproducibility, not completeness of every represented game mechanic.
 
 Updated parsing also fixes an existing Druid mastery omission: `20% increased
 health and mana` now contributes both bonuses. In the `tornado_dot` fixture,

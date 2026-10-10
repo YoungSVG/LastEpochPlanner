@@ -153,7 +153,8 @@ function ModDBClass:MoreInternal(context, cfg, flags, keywordFlags, source, ...)
 			local power = 10 ^ modPrecision
 			result = math.floor(result * modResult * power) / power
 		else
-			result = result * round(modResult, 2)
+			-- Remove floating-point multiplication noise before rounding a half-percent tie.
+			result = result * round(round(modResult, 10), 2)
 		end
 	end
 	if self.parent then

@@ -124,12 +124,12 @@ LevelReq: 58
 Implicits: 2
 {range:41}+(13-40)% Physical Resistance
 {range:213}+(13-40)% Necrotic Resistance
-{range:153}{scalar:1.17}{rounding:Integer}(190-230)% increased Minion Health
-{range:227}{scalar:1.17}{rounding:Integer}(40-60)% increased Minion Damage
+{range:153}{scalar:1.17}(190-230)% Increased Minion Health
+{range:227}{scalar:1.17}(40-60)% Increased Minion Damage
 {range:178}{scalar:1.17}+(30-45)% Lightning Resistance
 {range:163}{scalar:1.17}{rounding:Integer}+(31-40) Ward per Second
 {range:163}{scalar:1.17}{rounding:Integer}+(181-230) Ward Decay Threshold
-{sealed}{range:113}{scalar:1.17}{rounding:Integer}(20-24)% increased Mana Regen
+{sealed}{range:113}{scalar:1.17}(20-24)% increased Mana Regen
 		</Item>
 		<Item id="2">
 			Rarity: LEGENDARY
@@ -142,14 +142,12 @@ Implicits: 2
 +32 Armor
 {range:121}{rounding:Integer}+(2-7) Spell Damage
 +2 to Summon Wraith
-{range:206}{rounding:Integer}(61-90)% increased Minion Damage
-{range:236}{scalar:1.5}{rounding:Integer}(21-26)% increased Health
-{unique}{range:230}(15-30)% increased Attack Speed for 4 seconds when you use a Potion
-{unique}{range:230}(15-30)% increased Spell Cast Speed for 4 seconds when you use a Potion
-{unique}{range:230}(15-30)% increased Movement Speed for 4 seconds when you use a Potion
+{range:206}(61-90)% Increased Minion Damage
+{range:236}{scalar:1.5}(21-26)% Increased Health
 {unique}20% of Current Health Lost per second
 {unique}20% of Missing Health gained as Ward per second
-{unique}100% Bleed Immunity while on Low Health
+{unique}{range:230}(15-30)% increased attack speed, cast speed, and movement speed if you have used a potion in the past 4 seconds
+{unique}Immunity to Bleed at low health
 		</Item>
 		<Item id="3">
 			Rarity: LEGENDARY
@@ -160,16 +158,16 @@ Suffix: {range:206}36_4
 LevelReq: 60
 Implicits: 3
 +8 Armor
-{range:163}(15-18)% increased Movement Speed
+{range:163}(15-18)% Increased Movement Speed
 {range:145}{rounding:Integer}+(120-230) Ward Decay Threshold
-{range:182}(26-30)% increased Movement Speed
+{range:182}(26-30)% Increased Movement Speed
 {range:206}{rounding:Integer}+(46-68) Health
-5% increased Health
+5% Increased Health
 {unique}{range:200}(11-15)% of Current Health Lost per second
 {unique}{range:200}(11-15)% of Missing Health gained as Ward per second
-{unique}{range:200}(30-36)% increased Movement Speed
 {unique}{range:203}+(300-400)% Freeze Rate Multiplier while at Low Health
-{unique}100% You are chilled every 3 seconds
+{unique}You are Chilled every 3 seconds
+{unique}{range:200}(30-36)% Increased Movement Speed
 		</Item>
 		<Item id="4">
 			Rarity: EXALTED
@@ -189,7 +187,7 @@ Implicits: 2
 {range:17}{rounding:Integer}+(5-6) Intelligence
 {range:35}+(22-29)% Physical Resistance
 {range:77}{rounding:Integer}+(46-68) Health
-5% increased Health
+5% Increased Health
 {sealed}{range:151}{rounding:Integer}+(5-7) Throwing Damage
 		</Item>
 		<Item id="5">
@@ -219,9 +217,9 @@ Suffix: {range:84}24_5
 Suffix: {range:214}25_4
 LevelReq: 59
 Implicits: 2
-{range:220}{rounding:Integer}(31-61)% increased Necrotic Damage
-{range:210}{rounding:Integer}(31-61)% increased Minion Necrotic Damage
-{range:225}{rounding:Integer}(96-120)% increased Minion Damage
+{range:220}(31-61)% Increased Necrotic Damage
+{range:210}(31-61)% Increased Minion Necrotic Damage
+{range:225}(96-120)% Increased Minion Damage
 {range:247}{rounding:Integer}+(7-8) Intelligence
 {range:84}+(50-60)% Lightning Resistance
 {range:214}{rounding:Integer}+(61-90) Health
@@ -239,12 +237,12 @@ LevelReq: 66
 Implicits: 2
 {range:127}+(33-46)% Necrotic Resistance
 {range:165}{rounding:Integer}+(46-130) Ward Decay Threshold
-{range:121}{rounding:Integer}(101-150)% increased Minion Health
+{range:121}(101-150)% Increased Minion Health
 {range:186}{rounding:Integer}+(14-16) Intelligence
 {range:211}+(30-45)% Physical Resistance
 {range:178}{rounding:Integer}+(15-20) Ward per Second
 {range:178}{rounding:Integer}+(96-114) Ward Decay Threshold
-{sealed}{range:63}{rounding:Integer}(22-27)% increased Minion Damage
+{sealed}{range:63}(22-27)% Increased Minion Damage
 {sealed}3 Minions teleported around you after you use a Traversal Skill
 		</Item>
 		<Item id="8">
@@ -257,16 +255,17 @@ Suffix: {range:52}25_4
 LevelReq: 62
 Implicits: 2
 {range:140}+(28-45)% Fire Resistance
-{range:52}{rounding:Integer}(28-45)% increased Fire Damage
+{range:52}(28-45)% Increased Fire Damage
 {range:230}{rounding:Integer}+(14-16) Intelligence
 {range:217}{rounding:Integer}+(15-20) Ward per Second
 {range:217}{rounding:Integer}+(96-114) Ward Decay Threshold
 {range:52}{rounding:Integer}+(61-90) Health
-{unique}{range:144}{rounding:Integer}(7-10)% increased Health
-{unique}{range:60}{rounding:Integer}+(4-7) Minion Melee Physical Damage
-{unique}{range:112}(2-4)% of Minion Melee Damage Leeched as Health on Hit
+{unique}{range:197}{rounding:Integer}+(1-2) to All Minion Skills
+{unique}{range:112}{rounding:Tenth}(2-4)% of Minion Melee Damage Leeched as Health on Hit
+{unique}{range:60}+(4-7) Melee Physical Damage for Minions
+{unique}Your Minions cannot be Crit
+{unique}{range:144}(7-10)% Increased Health
 {unique}{range:174}(20-40)% Minion Increased Leech Rate
-{unique}+100% Minion Critical Strike Avoidance
 		</Item>
 		<Item id="9">
 			Rarity: LEGENDARY
@@ -276,7 +275,7 @@ Prefix: {range:245}26_6
 LevelReq: 9
 Implicits: 1
 +4 Potion Slots
-{range:245}{rounding:Integer}(96-120)% increased Minion Damage
+{range:245}(96-120)% Increased Minion Damage
 {unique}{range:232}{rounding:Integer}(180-320) Ward Gained on Potion Use
 {unique}{range:105}(70-180)% of Mana Spent Gained as Ward
 {unique}{range:198}+(30-70)% Ward Retention
@@ -291,14 +290,13 @@ Suffix: {range:188}98_6
 LevelReq: 58
 Implicits: 2
 +78 Melee Damage
-{range:226}{rounding:Integer}(80-120)% increased Poison Damage
-{range:188}{scalar:3.2}{rounding:Integer}(111-140)% increased Minion Damage Over Time
-{unique}{range:49}{rounding:Integer}(150-209)% increased Melee Damage
-{unique}{range:238}{rounding:Integer}(150-209)% increased Minion Damage
-{unique}25% chance to cast Jade Dust on Hit with Harvest
-{unique}{range:213}(150-209)% of Player Poison Damage Applies to Skeleton Rogues
-{unique}8% of Minion Poison Damage Leeched as Health
-{unique}{range:213}(150-209)% of your Poison Damage Applies to your Falcon
+{range:226}(80-120)% Increased Poison Damage
+{range:188}{scalar:3.2}(111-140)% increased Minion Damage Over Time
+{unique}{range:49}(150-210)% Increased Melee Damage
+{unique}{range:238}(150-210)% Increased Minion Damage
+{unique}25% Chance to cast Jade Dust on Hit with Harvest
+{unique}{range:213}Your Poison Damage Modifiers also apply at (150-210)% effectiveness to your Skeleton Rogues and your Falcon
+{unique}Minions leech 8% of Poison Damage as Health
 {unique}{range:34}{rounding:Integer}+(1-3) to Throwing Minion Skills
 		</Item>
 		<Item id="11">
@@ -311,9 +309,9 @@ Suffix: {range:68}895_2
 LevelReq: 0
 Implicits: 0
 {range:163}{rounding:Integer}+(3-6) Ward per Second
-{range:163}{rounding:Integer}(3-9)% increased Health
+{range:163}(3-9)% Increased Health
 {range:224}{scalar:0.67}+(13-30)% Ward Retention
-2% increased Armor
+2% Increased Armor
 3% reduced Bonus Damage Taken from Critical Strikes
 		</Item>
 		<Item id="12">
@@ -326,9 +324,9 @@ Suffix: {range:91}900_0
 LevelReq: 0
 Implicits: 0
 {range:240}{rounding:Integer}+(3-6) Ward per Second
-{range:240}{rounding:Integer}(3-9)% increased Health
+{range:240}(3-9)% Increased Health
 {range:76}{scalar:0.67}(24-65)% increased Physical Spell Critical Strike Chance
-+1 Spell Damage while weilding a Staff
++1 Spell Damage while wielding a Staff
 {range:91}{rounding:Integer}(1-2) Ward gained per second while wielding a Staff
 		</Item>
 		<Item id="13">
@@ -352,7 +350,7 @@ Prefix: {range:237}107_0
 Suffix: {range:112}885_0
 LevelReq: 0
 Implicits: 0
-{range:237}{scalar:0.38}{rounding:Integer}(5-11)% increased Health
+{range:237}{scalar:0.38}(5-11)% Increased Health
 {range:112}+(18-24)% Cold Resistance
 {range:112}+(18-24)% Minion Cold Resistance
 		</Item>
@@ -378,7 +376,7 @@ Suffix: {range:194}112_0
 LevelReq: 0
 Implicits: 0
 {range:152}{rounding:Integer}(9-20) Health Gain on Kill
-{range:152}{rounding:Integer}(5-6)% increased Health
+{range:152}(5-6)% Increased Health
 {range:194}{scalar:0.38}+(20-45)% Cold Resistance
 		</Item>
 		<Item id="17">
@@ -516,7 +514,7 @@ Grand Bulwark of the Tundra
 Grand Bulwark of the Tundra
 LevelReq: 0
 Implicits: 1
-{range:230}{rounding:Integer}(25-55)% increased Armor
+{range:230}(25-55)% Increased Armor
 		</Item>
 		<Item id="31">
 			Rarity: NORMAL

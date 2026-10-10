@@ -6,7 +6,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+14 Armor"
     ]
@@ -18,11 +18,11 @@
     "req": {
       "level": 7
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+5 Armor",
       "{rounding:Integer}+(10-35) Mana",
-      "{rounding:Integer}(5-25)% increased Spell Damage"
+      "(5-25)% Increased Spell Damage"
     ]
   },
   "Iron Casque": {
@@ -32,7 +32,7 @@
     "req": {
       "level": 10
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+40 Armor"
     ]
@@ -44,10 +44,10 @@
     "req": {
       "level": 20
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+35 Armor",
-      "{rounding:Integer}(5-15)% increased Health Regen"
+      "(5-15)% Increased Health Regen"
     ]
   },
   "Dome Cap": {
@@ -57,7 +57,7 @@
     "req": {
       "level": 24
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+50 Armor"
     ]
@@ -69,7 +69,7 @@
     "req": {
       "level": 39
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+75 Armor"
     ]
@@ -81,7 +81,7 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+130 Armor"
     ]
@@ -93,21 +93,24 @@
     "req": {
       "level": 35
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+50 Armor"
     ]
   },
-  "Outcast Cage": {
+  "Pariah Shroud": {
     "type": "Helmet",
     "baseTypeID": 0,
     "subTypeID": 8,
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+6 Armor"
+    ],
+    "legacyNames": [
+      "Outcast Cage"
     ]
   },
   "Bone Mask": {
@@ -117,7 +120,7 @@
     "req": {
       "level": 3
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+13 Armor",
       "+(5-19)% Poison Resistance"
@@ -130,7 +133,7 @@
     "req": {
       "level": 6
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+9 Armor",
       "{rounding:Integer}+(2-3) Spell Damage"
@@ -141,9 +144,9 @@
     "baseTypeID": 0,
     "subTypeID": 11,
     "req": {
-      "level": 13
+      "level": 16
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+61 Armor"
     ]
@@ -155,7 +158,7 @@
     "req": {
       "level": 29
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+49 Armor",
       "+(7-41)% Necrotic Resistance"
@@ -168,7 +171,7 @@
     "req": {
       "level": 51
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+151 Armor",
       "+(11-15)% Endurance"
@@ -181,11 +184,11 @@
     "req": {
       "level": 60
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+129 Armor",
       "(9-23)% increased Area for Area Skills",
-      "(9-23)% increased area for Minion Area Skills"
+      "(9-23)% Increased Area for Minion Area Skills"
     ]
   },
   "Revenant Mask": {
@@ -195,7 +198,7 @@
     "req": {
       "level": 66
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+163 Armor",
       "+(11-16)% Endurance",
@@ -209,7 +212,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Armor"
     ]
@@ -221,7 +224,7 @@
     "req": {
       "level": 3
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+20 Armor"
     ]
@@ -233,7 +236,7 @@
     "req": {
       "level": 6
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+28 Armor",
       "{rounding:Integer}+(6-28) Mana"
@@ -246,7 +249,7 @@
     "req": {
       "level": 22
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+35 Armor",
       "{rounding:Integer}+(3-15) Ward per Second"
@@ -259,10 +262,10 @@
     "req": {
       "level": 33
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+63 Armor",
-      "{rounding:Integer}(9-18)% increased Mana Regen"
+      "(9-18)% Increased Mana Regen"
     ]
   },
   "Mystic Helm": {
@@ -272,7 +275,7 @@
     "req": {
       "level": 50
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+184 Armor",
       "+(20-40)% Critical Strike Avoidance"
@@ -285,10 +288,10 @@
     "req": {
       "level": 56
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+96 Armor",
-      "(40-72)% increased Critical Strike Chance"
+      "(40-72)% Increased Critical Strike Chance"
     ]
   },
   "Runed Visage": {
@@ -298,11 +301,11 @@
     "req": {
       "level": 63
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+77 Armor",
       "(30-77)% of Mana Spent Gained as Ward",
-      "{rounding:Integer}(14-30)% increased Mana Regen"
+      "(14-30)% Increased Mana Regen"
     ]
   },
   "Oak Helm": {
@@ -312,7 +315,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+15 Armor"
     ]
@@ -324,7 +327,7 @@
     "req": {
       "level": 7
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+18 Armor",
       "{rounding:Integer}+(1-4) Strength"
@@ -337,11 +340,11 @@
     "req": {
       "level": 13
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+36 Armor",
-      "{rounding:Integer}(10-16)% increased Health Regen",
-      "{rounding:Integer}(10-16)% increased Mana Regen"
+      "(10-16)% Increased Health Regen",
+      "(10-16)% Increased Mana Regen"
     ]
   },
   "Chitin Helm": {
@@ -351,7 +354,7 @@
     "req": {
       "level": 21
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+86 Armor",
       "+(10-40)% Poison Resistance"
@@ -364,7 +367,7 @@
     "req": {
       "level": 30
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+65 Armor",
       "+(2-3)% Critical Strike Chance",
@@ -378,7 +381,7 @@
     "req": {
       "level": 58
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+84 Armor",
       "+(32-44)% Cold Resistance",
@@ -392,11 +395,11 @@
     "req": {
       "level": 58
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+84 Armor",
-      "{rounding:Integer}(32-64)% increased Physical Damage",
-      "{rounding:Integer}(32-64)% increased Minion Physical Damage"
+      "(32-64)% Increased Physical Damage",
+      "(32-64)% Increased Minion Physical Damage"
     ]
   },
   "Greatwood Visage": {
@@ -406,11 +409,11 @@
     "req": {
       "level": 64
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+142 Armor",
       "{rounding:Integer}+(24-64) Mana",
-      "{rounding:Integer}(14-32)% increased Mana Regen"
+      "(14-32)% Increased Mana Regen"
     ]
   },
   "Leather Helm": {
@@ -420,7 +423,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+35 Armor"
     ]
@@ -432,7 +435,7 @@
     "req": {
       "level": 3
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+40 Armor"
     ]
@@ -444,7 +447,7 @@
     "req": {
       "level": 12
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+56 Armor",
       "(10-25)% Increased Stun Chance"
@@ -457,7 +460,7 @@
     "req": {
       "level": 20
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+95 Armor"
     ]
@@ -469,10 +472,10 @@
     "req": {
       "level": 40
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+110 Armor",
-      "(5-8)% increased Movement Speed"
+      "(5-8)% Increased Movement Speed"
     ]
   },
   "Myrmidon Helm": {
@@ -482,7 +485,7 @@
     "req": {
       "level": 51
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+125 Armor",
       "+(10-25)% Critical Strike Multiplier"
@@ -495,7 +498,7 @@
     "req": {
       "level": 60
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+260 Armor",
       "(6-10)% Increased Cooldown Recovery Speed",
@@ -509,11 +512,11 @@
     "req": {
       "level": 72
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+365 Armor",
       "{rounding:Integer}+(15-75) Endurance Threshold",
-      "{rounding:Integer}(15-75)% increased Fire Damage"
+      "(15-75)% Increased Fire Damage"
     ]
   },
   "Tyrant Crown": {
@@ -523,10 +526,10 @@
     "req": {
       "level": 75
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+130 Armor",
-      "(1-3)% of Elemental Damage Leeched as Health"
+      "{rounding:Tenth}(1-3)% of Elemental Damage Leeched as Health"
     ]
   },
   "Tusked Greathelm": {
@@ -536,11 +539,11 @@
     "req": {
       "level": 73
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+124 Armor",
-      "{rounding:Integer}(6-12)% increased Health",
-      "(2-3)% of Damage Leeched as Health on Hit"
+      "(6-12)% Increased Health",
+      "{rounding:Tenth}(2-3)% of Damage Leeched as Health on Hit"
     ]
   },
   "Cloth Hood": {
@@ -548,9 +551,9 @@
     "baseTypeID": 0,
     "subTypeID": 42,
     "req": {
-      "level": 0
+      "level": 5
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+14 Armor"
     ]
@@ -562,7 +565,7 @@
     "req": {
       "level": 3
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+9 Armor",
       "+(15-26)% Poison Resistance"
@@ -573,9 +576,9 @@
     "baseTypeID": 0,
     "subTypeID": 44,
     "req": {
-      "level": 5
+      "level": 7
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+32 Armor"
     ]
@@ -587,11 +590,11 @@
     "req": {
       "level": 24
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+27 Armor",
-      "(5-7)% increased Bow Attack Speed",
-      "(5-7)% increased Throwing Attack Speed"
+      "(5-7)% Increased Bow Attack Speed",
+      "(5-7)% Increased Throwing Attack Speed"
     ]
   },
   "Horned Helm": {
@@ -601,11 +604,11 @@
     "req": {
       "level": 28
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+62 Armor",
       "+(6-18)% Physical Resistance",
-      "{rounding:Integer}(6-18)% increased Physical Damage"
+      "(6-18)% Increased Physical Damage"
     ]
   },
   "Umbral Hood": {
@@ -615,7 +618,7 @@
     "req": {
       "level": 37
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+81 Armor",
       "{rounding:Integer}+(54-81) Stun Avoidance"
@@ -628,11 +631,11 @@
     "req": {
       "level": 45
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+56 Armor",
-      "{rounding:Integer}(35-65)% increased Bow Damage",
-      "{rounding:Integer}(35-65)% increased Throwing Damage"
+      "(35-65)% Increased Bow Damage",
+      "(35-65)% Increased Throwing Damage"
     ]
   },
   "Pinnacle Helm": {
@@ -642,10 +645,10 @@
     "req": {
       "level": 60
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+142 Armor",
-      "(1-2)% of Damage Leeched as Health"
+      "{rounding:Tenth}(1-2)% of Damage Leeched as Health"
     ]
   },
   "Falconry Helm": {
@@ -655,7 +658,7 @@
     "req": {
       "level": 68
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+108 Armor",
       "{rounding:Integer}+(3-6) Dexterity",
@@ -669,7 +672,7 @@
     "req": {
       "level": 73
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+143 Armor",
       "{rounding:Integer}+(66-173) Ward Decay Threshold",
@@ -683,7 +686,7 @@
     "req": {
       "level": 80
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+313 Armor",
       "{rounding:Integer}+(1-7) Vitality",
@@ -697,7 +700,7 @@
     "req": {
       "level": 3
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+22 Armor",
       "(11-33)% Increased Stun Chance"
@@ -710,7 +713,7 @@
     "req": {
       "level": 43
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+72 Armor",
       "+(21-43)% Fire Resistance"
@@ -723,7 +726,7 @@
     "req": {
       "level": 51
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+265 Armor",
       "+(25-45)% Lightning Resistance"
@@ -736,7 +739,7 @@
     "req": {
       "level": 86
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+116 Armor",
       "+(11-16)% Endurance",
@@ -750,10 +753,10 @@
     "req": {
       "level": 14
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+14 Armor",
-      "{rounding:Integer}(14-34)% increased Spell Damage"
+      "(14-34)% Increased Spell Damage"
     ]
   },
   "Arcane Visage": {
@@ -763,11 +766,11 @@
     "req": {
       "level": 84
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+117 Armor",
       "(7-15)% Increased Cooldown Recovery Speed",
-      "{rounding:Integer}(7-15)% increased Mana"
+      "(7-15)% Increased Mana"
     ]
   },
   "Arena Helm": {
@@ -777,7 +780,7 @@
     "req": {
       "level": 6
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+50 Armor",
       "+(10-20)% Fire Resistance"
@@ -790,11 +793,11 @@
     "req": {
       "level": 27
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+70 Armor",
       "+(12-27)% Physical Resistance",
-      "{rounding:Integer}(12-27)% increased Physical Damage"
+      "(12-27)% Increased Physical Damage"
     ]
   },
   "Leonine Greathelm": {
@@ -804,7 +807,7 @@
     "req": {
       "level": 85
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+550 Armor",
       "(50-85)% reduced Bonus Damage Taken from Critical Strikes"
@@ -817,10 +820,10 @@
     "req": {
       "level": 21
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+26 Armor",
-      "{rounding:Integer}(13-19)% increased Mana Regen"
+      "(13-19)% Increased Mana Regen"
     ]
   },
   "Coven Hat": {
@@ -830,11 +833,11 @@
     "req": {
       "level": 39
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+66 Armor",
       "{rounding:Integer}+(13-33) Mana",
-      "{rounding:Integer}(13-33)% increased Mana Regen"
+      "(13-33)% Increased Mana Regen"
     ]
   },
   "Immortal Crown": {
@@ -844,11 +847,11 @@
     "req": {
       "level": 79
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+137 Armor",
       "(7-13)% Increased Cooldown Recovery Speed",
-      "(13-23)% increased Minion Cooldown Recovery Speed"
+      "(13-23)% Increased Minion Cooldown Recovery Speed"
     ]
   },
   "Grolehide Hood": {
@@ -858,10 +861,10 @@
     "req": {
       "level": 12
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+44 Armor",
-      "(10-20)% increased Critical Strike Chance"
+      "(10-20)% Increased Critical Strike Chance"
     ]
   },
   "Scalebane Grimace": {
@@ -871,7 +874,7 @@
     "req": {
       "level": 53
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+95 Armor",
       "+(15-35)% Poison Resistance",
@@ -885,11 +888,11 @@
     "req": {
       "level": 74
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+115 Armor",
-      "{rounding:Integer}(50-95)% increased Damage Over Time",
-      "(10-25)% Increased Bleed Duration "
+      "(50-95)% Increased Damage Over Time",
+      "(10-25)% Increased Bleed Duration"
     ]
   },
   "Dragon Visage": {
@@ -899,7 +902,7 @@
     "req": {
       "level": 81
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+126 Armor",
       "+(27-45)% Fire Resistance",
@@ -913,7 +916,7 @@
     "req": {
       "level": 86
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+152 Armor",
       "(5-12)% Increased Cooldown Recovery Speed",
@@ -927,11 +930,36 @@
     "req": {
       "level": 85
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+115 Armor",
       "{rounding:Integer}+(10-15) Spell Damage",
       "{rounding:Integer}+(10-15) Minion Spell Damage"
+    ]
+  },
+  "Spiked Cage": {
+    "type": "Helmet",
+    "baseTypeID": 0,
+    "subTypeID": 71,
+    "req": {
+      "level": 11
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+15 Armor",
+      "{rounding:Integer}(3-9) Damage Reflected to Attackers"
+    ]
+  },
+  "Torn Hood": {
+    "type": "Helmet",
+    "baseTypeID": 0,
+    "subTypeID": 72,
+    "req": {
+      "level": 0
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+7 Armor"
     ]
   },
   "Refuge Armor": {
@@ -1042,7 +1070,7 @@
     },
     "affixEffectModifier": 0.5,
     "implicits": [
-      "+17 Armor"
+      "+13 Armor"
     ]
   },
   "Heretic Garb": {
@@ -1054,7 +1082,7 @@
     },
     "affixEffectModifier": 0.5,
     "implicits": [
-      "+23 Armor"
+      "+19 Armor"
     ]
   },
   "Initiate Robes": {
@@ -1075,7 +1103,7 @@
     "baseTypeID": 1,
     "subTypeID": 11,
     "req": {
-      "level": 12
+      "level": 17
     },
     "affixEffectModifier": 0.5,
     "implicits": [
@@ -1119,8 +1147,8 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+191 Armor",
-      "(37-61)% increased Critical Strike Chance",
-      "(37-61)% increased Minion Critical Strike Chance"
+      "(37-61)% Increased Critical Strike Chance",
+      "(37-61)% Increased Minion Critical Strike Chance"
     ]
   },
   "Revenant Plate": {
@@ -1158,7 +1186,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+24 Armor",
-      "{rounding:Integer}(6-18)% increased Elemental Damage"
+      "(6-18)% Increased Elemental Damage"
     ]
   },
   "Archive Robes": {
@@ -1198,7 +1226,7 @@
     "implicits": [
       "+64 Armor",
       "{rounding:Integer}+(12-48) Mana",
-      "{rounding:Integer}(16-24)% increased Mana Regen"
+      "(16-24)% Increased Mana Regen"
     ]
   },
   "Mystic Plate": {
@@ -1290,7 +1318,7 @@
     "implicits": [
       "+78 Armor",
       "+(14-28)% Cold Resistance",
-      "{rounding:Integer}(28-56)% increased Cold Damage"
+      "(28-56)% Increased Cold Damage"
     ]
   },
   "Shamanic Garb": {
@@ -1304,7 +1332,7 @@
     "implicits": [
       "+136 Armor",
       "{rounding:Integer}+(2-6) Attunement",
-      "{rounding:Integer}(36-60)% increased Minion Damage"
+      "(36-60)% Increased Minion Damage"
     ]
   },
   "Kolheim Armor": {
@@ -1419,7 +1447,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+280 Armor",
-      "(25-60)% increased Critical Strike Chance"
+      "(25-60)% Increased Critical Strike Chance"
     ]
   },
   "Augury Plate": {
@@ -1432,7 +1460,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+475 Armor",
-      "{rounding:Integer}(18-35)% increased Mana Regen"
+      "(18-35)% Increased Mana Regen"
     ]
   },
   "Solarum Plate": {
@@ -1446,7 +1474,7 @@
     "implicits": [
       "+420 Armor",
       "+(10-15)% Endurance",
-      "{rounding:Integer}(20-80)% increased Fire Damage"
+      "(20-80)% Increased Fire Damage"
     ]
   },
   "Apocalypse Plate": {
@@ -1473,7 +1501,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+147 Armor",
-      "(5-14)% increased Cast Speed",
+      "(5-14)% Increased Cast Speed",
       "{rounding:Integer}+(5-14) Spell Damage"
     ]
   },
@@ -1487,11 +1515,11 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+172 Armor",
-      "{rounding:Integer}(6-12)% increased Health",
+      "(6-12)% Increased Health",
       "(6-12)% Increased Cooldown Recovery Speed"
     ]
   },
-  "Cloth Armor": {
+  "Roughspun Tunic": {
     "type": "Body Armor",
     "baseTypeID": 1,
     "subTypeID": 43,
@@ -1501,6 +1529,9 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+24 Armor"
+    ],
+    "legacyNameConflicts": [
+      "Cloth Armor"
     ]
   },
   "Leather Hauberk": {
@@ -1508,11 +1539,12 @@
     "baseTypeID": 1,
     "subTypeID": 44,
     "req": {
-      "level": 0
+      "level": 4
     },
     "affixEffectModifier": 0.5,
     "implicits": [
-      "+33 Armor"
+      "+33 Armor",
+      "+2 Health Regen"
     ]
   },
   "Bandit Garb": {
@@ -1525,7 +1557,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+40 Armor",
-      "{rounding:Integer}(10-18)% increased Physical Damage"
+      "(10-18)% Increased Physical Damage"
     ]
   },
   "Outcast Coat": {
@@ -1577,8 +1609,8 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+94 Armor",
-      "(14-34)% increased Critical Strike Chance",
-      "{rounding:Integer}(14-34)% increased Dodge Rating"
+      "(14-34)% Increased Critical Strike Chance",
+      "(14-34)% Increased Dodge Rating"
     ]
   },
   "Elite Regalia": {
@@ -1592,7 +1624,7 @@
     "implicits": [
       "+175 Armor",
       "+(7-15)% Endurance",
-      "{rounding:Integer}(15-25)% increased Mana Regen"
+      "(15-25)% Increased Mana Regen"
     ]
   },
   "Falconry Armor": {
@@ -1659,7 +1691,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+156 Armor",
-      "(5-10)% increased Movement Speed",
+      "(5-10)% Increased Movement Speed",
       "{rounding:Integer}+(5-16) Health Regen"
     ]
   },
@@ -1673,7 +1705,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+35 Armor",
-      "{rounding:Integer}(10-15)% increased Mana Regen"
+      "(10-15)% Increased Mana Regen"
     ]
   },
   "Lunar Raiment": {
@@ -1700,8 +1732,8 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+196 Armor",
-      "{rounding:Integer}(7-14)% increased Mana",
-      "{rounding:Integer}(21-42)% increased Mana Regen"
+      "(7-14)% Increased Mana",
+      "(21-42)% Increased Mana Regen"
     ]
   },
   "Worn Plate": {
@@ -1752,7 +1784,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+53 Armor",
-      "(7-13)% increased Cast Speed"
+      "(7-13)% Increased Cast Speed"
     ]
   },
   "Coven Robes": {
@@ -1765,8 +1797,8 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+83 Armor",
-      "(8-15)% increased Cast Speed",
-      "{rounding:Integer}(15-29)% increased Mana Regen"
+      "(8-15)% Increased Cast Speed",
+      "(15-29)% Increased Mana Regen"
     ]
   },
   "Immortal Regalia": {
@@ -1793,7 +1825,7 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+52 Armor",
-      "{rounding:Integer}(12-20)% increased Mana Regen"
+      "(12-20)% Increased Mana Regen"
     ]
   },
   "Scalebane Coat": {
@@ -1820,8 +1852,8 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+168 Armor",
-      "{rounding:Integer}(25-50)% increased Dodge Rating",
-      "{rounding:Integer}(25-50)% increased Damage Over Time"
+      "(25-50)% Increased Dodge Rating",
+      "(25-50)% Increased Damage Over Time"
     ]
   },
   "Dragonhide Coat": {
@@ -1862,8 +1894,33 @@
     "affixEffectModifier": 0.5,
     "implicits": [
       "+261 Armor",
-      "(1-2)% of Damage Leeched as Health",
-      "(1-2)% of Minion Damage Leeched as Health"
+      "{rounding:Tenth}(1-2)% of Damage Leeched as Health",
+      "{rounding:Tenth}(1-2)% of Minion Damage Leeched as Health"
+    ]
+  },
+  "Urix Garb": {
+    "type": "Body Armor",
+    "baseTypeID": 1,
+    "subTypeID": 71,
+    "req": {
+      "level": 9
+    },
+    "affixEffectModifier": 0.5,
+    "implicits": [
+      "+29 Armor",
+      "+(13-29)% Poison Resistance"
+    ]
+  },
+  "Cloth Armor": {
+    "type": "Body Armor",
+    "baseTypeID": 1,
+    "subTypeID": 72,
+    "req": {
+      "level": 0
+    },
+    "affixEffectModifier": 0.5,
+    "implicits": [
+      "+30 Armor"
     ]
   },
   "Sash": {
@@ -1873,7 +1930,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+3 Potion Slots"
     ]
@@ -1885,7 +1942,7 @@
     "req": {
       "level": 9
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+4 Potion Slots"
     ]
@@ -1897,7 +1954,7 @@
     "req": {
       "level": 19
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(35-65) Armor",
       "+3 Potion Slots"
@@ -1910,7 +1967,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+2 Potion Slots"
     ]
@@ -1922,7 +1979,7 @@
     "req": {
       "level": 31
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(40-74) Ward Decay Threshold",
       "+4 Potion Slots"
@@ -1935,7 +1992,7 @@
     "req": {
       "level": 45
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+5 Potion Slots"
     ]
@@ -1947,7 +2004,7 @@
     "req": {
       "level": 14
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(16-32) Mana",
       "+3 Potion Slots"
@@ -1960,7 +2017,7 @@
     "req": {
       "level": 58
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(33-47)% Poison Resistance",
       "+(33-47)% Cold Resistance",
@@ -1974,7 +2031,7 @@
     "req": {
       "level": 66
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(125-250) Armor",
       "+4 Potion Slots"
@@ -1987,7 +2044,7 @@
     "req": {
       "level": 73
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+6 Potion Slots"
     ]
@@ -1999,9 +2056,9 @@
     "req": {
       "level": 80
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(4-8)% increased Movement Speed",
+      "(4-8)% Increased Movement Speed",
       "+4 Potion Slots"
     ]
   },
@@ -2012,7 +2069,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+5 Potion Slots"
     ]
@@ -2024,7 +2081,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(120-180) Armor",
       "+4 Potion Slots"
@@ -2037,7 +2094,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+1 Potion Slots",
       "1 Evade Charges gained on Potion Use"
@@ -2050,10 +2107,24 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Potion Slots",
-      "{rounding:Integer}(37-31)% reduced Health Gained on Potion Use"
+      "(37-31)% reduced Health Gained on Potion Use"
+    ]
+  },
+  "Veinweave Belt": {
+    "type": "Belt",
+    "baseTypeID": 2,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+4 Potion Slots",
+      "{rounding:Integer}+(30-60) Mana",
+      "{rounding:Integer}+(70-100) Ward Decay Threshold"
     ]
   },
   "Hide Boots": {
@@ -2063,10 +2134,10 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+5 Armor",
-      "(5-7)% increased Movement Speed"
+      "(5-7)% Increased Movement Speed"
     ]
   },
   "Leather Boots": {
@@ -2076,10 +2147,10 @@
     "req": {
       "level": 8
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+15 Armor",
-      "(8-10)% increased Movement Speed"
+      "(8-10)% Increased Movement Speed"
     ]
   },
   "Iron Greaves": {
@@ -2089,10 +2160,10 @@
     "req": {
       "level": 16
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+35 Armor",
-      "(8-10)% increased Movement Speed"
+      "(8-10)% Increased Movement Speed"
     ]
   },
   "Outcast Boots": {
@@ -2102,10 +2173,10 @@
     "req": {
       "level": 23
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+20 Armor",
-      "(8-10)% increased Movement Speed",
+      "(8-10)% Increased Movement Speed",
       "+1 Evade Charge"
     ]
   },
@@ -2116,10 +2187,10 @@
     "req": {
       "level": 30
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+56 Armor",
-      "(11-14)% increased Movement Speed"
+      "(11-14)% Increased Movement Speed"
     ]
   },
   "Heoborean Boots": {
@@ -2129,10 +2200,10 @@
     "req": {
       "level": 45
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+30 Armor",
-      "(15-18)% increased Movement Speed",
+      "(15-18)% Increased Movement Speed",
       "+(10-40)% Cold Resistance"
     ]
   },
@@ -2143,10 +2214,10 @@
     "req": {
       "level": 67
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+90 Armor",
-      "(15-18)% increased Movement Speed",
+      "(15-18)% Increased Movement Speed",
       "+(30-45)% Fire Resistance"
     ]
   },
@@ -2157,9 +2228,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "5% increased Movement Speed"
+      "5% Increased Movement Speed"
     ]
   },
   "Shrine Boots": {
@@ -2169,10 +2240,10 @@
     "req": {
       "level": 55
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Armor",
-      "(11-14)% increased Movement Speed",
+      "(11-14)% Increased Movement Speed",
       "(16-32)% increased Cooldown Recovery Speed for Evade"
     ]
   },
@@ -2183,10 +2254,10 @@
     "req": {
       "level": 60
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Armor",
-      "(15-18)% increased Movement Speed",
+      "(15-18)% Increased Movement Speed",
       "{rounding:Integer}+(120-230) Ward Decay Threshold"
     ]
   },
@@ -2197,11 +2268,11 @@
     "req": {
       "level": 76
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+72 Armor",
-      "(15-18)% increased Movement Speed",
-      "(24-50)% increased Effect of Haste on You "
+      "(15-18)% Increased Movement Speed",
+      "(24-50)% increased Effect of Haste on You"
     ]
   },
   "Citadel Boots": {
@@ -2211,10 +2282,10 @@
     "req": {
       "level": 85
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+185 Armor",
-      "(15-18)% increased Movement Speed",
+      "(15-18)% Increased Movement Speed",
       "(35-50)% reduced Bonus Damage Taken from Critical Strikes"
     ]
   },
@@ -2225,10 +2296,10 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Armor",
-      "(15-18)% increased Movement Speed",
+      "(15-18)% Increased Movement Speed",
       "{rounding:Integer}+(115-180) Ward Decay Threshold"
     ]
   },
@@ -2239,11 +2310,11 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+25 Armor",
-      "(15-18)% increased Movement Speed",
-      "(20-30)% increased Effect of Haste on You "
+      "(15-18)% Increased Movement Speed",
+      "(20-30)% increased Effect of Haste on You"
     ]
   },
   "Veteran's Boots": {
@@ -2253,10 +2324,24 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "3% increased Movement Speed",
-      "1% increased Movement Speed per 4 Character Levels"
+      "3% Increased Movement Speed",
+      "0.01 increased Movement Speed per 4 Character Levels"
+    ]
+  },
+  "Icescale Greaves ": {
+    "type": "Boots",
+    "baseTypeID": 3,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+40 Armor",
+      "(12-16)% Increased Movement Speed",
+      "+1 Evade Charge"
     ]
   },
   "Hide Gloves": {
@@ -2266,7 +2351,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+8 Armor"
     ]
@@ -2278,7 +2363,7 @@
     "req": {
       "level": 6
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+10 Armor",
       "{rounding:Integer}+(5-10) Mana"
@@ -2291,7 +2376,7 @@
     "req": {
       "level": 15
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+32 Armor"
     ]
@@ -2303,7 +2388,7 @@
     "req": {
       "level": 25
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+21 Armor",
       "+(13-28)% Necrotic Resistance"
@@ -2316,10 +2401,10 @@
     "req": {
       "level": 31
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+28 Armor",
-      "{rounding:Integer}(7-14)% increased Mana Regen"
+      "(7-14)% Increased Mana Regen"
     ]
   },
   "Plated Gauntlets": {
@@ -2329,7 +2414,7 @@
     "req": {
       "level": 45
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+75 Armor",
       "+(5-15)% Endurance"
@@ -2342,10 +2427,10 @@
     "req": {
       "level": 62
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+45 Armor",
-      "(15-40)% increased Critical Strike Chance"
+      "(15-40)% Increased Critical Strike Chance"
     ]
   },
   "Crusader Gauntlets": {
@@ -2355,7 +2440,7 @@
     "req": {
       "level": 64
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+80 Armor",
       "+(30-45)% Void Resistance"
@@ -2368,11 +2453,11 @@
     "req": {
       "level": 91
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+80 Armor",
       "{rounding:Integer}+(5-10) Vitality",
-      "{rounding:Integer}(5-10)% increased Health"
+      "(5-10)% Increased Health"
     ]
   },
   "Serrated Bracers": {
@@ -2382,11 +2467,11 @@
     "req": {
       "level": 62
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+45 Armor",
-      "(5-15)% Increased Bleed Duration ",
-      "(5-15)% Increased Poison Duration "
+      "(5-15)% Increased Bleed Duration",
+      "(5-15)% Increased Poison Duration"
     ]
   },
   "Arcane Bracers": {
@@ -2396,11 +2481,11 @@
     "req": {
       "level": 54
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+36 Armor",
       "{rounding:Integer}+(20-36) Mana",
-      "{rounding:Integer}(12-24)% increased Mana Regen"
+      "(12-24)% Increased Mana Regen"
     ]
   },
   "Ascetic Gloves": {
@@ -2410,7 +2495,7 @@
     "req": {
       "level": 79
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+58 Armor",
       "(6-12)% Increased Cooldown Recovery Speed"
@@ -2423,7 +2508,7 @@
     "req": {
       "level": 86
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+211 Armor",
       "(11-24)% of Armor Mitigation also applies to Damage over Time"
@@ -2436,10 +2521,10 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+35 Armor",
-      "{rounding:Integer}(15-20)% increased Mana Regen"
+      "(15-20)% Increased Mana Regen"
     ]
   },
   "Coinmail Gauntlets": {
@@ -2449,9 +2534,23 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+165 Armor"
+    ]
+  },
+  "Eber Horn Gauntlets": {
+    "type": "Gloves",
+    "baseTypeID": 4,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+65 Armor",
+      "+(5-15)% Endurance",
+      "+(25-45)% Necrotic Resistance"
     ]
   },
   "Hatchet": {
@@ -2467,7 +2566,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Pickaxe": {
@@ -2483,7 +2582,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Rusted Cleaver": {
@@ -2496,11 +2595,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+19 Melee Damage",
-      "+(13-19)% Chance to inflict Bleed on Hit"
+      "+(13-19)% Chance to Inflict Bleed on Hit"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Battle Axe": {
@@ -2513,11 +2612,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+28 Melee Damage",
-      "+(20-28)% Chance to inflict Bleed on Hit"
+      "+(20-28)% Chance to Inflict Bleed on Hit"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Sickle": {
@@ -2530,12 +2629,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+33 Melee Necrotic Damage",
-      "{rounding:Integer}(23-39)% increased Necrotic Damage",
-      "{rounding:Integer}(23-39)% increased Minion Damage"
+      "(23-39)% Increased Necrotic Damage",
+      "(23-39)% Increased Minion Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.09,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Wengari Axe": {
@@ -2548,12 +2647,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+36 Melee Damage",
-      "+(36-66)% Chance to inflict Bleed on Melee Hit",
-      "(10-16)% Increased Bleed Duration "
+      "+(36-66)% Chance to Inflict Bleed on Melee Hit",
+      "(10-16)% Increased Bleed Duration"
     ],
     "weapon": {
       "AttackRateBase": 1.09,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Crescent Axe": {
@@ -2571,7 +2670,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Chitin Claw": {
@@ -2585,11 +2684,11 @@
     "implicits": [
       "+47 Melee Damage",
       "+(47-74)% Chance to Poison on Melee Hit",
-      "(10-17)% Increased Poison Duration "
+      "(10-17)% Increased Poison Duration"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Eagle Wing": {
@@ -2603,11 +2702,11 @@
     "implicits": [
       "+48 Melee Damage",
       "+(3-4)% Critical Strike Chance",
-      "(3-4)% increased Movement Speed"
+      "(3-4)% Increased Movement Speed"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Soul Harvester": {
@@ -2620,12 +2719,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+46 Melee Necrotic Damage",
-      "{rounding:Integer}(100-166)% increased Melee Necrotic Damage",
-      "{rounding:Integer}(100-166)% increased Minion Necrotic Damage"
+      "(100-166)% increased Melee Necrotic Damage",
+      "(100-166)% Increased Minion Necrotic Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.09,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Shadow Cleaver": {
@@ -2642,7 +2741,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Dragonbone Axe": {
@@ -2656,11 +2755,11 @@
     "implicits": [
       "+51 Melee Damage",
       "{rounding:Integer}+(10-14) Minion Melee Damage",
-      "+(70-100)% Chance to inflict Bleed on Hit"
+      "+(70-100)% Chance to Inflict Bleed on Hit"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Constellation Cleaver": {
@@ -2677,7 +2776,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Resplendent Axe": {
@@ -2690,11 +2789,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+50 Melee Damage",
-      "+(65-100)% Chance to inflict Bleed on Hit"
+      "+(65-100)% Chance to Inflict Bleed on Hit"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Marble Dedication": {
@@ -2712,7 +2811,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.92,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Kolheim Axe": {
@@ -2726,11 +2825,11 @@
     "implicits": [
       "+53 Melee Damage",
       "+(8-13)% Cold Penetration",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Kolheim Axe": {
@@ -2748,7 +2847,25 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Ice Pick": {
+    "type": "One-Handed Axe",
+    "baseTypeID": 5,
+    "subTypeID": 17,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+50 Melee Damage",
+      "+(10-18)% Cold Penetration against Frozen or Chilled Enemies",
+      "+(10-30)% Cold Resistance"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.96,
+      "Range": 1.0
     }
   },
   "Poignard": {
@@ -2782,7 +2899,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Bone Dagger": {
@@ -2795,12 +2912,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+14 Melee Damage",
-      "+(20-35)% Chance to inflict Bleed on Hit",
+      "+(20-35)% Chance to Inflict Bleed on Hit",
       "+2% Critical Strike Chance"
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Kris": {
@@ -2817,7 +2934,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.1,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Hunting Knife": {
@@ -2834,7 +2951,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Moon Dagger": {
@@ -2852,7 +2969,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Majasan Dagger": {
@@ -2869,7 +2986,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Rune Dagger": {
@@ -2887,7 +3004,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Sai": {
@@ -2901,11 +3018,11 @@
     "implicits": [
       "+37 Melee Damage",
       "+(2-4)% Critical Strike Chance",
-      "{rounding:Integer}(20-50)% increased Dodge Rating"
+      "(20-50)% Increased Dodge Rating"
     ],
     "weapon": {
       "AttackRateBase": 1.18,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Chitin Dagger": {
@@ -2923,7 +3040,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Obsidian Dagger": {
@@ -2937,11 +3054,11 @@
     "implicits": [
       "+43 Melee Damage",
       "+4% Critical Strike Chance",
-      "{rounding:Integer}(20-80)% increased Physical Damage"
+      "(20-80)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.1,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Star Amber Dagger": {
@@ -2959,7 +3076,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Negotiation Dagger": {
@@ -2977,7 +3094,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Shark Tooth": {
@@ -2990,12 +3107,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+47 Melee Damage",
-      "(2-3)% of Damage Leeched as Health on Hit",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "{rounding:Tenth}(2-3)% of Damage Leeched as Health on Hit",
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Shark Tooth": {
@@ -3008,12 +3125,30 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+47 Melee Damage",
-      "(2-3)% of Damage Leeched as Health on Hit",
+      "{rounding:Tenth}(2-3)% of Damage Leeched as Health on Hit",
       "{rounding:Integer}(47-72) Health Gain on Kill"
     ],
     "weapon": {
       "AttackRateBase": 1.14,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Bloodsoaked Dagger": {
+    "type": "Dagger",
+    "baseTypeID": 6,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+35 Melee Damage",
+      "+(40-75)% Chance to Inflict Bleed on Hit",
+      "(10-18)% more Critical Strike Chance against Bleeding Enemies"
+    ],
+    "weapon": {
+      "AttackRateBase": 1.14,
+      "Range": 1.0
     }
   },
   "Club": {
@@ -3029,7 +3164,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Iron Hammer": {
@@ -3042,11 +3177,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+20 Melee Damage",
-      "{rounding:Integer}(20-30)% increased Physical Damage"
+      "(20-30)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Flanged Mace": {
@@ -3063,7 +3198,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Morning Star": {
@@ -3076,11 +3211,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+42 Melee Damage",
-      "{rounding:Integer}(22-42)% increased Physical Damage"
+      "(22-42)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Pick Hammer": {
@@ -3109,11 +3244,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+53 Melee Damage",
-      "(52-75)% Increased Stun Chance"
+      "(53-75)% Increased Stun Chance"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Urchin Star": {
@@ -3130,7 +3265,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Serpent Mace": {
@@ -3143,12 +3278,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+53 Melee Damage",
-      "{rounding:Integer}(52-93)% increased Poison Damage",
-      "+(52-75)% Poison Resistance"
+      "(53-93)% Increased Poison Damage",
+      "+(53-75)% Poison Resistance"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Solarum Hammer": {
@@ -3166,7 +3301,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Doom Star": {
@@ -3183,7 +3318,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Rune Hammer": {
@@ -3201,7 +3336,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.94,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Trade Star": {
@@ -3218,7 +3353,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Planetary Mace": {
@@ -3235,7 +3370,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.94,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Chitin Club": {
@@ -3249,11 +3384,11 @@
     "implicits": [
       "+68 Melee Damage",
       "{rounding:Integer}+(58-90) Endurance Threshold",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Chitin Club": {
@@ -3271,7 +3406,25 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Gnarled Antler": {
+    "type": "One-Handed Mace",
+    "baseTypeID": 7,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+55 Melee Damage",
+      "+(55-75)% Melee Critical Strike Multiplier against Bleeding Enemies",
+      "+(55-75)% Melee Critical Strike Multiplier against Chilled Enemies"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.98,
+      "Range": 1.0
     }
   },
   "Brass Sceptre": {
@@ -3288,7 +3441,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Ice Sceptre": {
@@ -3306,7 +3459,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Ornate Sceptre": {
@@ -3320,11 +3473,11 @@
     "implicits": [
       "+25 Melee Damage",
       "{rounding:Integer}+(25-30) Spell Damage",
-      "{rounding:Integer}(25-60)% increased Elemental Damage"
+      "(25-60)% Increased Elemental Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Cultist Sceptre": {
@@ -3341,7 +3494,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Oak Sceptre": {
@@ -3355,11 +3508,11 @@
     "implicits": [
       "+21 Melee Damage",
       "{rounding:Integer}+(10-17) Spell Damage",
-      "{rounding:Integer}(15-35)% increased Minion Damage"
+      "(15-35)% Increased Minion Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Auric Sceptre": {
@@ -3376,7 +3529,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Argent Sceptre": {
@@ -3390,11 +3543,11 @@
     "implicits": [
       "+50 Melee Damage",
       "{rounding:Integer}+(48-58) Spell Damage",
-      "{rounding:Integer}(50-80)% increased Damage Over Time"
+      "(50-80)% Increased Damage Over Time"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Acolyte's Sceptre": {
@@ -3411,7 +3564,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Obsidian Sceptre": {
@@ -3428,7 +3581,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Skeletal Sceptre": {
@@ -3442,11 +3595,11 @@
     "implicits": [
       "+47 Melee Damage",
       "{rounding:Integer}+(53-59) Spell Damage",
-      "{rounding:Integer}(35-75)% increased Minion Damage"
+      "(35-75)% Increased Minion Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Celestial Sceptre": {
@@ -3460,11 +3613,11 @@
     "implicits": [
       "+42 Melee Damage",
       "{rounding:Integer}+(48-52) Spell Damage",
-      "{rounding:Integer}(48-72)% increased Damage Over Time"
+      "(48-72)% Increased Damage Over Time"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Vault Sceptre": {
@@ -3478,11 +3631,11 @@
     "implicits": [
       "+46 Melee Damage",
       "{rounding:Integer}+(50-56) Spell Damage",
-      "{rounding:Integer}(40-70)% increased Minion Damage"
+      "(40-70)% Increased Minion Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Scorn Sceptre": {
@@ -3496,11 +3649,11 @@
     "implicits": [
       "+61 Melee Damage",
       "+(8-9)% Spell Critical Strike Chance",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.94,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Scorn Sceptre": {
@@ -3518,7 +3671,25 @@
     ],
     "weapon": {
       "AttackRateBase": 0.94,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Warden Sceptre": {
+    "type": "Sceptre",
+    "baseTypeID": 8,
+    "subTypeID": 14,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+38 Melee Damage",
+      "{rounding:Integer}+(38-45) Spell Damage",
+      "(5-3)% less Damage Taken from Chilled or Bleeding Enemies"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.98,
+      "Range": 1.0
     }
   },
   "Broken Sword": {
@@ -3534,7 +3705,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.1,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Broadsword": {
@@ -3550,7 +3721,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Rust Blade": {
@@ -3567,7 +3738,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.2,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Gladius": {
@@ -3583,7 +3754,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.12,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Cultist Blade": {
@@ -3600,7 +3771,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.2,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Falchion": {
@@ -3616,7 +3787,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.2,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Longsword": {
@@ -3645,11 +3816,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+36 Melee Damage",
-      "{rounding:Integer}(35-65)% increased Damage Over Time"
+      "(35-65)% Increased Damage Over Time"
     ],
     "weapon": {
       "AttackRateBase": 1.24,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Crystal Sword": {
@@ -3662,12 +3833,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+40 Melee Damage",
-      "{rounding:Integer}(40-100)% increased Melee Elemental Damage",
+      "(40-100)% Increased Melee Elemental Damage",
       "(8-14)% increased Elemental Melee Attack Speed"
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Katana": {
@@ -3700,7 +3871,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.2,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Prophecy Blade": {
@@ -3713,12 +3884,12 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+39 Melee Damage",
-      "{rounding:Integer}(52-72)% increased Melee Elemental Damage",
+      "(52-72)% Increased Melee Elemental Damage",
       "(5-12)% increased Elemental Melee Attack Speed"
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Gilded Rapier": {
@@ -3753,7 +3924,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Cavalry Sword": {
@@ -3767,11 +3938,11 @@
     "implicits": [
       "+47 Melee Damage",
       "(17-27)% increased Cooldown Recovery Speed for Evade",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Cavalry Sword": {
@@ -3789,7 +3960,25 @@
     ],
     "weapon": {
       "AttackRateBase": 1.16,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Icicle Sword": {
+    "type": "One-Handed Sword",
+    "baseTypeID": 9,
+    "subTypeID": 16,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+35 Melee Damage",
+      "+(4-6)% Cold Penetration",
+      "+(50-100)% Chance to apply Frostbite on Hit"
+    ],
+    "weapon": {
+      "AttackRateBase": 1.16,
+      "Range": 1.0
     }
   },
   "Coral Wand": {
@@ -3872,7 +4061,7 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(36-44) Spell Damage",
-      "{rounding:Integer}(40-80)% increased Health Regen",
+      "(40-80)% Increased Health Regen",
       "-3 Spell Mana Cost"
     ],
     "weapon": {
@@ -3890,7 +4079,7 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(8-13) Spell Void Damage",
-      "{rounding:Integer}(13-19)% increased Damage Over Time",
+      "(13-19)% Increased Damage Over Time",
       "-3 Spell Mana Cost"
     ],
     "weapon": {
@@ -3944,8 +4133,8 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(56-66) Spell Necrotic Damage",
-      "{rounding:Integer}(56-66)% increased Curse Damage",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost"
+      "(56-66)% increased Curse Damage",
+      "{rounding:Integer}(-3--5) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -3963,7 +4152,7 @@
     "implicits": [
       "{rounding:Integer}+(50-60) Spell Damage",
       "{rounding:Integer}+(50-60) Mana",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost"
+      "{rounding:Integer}(-3--5) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -3980,8 +4169,8 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(54-60) Spell Damage",
-      "(6-12)% increased Cast Speed",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost"
+      "(6-12)% Increased Cast Speed",
+      "{rounding:Integer}(-3--5) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -3998,8 +4187,8 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(52-56) Spell Damage",
-      "(5-10)% increased Cast Speed",
-      "{rounding:Integer}-3 to -4 Spell Mana Cost"
+      "(5-10)% Increased Cast Speed",
+      "{rounding:Integer}(-3--4) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -4017,7 +4206,7 @@
     "implicits": [
       "{rounding:Integer}+(52-58) Spell Damage",
       "{rounding:Integer}+(40-52) Mana",
-      "{rounding:Integer}-3 to -4 Spell Mana Cost"
+      "{rounding:Integer}(-3--4) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -4034,8 +4223,8 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(60-63) Spell Damage",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "{rounding:Integer}(-3--5) Spell Mana Cost",
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -4052,12 +4241,30 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "{rounding:Integer}+(60-63) Spell Damage",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost",
+      "{rounding:Integer}(-3--5) Spell Mana Cost",
       "(36-60)% of Mana Spent Gained as Ward"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
       "Range": 0.8
+    }
+  },
+  "Farwood Branch": {
+    "type": "Wand",
+    "baseTypeID": 10,
+    "subTypeID": 15,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "{rounding:Integer}+(55-60) Spell Damage",
+      "+(25-40)% Ward Retention",
+      "-3 Spell Mana Cost"
+    ],
+    "weapon": {
+      "AttackRateBase": 1.02,
+      "Range": 1.0
     }
   },
   "Forestry Axe": {
@@ -4102,7 +4309,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+31 Melee Damage",
-      "+(43-71)% Chance to inflict Bleed on Melee Hit"
+      "+(43-71)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -4119,7 +4326,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+42 Melee Damage",
-      "{rounding:Integer}(24-50)% increased Minion Damage"
+      "(24-50)% Increased Minion Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.95,
@@ -4136,7 +4343,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+60 Melee Damage",
-      "+(60-90)% Chance to inflict Bleed on Melee Hit"
+      "+(60-90)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.89,
@@ -4154,7 +4361,7 @@
     "implicits": [
       "+31 Melee Damage",
       "{rounding:Integer}+(31-41) Melee Cold Damage",
-      "{rounding:Integer}(41-131)% increased Cold Damage"
+      "(41-131)% Increased Cold Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.95,
@@ -4171,7 +4378,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+70 Melee Damage",
-      "+(70-100)% Chance to inflict Bleed on Melee Hit"
+      "+(70-100)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.95,
@@ -4205,8 +4412,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+101 Melee Damage",
-      "{rounding:Integer}(75-110)% increased Physical Damage",
-      "{rounding:Integer}(75-110)% increased Minion Physical Damage"
+      "(75-110)% Increased Physical Damage",
+      "(75-110)% Increased Minion Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -4241,7 +4448,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+130 Melee Damage",
-      "+(130-190)% Chance to inflict Bleed on Melee Hit"
+      "+(130-190)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.89,
@@ -4276,8 +4483,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+122 Melee Damage",
-      "+(100-200)% Chance to inflict Bleed on Hit",
-      "(5-10)% increased Movement Speed"
+      "+(100-200)% Chance to Inflict Bleed on Hit",
+      "(5-10)% Increased Movement Speed"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -4312,8 +4519,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+100 Melee Damage",
-      "{rounding:Integer}(50-100)% increased Physical Damage",
-      "{rounding:Integer}(50-100)% increased Minion Physical Damage"
+      "(50-100)% Increased Physical Damage",
+      "(50-100)% Increased Minion Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -4330,7 +4537,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+125 Melee Damage",
-      "+(125-175)% Chance to inflict Bleed on Melee Hit"
+      "+(125-175)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.89,
@@ -4347,8 +4554,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+105 Melee Damage",
-      "+(104-135)% Melee Critical Strike Multiplier",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "+(105-135)% Melee Critical Strike Multiplier",
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -4365,12 +4572,30 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+105 Melee Damage",
-      "+(104-135)% Melee Critical Strike Multiplier",
-      "{rounding:Integer}(10-15) Health Gain on Crit"
+      "+(105-135)% Melee Critical Strike Multiplier",
+      "{rounding:Integer}(10-15) Health Gain On Crit"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
       "Range": 1.5
+    }
+  },
+  "Frozen Cleaver": {
+    "type": "Two-Handed Axe",
+    "baseTypeID": 12,
+    "subTypeID": 18,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 2.2,
+    "implicits": [
+      "+100 Melee Damage",
+      "(50-110)% Increased Cold Damage",
+      "+(12-26)% Cold Penetration against Frozen or Chilled Enemies"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.92,
+      "Range": 1.0
     }
   },
   "Great Mace": {
@@ -4399,7 +4624,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+29 Melee Damage",
-      "+(19-39)% Chance to inflict Bleed on Melee Hit"
+      "+(19-39)% Chance to Inflict Bleed on Melee Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.9,
@@ -4433,7 +4658,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+46 Melee Damage",
-      "{rounding:Integer}(20-60)% increased Physical Damage"
+      "(20-60)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.9,
@@ -4501,7 +4726,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+106 Melee Damage",
-      "(105-166)% Increased Melee Stun Chance",
+      "(106-166)% Increased Melee Stun Chance",
       "(16-36)% Increased Melee Stun Duration"
     ],
     "weapon": {
@@ -4519,7 +4744,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+110 Melee Damage",
-      "(40-60)% increased Increased Melee Stun Chance",
+      "(40-60)% Increased Melee Stun Chance",
       "+(6-10)% Melee Critical Strike Chance"
     ],
     "weapon": {
@@ -4590,7 +4815,7 @@
     "implicits": [
       "+132 Melee Damage",
       "(15-23)% more Melee Damage to Stunned Enemies",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.86,
@@ -4613,6 +4838,24 @@
     "weapon": {
       "AttackRateBase": 0.86,
       "Range": 1.6
+    }
+  },
+  "Carnage Maul": {
+    "type": "Two-Handed Mace",
+    "baseTypeID": 13,
+    "subTypeID": 14,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 2.2,
+    "implicits": [
+      "+112 Melee Damage",
+      "+(80-140)% Chance to Inflict Bleed on Melee Hit",
+      "(10-40)% Increased Physical Damage"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.9,
+      "Range": 1.0
     }
   },
   "Pike": {
@@ -4814,7 +5057,7 @@
     "implicits": [
       "+86 Melee Damage",
       "+(60-86)% Chance to Poison on Melee Hit",
-      "{rounding:Integer}(60-86)% increased Poison Damage"
+      "(60-86)% Increased Poison Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.94,
@@ -4848,7 +5091,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+78 Melee Damage",
-      "{rounding:Integer}(80-120)% increased Poison Damage"
+      "(80-120)% Increased Poison Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -4917,7 +5160,7 @@
     "implicits": [
       "+120 Melee Damage",
       "{rounding:Tenth}(1.2-1.8) Seconds of Haste after you use Evade",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.94,
@@ -4935,11 +5178,29 @@
     "implicits": [
       "+120 Melee Damage",
       "{rounding:Tenth}(1.2-1.8) Seconds of Haste after you use Evade",
-      "(30-50)% increased Effect of Haste on You "
+      "(30-50)% increased Effect of Haste on You"
     ],
     "weapon": {
       "AttackRateBase": 0.94,
       "Range": 2.1
+    }
+  },
+  "Bloodfused Icicle": {
+    "type": "Two-Handed Spear",
+    "baseTypeID": 14,
+    "subTypeID": 19,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 2.2,
+    "implicits": [
+      "+90 Melee Cold Damage",
+      "+(60-120)% Chance to Inflict Bleed on Melee Hit",
+      "+(60-120)% Chance to apply Frostbite on Melee Hit"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.98,
+      "Range": 1.0
     }
   },
   "Travelling Staff": {
@@ -5007,7 +5268,7 @@
     "implicits": [
       "+42 Melee Damage",
       "{rounding:Integer}+(20-24) Spell Damage",
-      "(20-24)% increased Melee Attack Speed"
+      "(20-24)% Increased Melee Attack Speed"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5043,7 +5304,7 @@
     "implicits": [
       "+53 Melee Damage",
       "{rounding:Integer}+(39-47) Spell Damage",
-      "{rounding:Integer}(39-93)% increased Damage Over Time"
+      "(39-93)% Increased Damage Over Time"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5061,7 +5322,7 @@
     "implicits": [
       "+56 Melee Damage",
       "{rounding:Integer}+(39-47) Spell Damage",
-      "{rounding:Integer}(46-86)% increased Damage for Totems"
+      "(46-86)% increased Damage for Totems"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5079,7 +5340,7 @@
     "implicits": [
       "+78 Melee Damage",
       "{rounding:Integer}+(60-68) Spell Damage",
-      "{rounding:Integer}-3 to -4 Spell Mana Cost"
+      "{rounding:Integer}(-3--4) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
@@ -5132,8 +5393,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "{rounding:Integer}+(90-100) Spell Damage",
-      "{rounding:Integer}(20-30)% increased Mana Regen",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost"
+      "(20-30)% Increased Mana Regen",
+      "{rounding:Integer}(-3--5) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5169,7 +5430,7 @@
     "implicits": [
       "+92 Melee Damage",
       "{rounding:Integer}+(102-122) Spell Damage",
-      "{rounding:Integer}(20-52)% increased Spell Mana Cost"
+      "(20-52)% increased Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5205,7 +5466,7 @@
     "implicits": [
       "+70 Melee Damage",
       "{rounding:Integer}+(63-80) Spell Damage",
-      "{rounding:Integer}-3 to -5 Spell Mana Cost"
+      "{rounding:Integer}(-3--5) Spell Mana Cost"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5259,7 +5520,7 @@
     "implicits": [
       "+92 Melee Damage",
       "{rounding:Integer}+(92-102) Spell Damage",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 0.92,
@@ -5282,6 +5543,24 @@
     "weapon": {
       "AttackRateBase": 0.92,
       "Range": 1.7
+    }
+  },
+  "Axe Staff": {
+    "type": "Two-Handed Staff",
+    "baseTypeID": 15,
+    "subTypeID": 19,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 2.2,
+    "implicits": [
+      "+90 Melee Damage",
+      "{rounding:Integer}+(40-55) Spell Damage",
+      "(40-46)% Increased Melee Attack Speed"
+    ],
+    "weapon": {
+      "AttackRateBase": 0.92,
+      "Range": 1.0
     }
   },
   "Bastard Sword": {
@@ -5393,7 +5672,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+80 Melee Damage",
-      "(5-15)% of Melee Damage Leeched as Health"
+      "{rounding:Tenth}(5-15)% of Melee Damage Leeched as Health"
     ],
     "weapon": {
       "AttackRateBase": 1.06,
@@ -5477,7 +5756,7 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+77 Melee Damage",
-      "(7-12)% of Melee Damage Leeched as Health"
+      "{rounding:Tenth}(7-12)% of Melee Damage Leeched as Health"
     ],
     "weapon": {
       "AttackRateBase": 1.02,
@@ -5511,8 +5790,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+99 Melee Damage",
-      "+(104-145)% Chance to inflict Bleed on Melee Hit",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "+(105-145)% Chance to Inflict Bleed on Melee Hit",
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ],
     "weapon": {
       "AttackRateBase": 1.06,
@@ -5529,8 +5808,8 @@
     "affixEffectModifier": 2.2,
     "implicits": [
       "+99 Melee Damage",
-      "+(104-145)% Chance to inflict Bleed on Melee Hit",
-      "(35-45)% Increased Bleed Duration "
+      "+(105-145)% Chance to Inflict Bleed on Melee Hit",
+      "(35-45)% Increased Bleed Duration"
     ],
     "weapon": {
       "AttackRateBase": 1.06,
@@ -5554,6 +5833,24 @@
       "Range": 1.5
     }
   },
+  "Bloodfused Blade": {
+    "type": "Two-Handed Sword",
+    "baseTypeID": 16,
+    "subTypeID": 16,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 2.2,
+    "implicits": [
+      "+75 Melee Damage",
+      "+(50-100)% Chance to Shred Armor on Hit",
+      "+(30-60)% Chance to Inflict Bleed on Hit"
+    ],
+    "weapon": {
+      "AttackRateBase": 1.06,
+      "Range": 1.0
+    }
+  },
   "Light Quiver": {
     "type": "Quiver",
     "baseTypeID": 17,
@@ -5561,9 +5858,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(5-10)% increased Bow Attack Speed"
+      "(5-10)% Increased Bow Attack Speed"
     ]
   },
   "Heavy Quiver": {
@@ -5573,9 +5870,9 @@
     "req": {
       "level": 7
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(15-30)% increased Bow Damage",
+      "(15-30)% Increased Bow Damage",
       "(15-30)% Increased Bow Stun Chance"
     ]
   },
@@ -5586,7 +5883,7 @@
     "req": {
       "level": 23
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-30)% Physical Resistance",
       "+(10-30)% Necrotic Resistance"
@@ -5599,9 +5896,9 @@
     "req": {
       "level": 44
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "+(40-75)% Chance to inflict Bleed on Bow Hit"
+      "+(40-75)% Chance to Inflict Bleed on Bow Hit"
     ]
   },
   "Farwood Quiver": {
@@ -5611,7 +5908,7 @@
     "req": {
       "level": 48
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(8-13) Bow Cold Damage"
     ]
@@ -5623,7 +5920,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(15-35)% Bow Critical Strike Multiplier"
     ]
@@ -5635,10 +5932,10 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(30-60)% Chance to Poison on Bow Hit",
-      "{rounding:Integer}(30-60)% increased Damage Over Time"
+      "(30-60)% Increased Damage Over Time"
     ]
   },
   "Spidersilk Quiver": {
@@ -5648,7 +5945,7 @@
     "req": {
       "level": 68
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-60)% Chance to Slow on Bow Hit",
       "(6-10)% more Damage to Slowed Enemies"
@@ -5661,11 +5958,11 @@
     "req": {
       "level": 77
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(77-140) Armor",
       "+(42-77)% Chance to Shred Armor on Hit",
-      "(21-42)% Increased Armor Shred Effect "
+      "(21-42)% Increased Armor Shred Effect"
     ]
   },
   "Blade Quiver": {
@@ -5675,11 +5972,11 @@
     "req": {
       "level": 81
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(2-3)% Bow Critical Strike Chance",
-      "{rounding:Integer}(12-20)% increased Mana Regen",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(12-20)% Increased Mana Regen",
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ]
   },
   "Avenged Blade Quiver": {
@@ -5689,11 +5986,24 @@
     "req": {
       "level": 81
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(2-3)% Bow Critical Strike Chance",
-      "{rounding:Integer}(12-20)% increased Mana Regen",
+      "(12-20)% Increased Mana Regen",
       "+(36-64)% Chance to apply Critical Vulnerability on Bow Hit"
+    ]
+  },
+  "Bloodpelt Quiver": {
+    "type": "Quiver",
+    "baseTypeID": 17,
+    "subTypeID": 11,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+(25-55)% Bow Critical Strike Multiplier against Bleeding Enemies",
+      "(13-22)% Increased Dodge Rating"
     ]
   },
   "Wooden Shield": {
@@ -5787,7 +6097,7 @@
     "implicits": [
       "+19% Block Chance",
       "{rounding:Integer}+(215-275) Block Effectiveness",
-      "{rounding:Integer}(25-60)% increased Physical Damage"
+      "(25-60)% Increased Physical Damage"
     ]
   },
   "Root Shield": {
@@ -5842,7 +6152,7 @@
     "implicits": [
       "+23% Block Chance",
       "{rounding:Integer}+(325-425) Block Effectiveness",
-      "{rounding:Integer}(45-75)% increased Melee Physical Damage"
+      "(45-75)% increased Melee Physical Damage"
     ]
   },
   "Mountain Shield": {
@@ -5978,7 +6288,7 @@
     "implicits": [
       "+25% Block Chance",
       "{rounding:Integer}(40-48) Ward Gain on Block",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ]
   },
   "Avenged Culnivan Shield": {
@@ -5993,6 +6303,20 @@
       "+25% Block Chance",
       "{rounding:Integer}(40-48) Ward Gain on Block",
       "{rounding:Integer}+(125-255) Ward Decay Threshold"
+    ]
+  },
+  "Icespike Shield": {
+    "type": "Shield",
+    "baseTypeID": 18,
+    "subTypeID": 22,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.17,
+    "implicits": [
+      "+24% Block Chance",
+      "{rounding:Integer}+(325-425) Block Effectiveness",
+      "{rounding:Integer}+(13-21) Melee Cold Damage"
     ]
   },
   "Glass Catalyst": {
@@ -6017,7 +6341,7 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(2-5) Intelligence",
-      "(5-8)% increased Cast Speed"
+      "(5-8)% Increased Cast Speed"
     ]
   },
   "Ritual Stone": {
@@ -6056,7 +6380,7 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(6-10) Intelligence",
-      "(6-10)% increased Cast Speed"
+      "(6-10)% Increased Cast Speed"
     ]
   },
   "Osprix Skull": {
@@ -6096,7 +6420,7 @@
     "implicits": [
       "{rounding:Integer}+(8-15) Intelligence",
       "(15-25)% of Mana Spent Gained as Ward",
-      "{rounding:Integer}(10-15)% increased Mana Regen"
+      "(10-15)% Increased Mana Regen"
     ]
   },
   "Opulent Focus": {
@@ -6136,8 +6460,8 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(13-16) Intelligence",
-      "{rounding:Integer}(36-66)% increased Minion Damage",
-      "{rounding:Integer}(36-66)% increased Minion Health"
+      "(36-66)% Increased Minion Damage",
+      "(36-66)% Increased Minion Health"
     ]
   },
   "Crystal Skull": {
@@ -6165,7 +6489,7 @@
     "implicits": [
       "{rounding:Integer}+(12-18) Intelligence",
       "(26-42)% of Mana Spent Gained as Ward",
-      "{rounding:Integer}(12-18)% increased Mana Regen"
+      "(12-18)% Increased Mana Regen"
     ]
   },
   "Divine Instrument": {
@@ -6191,7 +6515,7 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(9-17) Intelligence",
-      "(9-34)% increased Effect of Haste on You ",
+      "(9-34)% increased Effect of Haste on You",
       "{rounding:Tenth}(1.7-2.9) Seconds of Haste after you use a Traversal Skill"
     ]
   },
@@ -6205,7 +6529,7 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(12-18) Intelligence",
-      "{rounding:Integer}(36-84)% increased Necrotic Damage"
+      "(36-84)% Increased Necrotic Damage"
     ]
   },
   "Trade Ledger": {
@@ -6218,8 +6542,8 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(10-12) Intelligence",
-      "{rounding:Integer}(36-60)% increased Minion Damage",
-      "{rounding:Integer}(36-60)% increased Minion Health"
+      "(36-60)% Increased Minion Damage",
+      "(36-60)% Increased Minion Health"
     ]
   },
   "Celestial Compass": {
@@ -6233,7 +6557,7 @@
     "implicits": [
       "{rounding:Integer}+(12-15) Intelligence",
       "(25-40)% of Mana Spent Gained as Ward",
-      "{rounding:Integer}(12-15)% increased Mana Regen"
+      "(12-15)% Increased Mana Regen"
     ]
   },
   "Crystal Core": {
@@ -6247,7 +6571,7 @@
     "implicits": [
       "{rounding:Integer}+(12-15) Intelligence",
       "{rounding:Integer}(24-30) Mana Gained on Potion Use",
-      "(100-355)% Chance to Upgrade when you slay a Harbinger"
+      "(1-3.55) Chance to Upgrade when you slay a Harbinger"
     ]
   },
   "Avenged Crystal Core": {
@@ -6276,6 +6600,20 @@
       "{rounding:Integer}+(50-150) Minion Health Regen"
     ]
   },
+  "Frozen Skull": {
+    "type": "Off-Hand Catalyst",
+    "baseTypeID": 19,
+    "subTypeID": 21,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.17,
+    "implicits": [
+      "{rounding:Integer}+(9-13) Intelligence",
+      "(8-14)% Increased Cast Speed",
+      "+(50-90)% Freeze Rate Multiplier"
+    ]
+  },
   "Copper Amulet": {
     "type": "Amulet",
     "baseTypeID": 20,
@@ -6298,8 +6636,8 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "(5-15)% increased Melee Attack Speed",
-      "(5-15)% increased Throwing Attack Speed"
+      "(5-15)% Increased Melee Attack Speed",
+      "(5-15)% Increased Throwing Attack Speed"
     ]
   },
   "Silver Amulet": {
@@ -6311,7 +6649,7 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "(5-35)% increased Critical Strike Chance"
+      "(5-35)% Increased Critical Strike Chance"
     ]
   },
   "Brass Amulet": {
@@ -6323,7 +6661,7 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "(5-15)% increased Cast Speed"
+      "(5-15)% Increased Cast Speed"
     ]
   },
   "Turquoise Amulet": {
@@ -6335,8 +6673,8 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "{rounding:Integer}(5-35)% increased Minion Damage",
-      "(5-35)% increased Minion Critical Strike Chance"
+      "(5-35)% Increased Minion Damage",
+      "(5-35)% Increased Minion Critical Strike Chance"
     ]
   },
   "Ruby Amulet": {
@@ -6386,7 +6724,7 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "{rounding:Integer}(6-20)% less Damage Over Time Taken"
+      "{rounding:Tenth}(6-20)% Less Damage over Time Taken"
     ]
   },
   "Gold Amulet": {
@@ -6411,7 +6749,7 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "{rounding:Integer}(6-12)% less Damage Over Time Taken"
+      "{rounding:Tenth}(6-12)% Less Damage over Time Taken"
     ]
   },
   "Mercantile Amulet": {
@@ -6435,9 +6773,9 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "{rounding:Integer}(1-12)% increased Health",
-      "{rounding:Integer}(1-12)% increased Mana",
-      "(-4-8)% increased Movement Speed"
+      "(1-12)% Increased Health",
+      "(1-12)% Increased Mana",
+      "(-4-8)% Increased Movement Speed"
     ]
   },
   "Amber Amulet": {
@@ -6475,7 +6813,7 @@
     "affixEffectModifier": 0.17,
     "implicits": [
       "{rounding:Integer}+(2-6) to All Attributes",
-      "(3-10)% increased Movement Speed",
+      "(3-10)% Increased Movement Speed",
       "+(4-15)% to All Resistances"
     ]
   },
@@ -6488,9 +6826,9 @@
     },
     "affixEffectModifier": 0.17,
     "implicits": [
-      "{rounding:Integer}(20-24)% less Damage Over Time Taken",
-      "{rounding:Integer}(42-60)% increased Damage Over Time",
-      "{rounding:Integer}(60-42)% reduced Armor"
+      "{rounding:Tenth}(20-24)% Less Damage over Time Taken",
+      "(42-60)% Increased Damage Over Time",
+      "(60-42)% reduced Armor"
     ]
   },
   "Cursed Coin Amulet": {
@@ -6504,7 +6842,7 @@
     "implicits": [
       "+(51-83)% Lightning Resistance",
       "+1 to All Skills",
-      "{rounding:Integer}(4-5)% increased Damage Taken"
+      "(4-5)% increased Damage Taken"
     ]
   },
   "Spider Eye Amulet": {
@@ -6527,9 +6865,9 @@
     "req": {
       "level": 14
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(25-50)% increased Critical Strike Chance"
+      "(25-50)% Increased Critical Strike Chance"
     ]
   },
   "Ruby Ring": {
@@ -6539,10 +6877,10 @@
     "req": {
       "level": 62
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(28-45)% Fire Resistance",
-      "{rounding:Integer}(28-45)% increased Fire Damage"
+      "(28-45)% Increased Fire Damage"
     ]
   },
   "Sapphire Ring": {
@@ -6552,10 +6890,10 @@
     "req": {
       "level": 40
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(10-20) Mana",
-      "{rounding:Integer}(6-12)% increased Mana Regen"
+      "(6-12)% Increased Mana Regen"
     ]
   },
   "Silver Ring": {
@@ -6565,9 +6903,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(3-8)% increased Movement Speed"
+      "(3-8)% Increased Movement Speed"
     ]
   },
   "Gold Ring": {
@@ -6577,7 +6915,7 @@
     "req": {
       "level": 25
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(5-18)% Elemental Resistance"
     ]
@@ -6589,7 +6927,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(40-95) Stun Avoidance"
     ]
@@ -6601,7 +6939,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(10-25) Dodge Rating"
     ]
@@ -6613,10 +6951,10 @@
     "req": {
       "level": 31
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(5-35)% increased Minion Damage",
-      "{rounding:Integer}(5-35)% increased Minion Health",
+      "(5-35)% Increased Minion Damage",
+      "(5-35)% Increased Minion Health",
       "+(5-35)% Minion Critical Strike Multiplier"
     ]
   },
@@ -6627,7 +6965,7 @@
     "req": {
       "level": 66
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(33-46)% Necrotic Resistance",
       "{rounding:Integer}+(46-130) Ward Decay Threshold"
@@ -6640,7 +6978,7 @@
     "req": {
       "level": 48
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(3-6) Vitality",
       "{rounding:Integer}+(3-6) Health Regen"
@@ -6653,7 +6991,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(6-10)% Increased Cooldown Recovery Speed",
       "{rounding:Integer}+(1-2) to All Attributes"
@@ -6666,7 +7004,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(42-110) Ward Decay Threshold"
     ]
@@ -6678,7 +7016,7 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(6-10)% Increased Cooldown Recovery Speed"
     ]
@@ -6690,9 +7028,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(3-8)% increased Movement Speed"
+      "(3-8)% Increased Movement Speed"
     ]
   },
   "Corrupted Insignia": {
@@ -6702,7 +7040,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(13-19)% increased Cooldown Recovery Speed for Evade",
       "{rounding:Tenth}(3-4) Seconds of Frenzy after you use Evade",
@@ -6716,7 +7054,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(6-10)% Increased Cooldown Recovery Speed",
       "{rounding:Integer}+(6-7) to All Attributes",
@@ -6730,7 +7068,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(6-10) Mana"
     ]
@@ -6742,7 +7080,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(4-6)% Cold Resistance",
       "+(4-6)% Fire Resistance"
@@ -6755,10 +7093,10 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(30-40) Health",
-      "{rounding:Integer}(12-2)% reduced Health Regen"
+      "(12-2)% reduced Health Regen"
     ]
   },
   "Copper Chalice": {
@@ -6768,7 +7106,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(2-3) Health Regen"
     ]
@@ -6780,7 +7118,7 @@
     "req": {
       "level": 15
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(10-25) Mana"
     ]
@@ -6792,7 +7130,7 @@
     "req": {
       "level": 37
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(4-6) Health Regen"
     ]
@@ -6804,7 +7142,7 @@
     "req": {
       "level": 34
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-30)% Chance to Ignite on Hit"
     ]
@@ -6816,7 +7154,7 @@
     "req": {
       "level": 35
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+3 Attunement",
       "+5% to All Resistances"
@@ -6829,10 +7167,10 @@
     "req": {
       "level": 61
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(20-40)% increased Cold Damage",
-      "{rounding:Integer}(20-40)% increased Lightning Damage"
+      "(20-40)% Increased Cold Damage",
+      "(20-40)% Increased Lightning Damage"
     ]
   },
   "Broken Hilt": {
@@ -6842,9 +7180,9 @@
     "req": {
       "level": 46
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(5-7)% increased Melee Attack Speed"
+      "(5-7)% Increased Melee Attack Speed"
     ]
   },
   "Splintered Haft": {
@@ -6854,7 +7192,7 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(7-12) Health Regen"
     ]
@@ -6866,9 +7204,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(13-19)% increased Spell Damage"
+      "(13-19)% Increased Spell Damage"
     ]
   },
   "Caged Souls": {
@@ -6878,7 +7216,7 @@
     "req": {
       "level": 5
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(9-29) Ward Gained on Potion Use",
       "+(9-29)% Ward Retention"
@@ -6891,7 +7229,7 @@
     "req": {
       "level": 13
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(13-31)% Chance to Poison on Hit"
     ]
@@ -6903,10 +7241,10 @@
     "req": {
       "level": 33
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(13-45)% Fire Resistance",
-      "{rounding:Integer}(13-63)% increased Curse Damage"
+      "(13-63)% increased Curse Damage"
     ]
   },
   "Runed Bones": {
@@ -6916,11 +7254,11 @@
     "req": {
       "level": 51
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(6-36)% increased Minion Damage",
-      "(6-16)% increased Minion Movement Speed",
-      "{rounding:Integer}(6-66)% increased Minion Health"
+      "(6-36)% Increased Minion Damage",
+      "(6-16)% Increased Minion Movement Speed",
+      "(6-66)% Increased Minion Health"
     ]
   },
   "Decaying Homunculus": {
@@ -6930,10 +7268,10 @@
     "req": {
       "level": 59
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(31-61)% increased Necrotic Damage",
-      "{rounding:Integer}(31-61)% increased Minion Necrotic Damage"
+      "(31-61)% Increased Necrotic Damage",
+      "(31-61)% Increased Minion Necrotic Damage"
     ]
   },
   "Damned Souls": {
@@ -6943,10 +7281,10 @@
     "req": {
       "level": 63
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(13-91)% increased Fire Damage",
-      "{rounding:Integer}(13-91)% increased Minion Fire Damage"
+      "(13-91)% Increased Fire Damage",
+      "(13-91)% Increased Minion Fire Damage"
     ]
   },
   "Homunculus Blood": {
@@ -6956,10 +7294,10 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "+(13-41)% Chance to inflict Bleed on Hit",
-      "+(13-41)% Chance to inflict Bleed on Minion Hit"
+      "+(13-41)% Chance to Inflict Bleed on Hit",
+      "+(13-41)% Chance to Inflict Bleed on Minion Hit"
     ]
   },
   "Putrid Souls": {
@@ -6969,7 +7307,7 @@
     "req": {
       "level": 71
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(31-45)% Poison Resistance",
       "{rounding:Integer}+(13-45) Ward per Second"
@@ -6982,7 +7320,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(2-3) Spell Damage"
     ]
@@ -6994,7 +7332,7 @@
     "req": {
       "level": 6
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(3-5) Ward Gain on Kill"
     ]
@@ -7006,7 +7344,7 @@
     "req": {
       "level": 12
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(3-9)% Physical Resistance",
       "+(3-9)% Fire Resistance",
@@ -7020,7 +7358,7 @@
     "req": {
       "level": 41
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(11-33) Ward per Second"
     ]
@@ -7032,11 +7370,11 @@
     "req": {
       "level": 52
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(6-12)% Increased Chill Duration ",
-      "(6-12)% Increased Shock Duration ",
-      "(6-12)% Increased Ignite Duration "
+      "(6-12)% Increased Chill Duration",
+      "(6-12)% Increased Shock Duration",
+      "(6-12)% Increased Ignite Duration"
     ]
   },
   "Scrying Eye": {
@@ -7046,7 +7384,7 @@
     "req": {
       "level": 58
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(12-24)% Elemental Critical Strike Multiplier"
     ]
@@ -7058,7 +7396,7 @@
     "req": {
       "level": 64
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(14-40) Mana",
       "(14-40)% of Mana Spent Gained as Ward"
@@ -7071,9 +7409,9 @@
     "req": {
       "level": 72
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-84)% increased Elemental Damage Over Time"
+      "(40-84)% Increased Elemental Damage Over Time"
     ]
   },
   "Elder Eye": {
@@ -7083,9 +7421,9 @@
     "req": {
       "level": 76
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(24-48)% increased Cold Damage",
+      "(24-48)% Increased Cold Damage",
       "+(12-24)% Chance to Chill on Hit",
       "+(120-240)% Freeze Rate Multiplier"
     ]
@@ -7097,10 +7435,10 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(7-14) Health",
-      "{rounding:Integer}(7-14)% increased Minion Health"
+      "(7-14)% Increased Minion Health"
     ]
   },
   "Sage Antler": {
@@ -7110,10 +7448,10 @@
     "req": {
       "level": 4
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(8-19)% increased Physical Damage",
-      "{rounding:Integer}(8-19)% increased Minion Physical Damage"
+      "(8-19)% Increased Physical Damage",
+      "(8-19)% Increased Minion Physical Damage"
     ]
   },
   "Living Seed": {
@@ -7123,10 +7461,10 @@
     "req": {
       "level": 11
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(1-2.4)% of Damage Leeched as Health on Hit",
-      "(1-2.4)% of Minion Damage Leeched as Health on Hit"
+      "{rounding:Tenth}(1-2.4)% of Damage Leeched as Health on Hit",
+      "{rounding:Tenth}(1-2.4)% of Minion Damage Leeched as Health on Hit"
     ]
   },
   "Ochre Antler": {
@@ -7136,7 +7474,7 @@
     "req": {
       "level": 18
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(11-15)% Endurance"
     ]
@@ -7148,9 +7486,9 @@
     "req": {
       "level": 45
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(16-32)% increased Minion Damage",
+      "(16-32)% Increased Minion Damage",
       "(12-24)% Increased Companion Revive Range",
       "(12-24)% Increased Companion Revive Speed"
     ]
@@ -7162,9 +7500,9 @@
     "req": {
       "level": 53
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "+(24-40)% Chance to inflict Bleed on Hit",
+      "+(24-40)% Chance to Inflict Bleed on Hit",
       "(7-21)% Increased Aspect of the Shark Effect"
     ]
   },
@@ -7175,10 +7513,10 @@
     "req": {
       "level": 67
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(4-8) Spell Cold Damage",
-      "(10-24)% chance to cast Maelstrom every 3 seconds"
+      "(10-24)% Chance to cast Maelstrom every 3 seconds"
     ]
   },
   "Spirit Catcher": {
@@ -7188,7 +7526,7 @@
     "req": {
       "level": 70
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(27-44)% Cold Resistance",
       "+(27-44)% Necrotic Resistance"
@@ -7201,7 +7539,7 @@
     "req": {
       "level": 75
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(4-10) Melee Cold Damage",
       "{rounding:Integer}+(4-10) Minion Melee Cold Damage"
@@ -7214,7 +7552,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(8-16)% Chance to Ignite on Hit"
     ]
@@ -7226,9 +7564,9 @@
     "req": {
       "level": 5
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(5-12)% increased Armor",
+      "(5-12)% Increased Armor",
       "+(5-12)% Void Resistance"
     ]
   },
@@ -7239,7 +7577,7 @@
     "req": {
       "level": 12
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(15-25) Health",
       "{rounding:Integer}(3-5) Health Gain on Melee Hit"
@@ -7252,7 +7590,7 @@
     "req": {
       "level": 29
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(10-30) Mana",
       "-3 Melee Attack Mana Cost"
@@ -7265,7 +7603,7 @@
     "req": {
       "level": 44
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(2-5)% Block Chance",
       "{rounding:Integer}(2-5) Health Gain on Block"
@@ -7278,9 +7616,9 @@
     "req": {
       "level": 50
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(25-60)% increased Fire Damage",
+      "(25-60)% Increased Fire Damage",
       "(25-60)% Increased Healing Effectiveness"
     ]
   },
@@ -7291,7 +7629,7 @@
     "req": {
       "level": 58
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(30-45)% Cold Resistance",
       "+(30-45)% Lightning Resistance"
@@ -7304,9 +7642,9 @@
     "req": {
       "level": 63
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(43-73)% increased Void Damage",
+      "(43-73)% Increased Void Damage",
       "+(15-30)% Chance to apply Future Strike on Melee Hit"
     ]
   },
@@ -7317,7 +7655,7 @@
     "req": {
       "level": 77
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(5-10) Melee Void Damage",
       "{rounding:Integer}+(5-10) Spell Void Damage"
@@ -7330,9 +7668,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(16-28)% increased Critical Strike Chance"
+      "(16-28)% Increased Critical Strike Chance"
     ]
   },
   "Venom Phial": {
@@ -7342,7 +7680,7 @@
     "req": {
       "level": 4
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-22)% Chance to Poison on Hit"
     ]
@@ -7354,7 +7692,7 @@
     "req": {
       "level": 16
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(16-40)% Chance to Shred Armor on Hit"
     ]
@@ -7366,9 +7704,9 @@
     "req": {
       "level": 44
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(1-2)% of Damage Leeched as Health on Hit",
+      "{rounding:Tenth}(1-2)% of Damage Leeched as Health on Hit",
       "(10-20)% increased Damage Leeched as Health"
     ]
   },
@@ -7379,9 +7717,9 @@
     "req": {
       "level": 51
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(26-44)% increased Fire Damage",
+      "(26-44)% Increased Fire Damage",
       "+(14-26)% Chance to Ignite on Hit"
     ]
   },
@@ -7392,9 +7730,9 @@
     "req": {
       "level": 55
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(6-24)% increased Dodge Rating"
+      "(6-24)% Increased Dodge Rating"
     ]
   },
   "Ruby Dice": {
@@ -7404,10 +7742,10 @@
     "req": {
       "level": 62
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(36-42)% Fire Resistance",
-      "+(6-36)% Chance to inflict Bleed on Hit"
+      "+(6-36)% Chance to Inflict Bleed on Hit"
     ]
   },
   "Antidote Vial": {
@@ -7417,7 +7755,7 @@
     "req": {
       "level": 68
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(30-45)% Poison Resistance",
       "(30-60)% Increased Leech Rate"
@@ -7430,10 +7768,10 @@
     "req": {
       "level": 74
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(10-100)% increased Critical Strike Chance",
-      "{rounding:Integer}(3-6) Health Gain on Crit"
+      "(10-100)% Increased Critical Strike Chance",
+      "{rounding:Integer}(3-6) Health Gain On Crit"
     ]
   },
   "Lost Anchor": {
@@ -7443,9 +7781,9 @@
     "req": {
       "level": 80
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(15-25)% increased Armor"
+      "(15-25)% Increased Armor"
     ]
   },
   "Stone Tablet": {
@@ -7455,7 +7793,7 @@
     "req": {
       "level": 78
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(36-44)% Physical Resistance"
     ]
@@ -7467,9 +7805,9 @@
     "req": {
       "level": 80
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(12-20)% increased Health"
+      "(12-20)% Increased Health"
     ]
   },
   "Blood Encased Hive": {
@@ -7479,7 +7817,7 @@
     "req": {
       "level": 70
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(6-10) Bees per 10 seconds while in Spriggan Form"
     ]
@@ -7491,7 +7829,7 @@
     "req": {
       "level": 36
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(9-18)% Ward Retention"
     ]
@@ -7503,7 +7841,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": []
   },
   "Void Star": {
@@ -7513,9 +7851,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(5-10)% less Damage Taken"
+      "{rounding:Tenth}(5-10)% Less Damage Taken"
     ]
   },
   "Ancient Remains": {
@@ -7525,7 +7863,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(2-4) to All Attributes",
       "+(11-15)% Endurance"
@@ -7538,11 +7876,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(23-31) Mana",
-      "{rounding:Integer}(23-31)% increased Mana Regen",
-      "{rounding:Integer}(47-31)% reduced Health Regen"
+      "(23-31)% Increased Mana Regen",
+      "(47-31)% reduced Health Regen"
     ]
   },
   "Doom Gourd": {
@@ -7552,11 +7890,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(11-17) Minion Melee Void Damage",
       "{rounding:Integer}+(11-17) Minion Spell Void Damage",
-      "-23% to -17% Minion Physical Resistance"
+      "(-23--17)% Minion Physical Resistance"
     ]
   },
   "Aberrant Eye": {
@@ -7566,11 +7904,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(7-13) Ward per Second",
       "(11-13)% of Maximum Health gained as Ward Decay Threshold",
-      "{rounding:Integer}(9-7)% reduced Health"
+      "(9-7)% reduced Health"
     ]
   },
   "Apocalypse Code": {
@@ -7580,11 +7918,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(13-17)% Physical Penetration",
       "+(13-17)% Void Penetration",
-      "{rounding:Integer}(7-5)% reduced Health"
+      "(7-5)% reduced Health"
     ]
   },
   "Prophetic Homonculus": {
@@ -7594,11 +7932,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(61-77)% Necrotic Resistance",
       "+(61-77)% Void Resistance",
-      "{rounding:Integer}(47-37)% reduced Armor"
+      "(47-37)% reduced Armor"
     ]
   },
   "Bottled Time": {
@@ -7608,11 +7946,11 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(6-12)% increased Movement Speed",
-      "(6-12)% increased Increased Cooldown Recovery Speed",
-      "{rounding:Integer}(12-24)% increased Damage Over Time Taken"
+      "(6-12)% Increased Movement Speed",
+      "(6-12)% Increased Cooldown Recovery Speed",
+      "(12-24)% increased Damage Over Time Taken"
     ]
   },
   "Bramble Totem": {
@@ -7622,7 +7960,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(20-40) Damage Reflected to Attackers",
       "{rounding:Integer}+(5-10) Minion Spell Damage"
@@ -7635,10 +7973,23 @@
     "req": {
       "level": 35
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(15-30) Mana",
-      "{rounding:Integer}(15-30)% increased Mana Regen"
+      "(15-30)% Increased Mana Regen"
+    ]
+  },
+  "Wooden Carving": {
+    "type": "Relic",
+    "baseTypeID": 22,
+    "subTypeID": 72,
+    "req": {
+      "level": 30
+    },
+    "affixEffectModifier": 0.0,
+    "implicits": [
+      "+(10-14)% Endurance",
+      "{rounding:Integer}+(50-100) Endurance Threshold"
     ]
   },
   "Shortbow": {
@@ -7654,7 +8005,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Birch Bow": {
@@ -7671,7 +8022,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Salvaged Bow": {
@@ -7684,11 +8035,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+19 Bow Damage",
-      "{rounding:Integer}(15-30)% increased Damage Over Time"
+      "(15-30)% Increased Damage Over Time"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Imperial Bow": {
@@ -7701,11 +8052,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+24 Bow Damage",
-      "(0.2-0.3)% of Bow Damage Leeched as Health"
+      "{rounding:Tenth}(0.2-0.3)% of Bow Damage Leeched as Health"
     ],
     "weapon": {
       "AttackRateBase": 0.95,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Recurve Bow": {
@@ -7722,7 +8073,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Northern Bow": {
@@ -7735,11 +8086,11 @@
     "affixEffectModifier": 0.75,
     "implicits": [
       "+38 Bow Damage",
-      "+(25-45)% Chance to inflict Bleed on Bow Hit"
+      "+(25-45)% Chance to Inflict Bleed on Bow Hit"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Longbow": {
@@ -7755,7 +8106,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.92,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Dreadthorn Bow": {
@@ -7773,7 +8124,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Serpent Bow": {
@@ -7787,11 +8138,11 @@
     "implicits": [
       "+42 Bow Damage",
       "+(35-70)% Chance to Poison on Bow Hit",
-      "(10-20)% Increased Poison Duration "
+      "(10-20)% Increased Poison Duration"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Osprix Bow": {
@@ -7805,11 +8156,11 @@
     "implicits": [
       "+30 Bow Damage",
       "{rounding:Integer}+(16-26) Bow Fire Damage",
-      "{rounding:Integer}(60-90)% increased Bow Elemental Damage"
+      "(60-90)% increased Bow Elemental Damage"
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Obsidian Bow": {
@@ -7823,11 +8174,11 @@
     "implicits": [
       "+45 Bow Damage",
       "+(3-4)% Bow Critical Strike Chance",
-      "{rounding:Integer}(40-100)% increased Physical Damage"
+      "(40-100)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.1,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Storm Bow": {
@@ -7843,7 +8194,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.9,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Aphelion Bow": {
@@ -7861,7 +8212,7 @@
     ],
     "weapon": {
       "AttackRateBase": 0.98,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Sharktooth Bow": {
@@ -7875,11 +8226,11 @@
     "implicits": [
       "+39 Bow Damage",
       "+3% Bow Critical Strike Chance",
-      "{rounding:Integer}(30-90)% increased Physical Damage"
+      "(30-90)% Increased Physical Damage"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Silverwing Bow": {
@@ -7897,7 +8248,7 @@
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
     }
   },
   "Avenged Silverwing Bow": {
@@ -7911,11 +8262,29 @@
     "implicits": [
       "+50 Bow Damage",
       "(15-25)% Chance to gain Haste for 1 second on Hit",
-      "(25-50)% increased Effect of Haste on You "
+      "(25-50)% increased Effect of Haste on You"
     ],
     "weapon": {
       "AttackRateBase": 1.05,
-      "Range": 1
+      "Range": 1.0
+    }
+  },
+  "Icicle Bow": {
+    "type": "Bow",
+    "baseTypeID": 23,
+    "subTypeID": 16,
+    "req": {
+      "level": 50
+    },
+    "affixEffectModifier": 0.75,
+    "implicits": [
+      "+46 Bow Damage",
+      "+(30-55)% Chance to Inflict Bleed on Bow Hit",
+      "(80-140)% increased Bow Cold Damage"
+    ],
+    "weapon": {
+      "AttackRateBase": 1.05,
+      "Range": 1.0
     }
   },
   "Small Eterran Idol": {
@@ -8206,6 +8575,18 @@
     "width": 3,
     "height": 1
   },
+  "Grand Ash Idol": {
+    "type": "Grand Idol",
+    "baseTypeID": 29,
+    "subTypeID": 15,
+    "req": {
+      "level": 0
+    },
+    "affixEffectModifier": -0.33,
+    "implicits": [],
+    "width": 3,
+    "height": 1
+  },
   "Large Nomad Idol": {
     "type": "Large Idol",
     "baseTypeID": 30,
@@ -8393,7 +8774,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8405,7 +8786,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8417,7 +8798,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8429,7 +8810,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8441,7 +8822,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8453,7 +8834,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8465,7 +8846,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8477,7 +8858,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8489,7 +8870,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8501,7 +8882,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 4,
     "height": 1
@@ -8513,7 +8894,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8525,7 +8906,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8537,7 +8918,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8549,7 +8930,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8561,7 +8942,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8573,7 +8954,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8585,7 +8966,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8597,7 +8978,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8609,7 +8990,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8621,7 +9002,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "width": 1,
     "height": 4
@@ -8770,6 +9151,18 @@
     "width": 2,
     "height": 2
   },
+  "Adorned Discarded Idol": {
+    "type": "Adorned Idol",
+    "baseTypeID": 33,
+    "subTypeID": 12,
+    "req": {
+      "level": 0
+    },
+    "affixEffectModifier": -0.05,
+    "implicits": [],
+    "width": 2,
+    "height": 2
+  },
   "Pride of Rebellion": {
     "type": "Blessing",
     "baseTypeID": 34,
@@ -8777,7 +9170,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Increased Grand Idol Drop Rate"
     ]
@@ -8789,7 +9182,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(51-100)% Increased Grand Idol Drop Rate"
     ]
@@ -8801,7 +9194,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Increased Large Idol Drop Rate"
     ]
@@ -8813,7 +9206,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(51-100)% Increased Large Idol Drop Rate"
     ]
@@ -8825,7 +9218,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Increased Huge Idol Drop Rate"
     ]
@@ -8837,7 +9230,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(51-100)% Increased Huge Idol Drop Rate"
     ]
@@ -8849,7 +9242,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Increased Ornate Idol Drop Rate"
     ]
@@ -8861,7 +9254,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(51-100)% Increased Ornate Idol Drop Rate"
     ]
@@ -8873,7 +9266,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Increased Adorned Idol Drop Rate"
     ]
@@ -8885,7 +9278,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(51-100)% Increased Adorned Idol Drop Rate"
     ]
@@ -8897,7 +9290,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-15)% Increased Glyph Drop Rate"
     ]
@@ -8909,7 +9302,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(16-25)% Increased Glyph Drop Rate"
     ]
@@ -8921,7 +9314,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-15)% Increased Rune Drop Rate"
     ]
@@ -8933,7 +9326,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(16-25)% Increased Rune Drop Rate"
     ]
@@ -8945,7 +9338,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Wand Drop Rate"
     ]
@@ -8957,7 +9350,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Sceptre Drop Rate"
     ]
@@ -8969,7 +9362,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Staff Drop Rate"
     ]
@@ -8981,7 +9374,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased One-Handed Sword Drop Rate"
     ]
@@ -8993,7 +9386,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Sword Drop Rate"
     ]
@@ -9005,7 +9398,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased One-Handed Axe Drop Rate"
     ]
@@ -9017,7 +9410,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Axe Drop Rate"
     ]
@@ -9029,7 +9422,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased One-Handed Mace Drop Rate"
     ]
@@ -9041,7 +9434,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Mace Drop Rate"
     ]
@@ -9053,7 +9446,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Spear Drop Rate"
     ]
@@ -9065,7 +9458,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(30-42) Health"
     ]
@@ -9077,7 +9470,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(45-70) Health"
     ]
@@ -9089,7 +9482,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Void Resistance"
     ]
@@ -9101,7 +9494,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Void Resistance"
     ]
@@ -9113,7 +9506,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(60-100) Dodge Rating"
     ]
@@ -9125,7 +9518,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(101-200) Dodge Rating"
     ]
@@ -9137,9 +9530,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(1.2-2)% of Throwing Damage Leeched as Health"
+      "{rounding:Tenth}(1.2-2)% of Throwing Damage Leeched as Health"
     ]
   },
   "Grand Wrath of Rahyeh": {
@@ -9149,9 +9542,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(2.2-3.5)% of Throwing Damage Leeched as Health"
+      "{rounding:Tenth}(2.2-3.5)% of Throwing Damage Leeched as Health"
     ]
   },
   "Whisper of Orobyss": {
@@ -9161,9 +9554,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Void Damage"
+      "(40-60)% Increased Void Damage"
     ]
   },
   "Grand Whisper of Orobyss": {
@@ -9173,9 +9566,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Void Damage"
+      "(65-100)% Increased Void Damage"
     ]
   },
   "Flames of the Black Sun": {
@@ -9185,7 +9578,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to Ignite on Hit"
     ]
@@ -9197,7 +9590,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(65-100)% Chance to Ignite on Hit"
     ]
@@ -9209,9 +9602,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(1.2-2)% of Spell Damage Leeched as Health"
+      "{rounding:Tenth}(1.2-2)% of Spell Damage Leeched as Health"
     ]
   },
   "Grand Hunger of the Void": {
@@ -9221,9 +9614,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(2.2-3.5)% of Spell Damage Leeched as Health"
+      "{rounding:Tenth}(2.2-3.5)% of Spell Damage Leeched as Health"
     ]
   },
   "Strength of the Mountain": {
@@ -9233,7 +9626,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(10-14) Health Gain on Block"
     ]
@@ -9245,7 +9638,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(15-22) Health Gain on Block"
     ]
@@ -9257,9 +9650,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(30-50)% increased Critical Strike Chance"
+      "(30-50)% Increased Critical Strike Chance"
     ]
   },
   "Grand Winds of Oblivion": {
@@ -9269,9 +9662,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(51-80)% increased Critical Strike Chance"
+      "(51-80)% Increased Critical Strike Chance"
     ]
   },
   "Depths of Infinity": {
@@ -9281,7 +9674,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Void Resistance on Hit"
     ]
@@ -9293,7 +9686,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Void Resistance on Hit"
     ]
@@ -9305,7 +9698,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(6-10) Ward Gain on Kill",
       "{rounding:Integer}+(60-100) Ward Decay Threshold"
@@ -9318,7 +9711,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(12-18) Ward Gain on Kill",
       "{rounding:Integer}+(120-200) Ward Decay Threshold"
@@ -9331,7 +9724,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(20-26)% Critical Strike Multiplier"
     ]
@@ -9343,7 +9736,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(27-40)% Critical Strike Multiplier"
     ]
@@ -9355,7 +9748,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Leech Rate"
     ]
@@ -9367,7 +9760,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-50)% Increased Leech Rate"
     ]
@@ -9379,7 +9772,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(7-14)% Increased Prefix Shard Drop Rate"
     ]
@@ -9391,7 +9784,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-20)% Increased Amulet Shard Drop Rate"
     ]
@@ -9403,7 +9796,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Ring Shard Drop Rate"
     ]
@@ -9415,7 +9808,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(25-35)% Increased Two-Handed Spear Shard Drop Rate"
     ]
@@ -9427,7 +9820,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(16-26)% Increased Two-Handed Staff Shard Drop Rate"
     ]
@@ -9439,7 +9832,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(25-35)% Increased Wand Shard Drop Rate"
     ]
@@ -9451,7 +9844,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(25-35)% Increased Bow Shard Drop Rate"
     ]
@@ -9463,7 +9856,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-20)% Increased Relic Shard Drop Rate"
     ]
@@ -9475,7 +9868,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(25-40)% Increased Ailment Shard Drop Rate"
     ]
@@ -9487,7 +9880,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Bow Drop Rate"
     ]
@@ -9499,7 +9892,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Dagger Drop Rate"
     ]
@@ -9511,7 +9904,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Quiver Drop Rate"
     ]
@@ -9523,7 +9916,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-20)% Increased Helmet Drop Rate"
     ]
@@ -9535,7 +9928,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-20)% Increased Body Armor Drop Rate"
     ]
@@ -9547,7 +9940,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Gloves Drop Rate"
     ]
@@ -9559,7 +9952,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Boots Drop Rate"
     ]
@@ -9571,7 +9964,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Off-Hand Catalyst Drop Rate"
     ]
@@ -9583,7 +9976,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Shield Drop Rate"
     ]
@@ -9595,7 +9988,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(12-25)% Increased Relic Drop Rate"
     ]
@@ -9607,7 +10000,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Ring Drop Rate"
     ]
@@ -9619,7 +10012,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Amulet Drop Rate"
     ]
@@ -9631,7 +10024,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-30)% Increased Belt Drop Rate"
     ]
@@ -9643,7 +10036,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Lightning Resistance"
     ]
@@ -9655,7 +10048,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Lightning Resistance"
     ]
@@ -9667,7 +10060,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(30-50) Mana"
     ]
@@ -9679,7 +10072,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(60-90) Mana"
     ]
@@ -9691,9 +10084,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(60-100)% increased Health Regen",
+      "(60-100)% Increased Health Regen",
       "{rounding:Integer}+(6-10) Health Regen"
     ]
   },
@@ -9704,9 +10097,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(120-200)% increased Health Regen",
+      "(120-200)% Increased Health Regen",
       "{rounding:Integer}+(12-20) Health Regen"
     ]
   },
@@ -9717,9 +10110,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Lightning Damage"
+      "(40-60)% Increased Lightning Damage"
     ]
   },
   "Grand Chaos of Lagon": {
@@ -9729,9 +10122,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Lightning Damage"
+      "(65-100)% Increased Lightning Damage"
     ]
   },
   "Might of the Sea Titan": {
@@ -9741,9 +10134,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Cold Damage"
+      "(40-60)% Increased Cold Damage"
     ]
   },
   "Grand Might of the Sea Titan": {
@@ -9753,9 +10146,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Cold Damage"
+      "(65-100)% Increased Cold Damage"
     ]
   },
   "Resonance of the Sea": {
@@ -9765,7 +10158,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(17-25) Ward per Second"
     ]
@@ -9777,7 +10170,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(30-42) Ward per Second"
     ]
@@ -9789,7 +10182,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Lightning Resistance on Hit"
     ]
@@ -9801,7 +10194,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Lightning Resistance on Hit"
     ]
@@ -9813,7 +10206,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to Shock on Hit"
     ]
@@ -9825,7 +10218,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(65-100)% Chance to Shock on Hit"
     ]
@@ -9837,7 +10230,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(100-180)% Freeze Rate Multiplier"
     ]
@@ -9849,7 +10242,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(200-300)% Freeze Rate Multiplier"
     ]
@@ -9861,7 +10254,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Stun Chance"
     ]
@@ -9873,7 +10266,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(100-160)% Increased Stun Chance"
     ]
@@ -9885,9 +10278,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(10-14)% Increased Shock Duration "
+      "(10-14)% Increased Shock Duration"
     ]
   },
   "Grand Trance of the Sirens": {
@@ -9897,9 +10290,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(15-22)% Increased Shock Duration "
+      "(15-22)% Increased Shock Duration"
     ]
   },
   "Intellect of Liath": {
@@ -9909,7 +10302,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-25)% Chance to Gain 30 Ward when Hit"
     ]
@@ -9921,7 +10314,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-50)% Chance to Gain 30 Ward when Hit"
     ]
@@ -9933,7 +10326,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(40-70) Ward Gained on Potion Use",
       "{rounding:Integer}+(80-140) Ward Decay Threshold"
@@ -9946,7 +10339,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}(80-130) Ward Gained on Potion Use",
       "{rounding:Integer}+(160-260) Ward Decay Threshold"
@@ -9959,7 +10352,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(7-12)% to All Resistances"
     ]
@@ -9971,7 +10364,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(30-45)% Critical Strike Avoidance",
       "{rounding:Integer}+(30-50) Dodge Rating"
@@ -9984,7 +10377,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Necrotic Resistance"
     ]
@@ -9996,9 +10389,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Poison Damage"
+      "(40-60)% Increased Poison Damage"
     ]
   },
   "Despair of Flesh": {
@@ -10008,9 +10401,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Necrotic Damage"
+      "(40-60)% Increased Necrotic Damage"
     ]
   },
   "Cruelty of Strength": {
@@ -10020,9 +10413,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Physical Damage"
+      "(40-60)% Increased Physical Damage"
     ]
   },
   "Hemmorage of Marrow": {
@@ -10032,9 +10425,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "+(40-60)% Chance to inflict Bleed on Hit"
+      "+(40-60)% Chance to Inflict Bleed on Hit"
     ]
   },
   "Taste of Venom": {
@@ -10044,7 +10437,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to Poison on Hit"
     ]
@@ -10056,9 +10449,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(2-4)% of Melee Damage Leeched as Health"
+      "{rounding:Tenth}(2-4)% of Melee Damage Leeched as Health"
     ]
   },
   "Virtue of Command": {
@@ -10068,7 +10461,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(8-15)% to Minion All Resistances"
     ]
@@ -10080,7 +10473,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Poison Resistance"
     ]
@@ -10092,7 +10485,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(60-90)% Chance to Shred Poison Resistance on Hit"
     ]
@@ -10104,7 +10497,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to Slow on Hit"
     ]
@@ -10116,7 +10509,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-15)% Increased Unique Drop Rate"
     ]
@@ -10128,7 +10521,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(16-22)% Increased Unique Drop Rate"
     ]
@@ -10140,7 +10533,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(4-6)% Increased Experience"
     ]
@@ -10152,7 +10545,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(7-10)% Increased Experience"
     ]
@@ -10164,7 +10557,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(25-40)% Increased Gold Drop Rate"
     ]
@@ -10176,7 +10569,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(45-70)% Increased Gold Drop Rate"
     ]
@@ -10188,7 +10581,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-50)% Increased Helmet Drop Rate"
     ]
@@ -10200,7 +10593,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-50)% Increased Body Armor Drop Rate"
     ]
@@ -10212,7 +10605,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Gloves Drop Rate"
     ]
@@ -10224,7 +10617,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Boots Drop Rate"
     ]
@@ -10236,7 +10629,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Off-Hand Catalyst Drop Rate"
     ]
@@ -10248,7 +10641,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Shield Drop Rate"
     ]
@@ -10260,7 +10653,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-60)% Increased Relic Drop Rate"
     ]
@@ -10272,7 +10665,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Ring Drop Rate"
     ]
@@ -10284,7 +10677,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Amulet Drop Rate"
     ]
@@ -10296,7 +10689,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(35-75)% Increased Belt Drop Rate"
     ]
@@ -10308,7 +10701,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Wand Drop Rate"
     ]
@@ -10320,7 +10713,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Sceptre Drop Rate"
     ]
@@ -10332,7 +10725,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Two-Handed Staff Drop Rate"
     ]
@@ -10344,7 +10737,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased One-Handed Sword Drop Rate"
     ]
@@ -10356,7 +10749,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Two-Handed Sword Drop Rate"
     ]
@@ -10368,7 +10761,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased One-Handed Axe Drop Rate"
     ]
@@ -10380,7 +10773,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Two-Handed Axe Drop Rate"
     ]
@@ -10392,7 +10785,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased One-Handed Mace Drop Rate"
     ]
@@ -10404,7 +10797,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Two-Handed Mace Drop Rate"
     ]
@@ -10416,7 +10809,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-90)% Increased Two-Handed Spear Drop Rate"
     ]
@@ -10428,7 +10821,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(15-25)% Increased Prefix Shard Drop Rate"
     ]
@@ -10440,7 +10833,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Amulet Shard Drop Rate"
     ]
@@ -10452,7 +10845,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(33-50)% Increased Ring Shard Drop Rate"
     ]
@@ -10464,7 +10857,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(40-60)% Increased Two-Handed Spear Shard Drop Rate"
     ]
@@ -10476,7 +10869,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(30-45)% Increased Two-Handed Staff Shard Drop Rate"
     ]
@@ -10488,7 +10881,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(40-60)% Increased Wand Shard Drop Rate"
     ]
@@ -10500,7 +10893,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(40-60)% Increased Bow Shard Drop Rate"
     ]
@@ -10512,7 +10905,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Relic Shard Drop Rate"
     ]
@@ -10524,7 +10917,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(45-70)% Increased Ailment Shard Drop Rate"
     ]
@@ -10536,7 +10929,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-75)% Increased Bow Drop Rate"
     ]
@@ -10548,7 +10941,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(50-75)% Increased Dagger Drop Rate"
     ]
@@ -10560,7 +10953,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(41-60)% Increased Quiver Drop Rate"
     ]
@@ -10572,7 +10965,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(13-20)% to All Resistances"
     ]
@@ -10584,7 +10977,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(50-70)% Critical Strike Avoidance",
       "{rounding:Integer}+(51-90) Dodge Rating"
@@ -10597,7 +10990,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(45-75)% Necrotic Resistance"
     ]
@@ -10609,9 +11002,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Poison Damage"
+      "(65-100)% Increased Poison Damage"
     ]
   },
   "Grand Despair of Flesh": {
@@ -10621,9 +11014,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Necrotic Damage"
+      "(65-100)% Increased Necrotic Damage"
     ]
   },
   "Grand Cruelty of Strength": {
@@ -10633,9 +11026,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Physical Damage"
+      "(65-100)% Increased Physical Damage"
     ]
   },
   "Grand Hemmorage of Marrow": {
@@ -10645,9 +11038,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "+(65-100)% Chance to inflict Bleed on Hit"
+      "+(65-100)% Chance to Inflict Bleed on Hit"
     ]
   },
   "Grand Taste of Venom": {
@@ -10657,7 +11050,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(65-100)% Chance to Poison on Hit"
     ]
@@ -10669,9 +11062,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "(4.5-7)% of Melee Damage Leeched as Health"
+      "{rounding:Tenth}(4.5-7)% of Melee Damage Leeched as Health"
     ]
   },
   "Grand Virtue of Command": {
@@ -10681,7 +11074,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(16-25)% to Minion All Resistances"
     ]
@@ -10693,7 +11086,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Poison Resistance"
     ]
@@ -10705,7 +11098,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(100-150)% Chance to Shred Poison Resistance on Hit"
     ]
@@ -10717,7 +11110,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(65-100)% Chance to Slow on Hit"
     ]
@@ -10729,7 +11122,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(12-20)% Increased Helmet Shard Drop Rate"
     ]
@@ -10741,7 +11134,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Helmet Shard Drop Rate"
     ]
@@ -10753,7 +11146,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(12-20)% Increased Body Armor Shard Drop Rate"
     ]
@@ -10765,7 +11158,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Body Armor Shard Drop Rate"
     ]
@@ -10777,7 +11170,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Belt Shard Drop Rate"
     ]
@@ -10789,7 +11182,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(32-50)% Increased Belt Shard Drop Rate"
     ]
@@ -10801,7 +11194,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Shield Shard Drop Rate"
     ]
@@ -10813,7 +11206,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(32-50)% Increased Shield Shard Drop Rate"
     ]
@@ -10825,7 +11218,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(12-20)% Increased Suffix Shard Drop Rate"
     ]
@@ -10837,7 +11230,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Suffix Shard Drop Rate"
     ]
@@ -10849,7 +11242,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-18)% Increased Class Specific Shard Drop Rate"
     ]
@@ -10861,7 +11254,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Class Specific Shard Drop Rate"
     ]
@@ -10873,7 +11266,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Gloves Shard Drop Rate"
     ]
@@ -10885,7 +11278,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(32-50)% Increased Gloves Shard Drop Rate"
     ]
@@ -10897,7 +11290,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Off-Hand Catalyst Shard Drop Rate"
     ]
@@ -10909,7 +11302,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(32-50)% Increased Off-Hand Catalyst Shard Drop Rate"
     ]
@@ -10921,7 +11314,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(12-20)% Increased Skill Shard Drop Rate"
     ]
@@ -10933,7 +11326,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(22-35)% Increased Skill Shard Drop Rate"
     ]
@@ -10945,7 +11338,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Physical Resistance"
     ]
@@ -10957,7 +11350,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Physical Resistance"
     ]
@@ -10969,7 +11362,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Cold Resistance"
     ]
@@ -10981,7 +11374,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Cold Resistance"
     ]
@@ -10993,7 +11386,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(40-70) Endurance Threshold"
     ]
@@ -11005,7 +11398,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(80-150) Endurance Threshold"
     ]
@@ -11017,7 +11410,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to apply Frostbite on Hit"
     ]
@@ -11029,7 +11422,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(65-100)% Chance to apply Frostbite on Hit"
     ]
@@ -11041,7 +11434,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(30-50)% Freeze Rate per stack of Chill"
     ]
@@ -11053,7 +11446,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-80)% Freeze Rate per stack of Chill"
     ]
@@ -11065,7 +11458,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Cold Resistance on Hit"
     ]
@@ -11077,7 +11470,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Cold Resistance on Hit"
     ]
@@ -11089,7 +11482,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Physical Resistance on Hit"
     ]
@@ -11101,7 +11494,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Physical Resistance on Hit"
     ]
@@ -11113,7 +11506,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(20-35)% Chance to Chill on Hit"
     ]
@@ -11125,7 +11518,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to Chill on Hit"
     ]
@@ -11137,7 +11530,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(3-4)% Block Chance",
       "{rounding:Integer}+(100-140) Block Effectiveness"
@@ -11150,7 +11543,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(5-8)% Block Chance",
       "{rounding:Integer}+(180-240) Block Effectiveness"
@@ -11163,9 +11556,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(12-24)% increased Armor"
+      "(12-24)% Increased Armor"
     ]
   },
   "Grand Bulwark of the Tundra": {
@@ -11175,9 +11568,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(25-55)% increased Armor"
+      "(25-55)% Increased Armor"
     ]
   },
   "Defiance of Yulia": {
@@ -11187,7 +11580,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(5-10) Spell Cold Damage While Channelling"
     ]
@@ -11199,7 +11592,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(11-20) Spell Cold Damage While Channelling"
     ]
@@ -11211,7 +11604,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-40)% Fire Resistance"
     ]
@@ -11223,7 +11616,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(55-75)% Fire Resistance"
     ]
@@ -11235,7 +11628,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(120-180) Armor"
     ]
@@ -11247,7 +11640,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(200-320) Armor"
     ]
@@ -11259,7 +11652,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(20-35)% Chance to apply Frailty on Hit"
     ]
@@ -11271,7 +11664,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(40-60)% Chance to apply Frailty on Hit"
     ]
@@ -11283,7 +11676,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-14)% Endurance"
     ]
@@ -11295,7 +11688,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(18-30)% Endurance"
     ]
@@ -11307,9 +11700,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(15-35)% increased Dodge Rating"
+      "(15-35)% Increased Dodge Rating"
     ]
   },
   "Grand Swiftness of Logi": {
@@ -11319,9 +11712,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-70)% increased Dodge Rating"
+      "(40-70)% Increased Dodge Rating"
     ]
   },
   "Breath of Cinders": {
@@ -11331,7 +11724,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Fire Resistance on Hit"
     ]
@@ -11343,7 +11736,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Fire Resistance on Hit"
     ]
@@ -11355,7 +11748,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(10-20)% Chance to Shred Necrotic Resistance on Hit"
     ]
@@ -11367,7 +11760,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "+(25-50)% Chance to Shred Necrotic Resistance on Hit"
     ]
@@ -11379,9 +11772,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Minion Damage"
+      "(40-60)% Increased Minion Damage"
     ]
   },
   "Grand Spirit of Command": {
@@ -11391,9 +11784,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Minion Damage"
+      "(65-100)% Increased Minion Damage"
     ]
   },
   "Might of Bhuldar": {
@@ -11403,7 +11796,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(20-30)% Increased Stun Duration"
     ]
@@ -11415,7 +11808,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(32-50)% Increased Stun Duration"
     ]
@@ -11427,9 +11820,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(40-60)% increased Fire Damage"
+      "(40-60)% Increased Fire Damage"
     ]
   },
   "Grand Flames of Calamity": {
@@ -11439,9 +11832,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "{rounding:Integer}(65-100)% increased Fire Damage"
+      "(65-100)% Increased Fire Damage"
     ]
   },
   "Patience of Herkir": {
@@ -11451,7 +11844,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(200-350) Armor While Channelling"
     ]
@@ -11463,7 +11856,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(400-650) Armor While Channelling"
     ]
@@ -11475,7 +11868,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have Arena Events"
     ]
@@ -11487,7 +11880,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have Monolith Events"
     ]
@@ -11499,7 +11892,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have Dungeon Events"
     ]
@@ -11511,7 +11904,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have Campaign Events"
     ]
@@ -11523,7 +11916,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have High Corruption Events"
     ]
@@ -11535,9 +11928,9 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "104% more cost (multiplicative with other modifiers) of all Prophecies but they offer twice as many uses before expiring"
+      "105% more cost (multiplicative with other modifiers) of all Prophecies but they offer twice as many uses before expiring"
     ]
   },
   "Refracting Lens of Wealth": {
@@ -11547,7 +11940,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "110% more cost (multiplicative with other modifiers) of all Prophecies but they offer double the rewards on completion"
     ]
@@ -11559,7 +11952,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Unique Items Prophecies"
     ]
@@ -11571,7 +11964,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Exalted Items Prophecies"
     ]
@@ -11583,7 +11976,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Set Items Prophecies"
     ]
@@ -11595,7 +11988,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "100% Reduced Chance for Prophecies to have Events that are not Monolith"
     ]
@@ -11607,7 +12000,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Boots Prophecies"
     ]
@@ -11619,7 +12012,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Belts Prophecies"
     ]
@@ -11631,7 +12024,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Helmets Prophecies"
     ]
@@ -11643,7 +12036,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Body Armor Prophecies"
     ]
@@ -11655,7 +12048,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Gloves Prophecies"
     ]
@@ -11667,7 +12060,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Relics Prophecies"
     ]
@@ -11679,7 +12072,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Rings Prophecies"
     ]
@@ -11691,7 +12084,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "15% Increased Chance per rank to find Amulets Prophecies"
     ]
@@ -11703,7 +12096,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find One Handed Swords Prophecies"
     ]
@@ -11715,7 +12108,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find One Handed Axes Prophecies"
     ]
@@ -11727,7 +12120,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find One Handed Maces Prophecies"
     ]
@@ -11739,7 +12132,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Daggers Prophecies"
     ]
@@ -11751,7 +12144,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Wands Prophecies"
     ]
@@ -11763,7 +12156,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Sceptres Prophecies"
     ]
@@ -11775,7 +12168,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Two Handed Swords Prophecies"
     ]
@@ -11787,7 +12180,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Two Handed Axes Prophecies"
     ]
@@ -11799,7 +12192,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Two Handed Maces Prophecies"
     ]
@@ -11811,7 +12204,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Staves Prophecies"
     ]
@@ -11823,7 +12216,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Spears Prophecies"
     ]
@@ -11835,7 +12228,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Bows Prophecies"
     ]
@@ -11847,7 +12240,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Quivers Prophecies"
     ]
@@ -11859,7 +12252,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Shields Prophecies"
     ]
@@ -11871,7 +12264,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "40% Increased Chance per rank to find Catalysts Prophecies"
     ]
@@ -11883,7 +12276,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Affix Shards Prophecies"
     ]
@@ -11895,7 +12288,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Runes Prophecies"
     ]
@@ -11907,7 +12300,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Glyphs Prophecies"
     ]
@@ -11919,7 +12312,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Dungeon Keys Prophecies"
     ]
@@ -11931,7 +12324,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Small Idols Prophecies"
     ]
@@ -11943,7 +12336,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Humble Idols Prophecies"
     ]
@@ -11955,7 +12348,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Stout Idols Prophecies"
     ]
@@ -11967,7 +12360,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Grand Idols Prophecies"
     ]
@@ -11979,7 +12372,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Large Idols Prophecies"
     ]
@@ -11991,7 +12384,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Ornate Idols Prophecies"
     ]
@@ -12003,7 +12396,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Huge Idols Prophecies"
     ]
@@ -12015,7 +12408,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Adorned Idols Prophecies"
     ]
@@ -12027,7 +12420,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "20% Increased Chance per rank to find Minor Idols Prophecies"
     ]
@@ -12039,7 +12432,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "blockedCells": [
       [
@@ -12079,7 +12472,7 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "2 Weaver Idols equipped at Maximum"
     ],
@@ -12117,7 +12510,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "blockedCells": [
       [
@@ -12157,7 +12550,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(7-24) Mana per Idol in a Refracted Slot"
     ],
@@ -12195,7 +12588,7 @@
     "req": {
       "level": 32
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(64-256) Armor per Idol in a Refracted Slot"
     ],
@@ -12233,7 +12626,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(6-10) Health per Equipped Omen Idol"
     ],
@@ -12271,7 +12664,7 @@
     "req": {
       "level": 0
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "blockedCells": [
       [
@@ -12307,7 +12700,7 @@
     "req": {
       "level": 32
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "2 Adorned Idols equipped at Maximum"
     ],
@@ -12341,7 +12734,7 @@
     "req": {
       "level": 50
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [],
     "blockedCells": [
       [
@@ -12373,7 +12766,7 @@
     "req": {
       "level": 65
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "{rounding:Integer}+(15-35) Ward Decay Threshold per Equipped Corrupted Idol",
       "2 Weaver Idols equipped at Maximum"
@@ -12408,7 +12801,7 @@
     "req": {
       "level": 60
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "(10-40)% increased Effect of Suffixes for Idols in Refracted Slots"
     ],
@@ -12438,9 +12831,9 @@
     "req": {
       "level": 76
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
-      "10% Increased Cooldown Recovery Speed if there are no larger idols above smaller ones in the grid",
+      "0.1 Increased Cooldown Recovery Speed if there are no larger idols above smaller ones in the grid",
       "2 Weaver Idols equipped at Maximum"
     ],
     "blockedCells": [
@@ -12477,7 +12870,7 @@
     "req": {
       "level": 79
     },
-    "affixEffectModifier": 0,
+    "affixEffectModifier": 0.0,
     "implicits": [
       "2% more Damage to Bosses per Equipped Unique or Legendary Idol"
     ],

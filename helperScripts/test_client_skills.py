@@ -4,9 +4,46 @@ from copy import deepcopy
 from unittest.mock import Mock
 
 from build_client_skills import cast_time, convert_skill, validate_sources
+from build_client_sentinel import update_basics
 
 
 class SkillConversionTests(unittest.TestCase):
+    def test_sentinel_basics_keep_damage_and_require_the_native_weapon_types(self):
+        existing = {"treeId": "v01cv", "baseFlags": {"melee": True, "hit": True},
+                    "stats": {"melee_base_void_damage": 2, "damageEffectiveness": 4}}
+        ability = {"playerAbilityID": "v01cv", "tags": 528, "useDuration": 2,
+                   "speedMultiplier": 0.800000011920929, "manaCost": 15,
+                   "maxCharges": 1, "chargesGainedPerSecond": 0.25,
+                   "channelled": 0, "instantCastForPlayer": 0,
+                   "requireWeaponType": 1, "permittedWeaponTypes": [12, 16]}
+        weapons = {12: "Two-Handed Axe", 16: "Two-Handed Sword"}
+        result = update_basics(existing, ability, 1.100000023841858, weapons)
+        self.assertEqual(2.2727272, result["castTime"])
+        self.assertEqual({"Mana": 15}, result["stats"]["cost"])
+        self.assertEqual(4, result["stats"]["cooldown"])
+        self.assertEqual(4, result["stats"]["damageEffectiveness"])
+        self.assertEqual(2, result["stats"]["melee_base_void_damage"])
+        self.assertEqual({name: True for name in weapons.values()}, result["weaponTypes"])
+        self.assertNotIn("cost", existing["stats"])
+        for permitted in ([], [999]):
+            ability["permittedWeaponTypes"] = permitted
+            with self.assertRaisesRegex(ValueError, "required weapon"):
+                update_basics(existing, ability, 1.1, weapons)
+
+    def test_sentinel_basics_remove_obsolete_cost_and_reject_wrong_tree(self):
+        existing = {"treeId": "an0my", "baseFlags": {"spell": True},
+                    "stats": {"cost": {"Mana": 99}, "cooldown": 99}}
+        ability = {"playerAbilityID": "an0my", "tags": 272, "useDuration": 0.75,
+                   "speedMultiplier": 1, "manaCost": 0, "maxCharges": 1,
+                   "chargesGainedPerSecond": 0.08340000361204147,
+                   "channelled": 0, "instantCastForPlayer": 0}
+        result = update_basics(existing, ability, 1.100000023841858, {})
+        self.assertNotIn("cost", result["stats"])
+        self.assertEqual(11.99041, result["stats"]["cooldown"])
+        ability["playerAbilityID"] = "wrong"
+        with self.assertRaisesRegex(ValueError, "identity"):
+            update_basics(existing, ability, 1.1, {})
+
     def test_equipment_requirements_keep_client_weapon_ids_and_shield_flag(self):
         ability = {"m_Name": "RadiantLance", "abilityName": "Radiant Lance", "tags": 258,
                    "playerAbilityID": "ra1an", "useDuration": 0.9, "speedMultiplier": 1,
