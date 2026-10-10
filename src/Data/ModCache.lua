@@ -10643,7 +10643,6 @@ c["15% Spirit Wolves On Hit Chance"]={{}," Spirit Wolves  Chance "}
 c["15% Static Orb Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_StaticOrb",type="BASE",value=15}},nil}
 c["15% Stats From Weapons Effectiveness"]={{}," Stats From Weapons Effectiveness "}
 c["15% Storm Stack Chance"]={{}," Storm Stack Chance "}
-c["15% Strike Three Kill Threshold"]={{}," Strike Three Kill Threshold "}
 c["15% Ward On Kill Chance"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Ward",type="BASE",value=15}},"   Chance "}
 c["15% chance to cast tundra nova on hit with cold skills (chance doubled against undead)"]={{[1]={flags=8388608,keywordFlags=4,name="ChanceToTriggerOnHit_TundraNova",type="BASE",value=15}},"    (chance doubled against undead) "}
 c["15% increased Armor"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=15}},nil}

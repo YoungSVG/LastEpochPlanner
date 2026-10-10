@@ -68,6 +68,11 @@ return {
 			mod("Condition:RiveSkipThirdStrike", "FLAG", true),
 		},
 	},
+	["sndr1-32"] = {
+		["15% Strike Three Kill Threshold"] = {
+			mod("CullPercent", "MAX", 15, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["sndr1-21"] = {
 		[" Change Sequence Of Strikes"] = {
 			mod("Condition:RiveCadence", "FLAG", true),

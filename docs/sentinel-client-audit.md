@@ -149,6 +149,18 @@ need a native stun calculation; no stun uptime or guaranteed stun is assumed.
 Tests cover strike switching, bleed inheritance, modifier removal and skill
 isolation. The stun modifier is hit-only and is not inherited by bleed.
 
+Coup de Grace (`sndr1-32`) sets 0.15 per point in the tree branch at
+`0x251ee10`; `0x251fc92` writes this to `Rive3Mutator.cullPercent` (offset
+`0x1cc`). `Rive3Mutator.Mutate` at `0x2267af5` and `0x2267b88` applies it to
+the third strike's base damage component. The client node reminder specifies
+that competing item/passive kill thresholds use the highest value. The
+planner uses a hit-only, strike-3 `CullPercent` MAX modifier, retaining the
+existing selected-strike culling estimate. The combo row reports the largest
+threshold among strikes actually present; Double Slash removes this node's
+threshold. It does not multiply combo hit/ailment DPS or assume instant
+access to strike 3 when a target crosses the threshold. Tests cover competing
+10%/20% thresholds, all four sequences, refunds and skill isolation.
+
 ### Native stun formula (not yet integrated)
 
 Client `Stunned.listenForStunEvent` at `0x1667e20` receives the hit damage,
