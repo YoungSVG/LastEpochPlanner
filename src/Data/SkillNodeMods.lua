@@ -3,6 +3,16 @@
 local mod = ...
 return {
 	-- RiveTree.updateMutator, client 1.5.2.2: bonuses target individual strikes.
+	["sndr1-2"] = {
+		["+8% Damage"] = {
+			-- SkillId already matches ailments from this skill. Unlike strike-specific
+			-- bonuses, this must not also use SourceAilmentDamage.
+			mod("Damage", "MORE", 8),
+		},
+		["10% Increased Stun Chance"] = {
+			mod("StunChance", "INC", 10, ModFlag.Hit),
+		},
+	},
 	["sndr1-15"] = {
 		["+10% First And Second Strike Attack Speed"] = {
 			mod("Speed", "INC", 10, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),

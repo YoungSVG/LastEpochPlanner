@@ -232,6 +232,42 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(0, selectPart(1).CullPercent)
 	end)
 
+	it("applies Champion to every Rive strike and its ailments without duplicating global damage", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit\n100% Chance to Ignite on Hit\n100% increased Damage"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			local output = selectPart(part)
+			baseline[part] = { hit = output.TotalDPS, bleed = ailmentOutput("Ailment_Bleed").TotalDPS,
+				ignite = ailmentOutput("Ailment_Ignite").TotalDPS }
+		end
+		for _, points in ipairs({ 4, 1, 0 }) do
+			allocate("sndr1-2", points)
+			for part = 1, 3 do
+				local output = selectPart(part)
+				assert.are.equals(1 + points * 0.08, round(output.TotalDPS / baseline[part].hit, 2))
+				assert.are.equals(1 + points * 0.08, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[part].bleed, 2))
+				assert.are.equals(1 + points * 0.08, round(ailmentOutput("Ailment_Ignite").TotalDPS / baseline[part].ignite, 2))
+				assert.are.equals(points * 10, output.StunChanceInc or 0)
+			end
+		end
+		allocate("sndr1-2", 4)
+		allocate("sndr1-30", 3)
+		local output = selectPart(3)
+		assert.are.equals(1.91, round(output.TotalDPS / baseline[3].hit, 2))
+		assert.are.equals(1.91, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[3].bleed, 2))
+		allocate("sndr1-22", 1)
+		assert.are.equals(90, selectPart(3).StunChanceInc)
+		assert.are.equals(40, selectPart(1).StunChanceInc)
+		build.skillsTab:SelSkill(1, "Fireball")
+		local other = selectPart(1).TotalDPS
+		assert.are.equals(nil, build.calcsTab.mainOutput.StunChanceInc)
+		allocate("sndr1-2", 0)
+		assert.are.equals(other, selectPart(1).TotalDPS)
+	end)
+
 	it("weights bleed and ignite from each applying strike across the entire combo", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

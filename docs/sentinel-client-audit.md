@@ -161,6 +161,16 @@ threshold. It does not multiply combo hit/ailment DPS or assume instant
 access to strike 3 when a target crosses the threshold. Tests cover competing
 10%/20% thresholds, all four sequences, refunds and skill isolation.
 
+Champion (`sndr1-2`, native branch `0x251f6e2`) adds 0.08 more untagged damage
+and 0.10 increased stun chance per point to each of the three strike lists.
+The damage constructors are at `0x251f74b`, `0x251f807`, `0x251f8c3`; the
+property-45 constructors are at `0x251f7ac`, `0x251f868`, `0x251f924`.
+Unlike strike-specific modifiers, Champion's ordinary SkillId restriction
+already matches an ailment's `groupSource`. It must not additionally use
+`SourceAilmentDamage`, which would square its multiplier. Tests cover 4/1/0
+points, hits/bleed/ignite with global increased damage, combination with
+Brutality and Triple Threat, and isolation from Fireball.
+
 ### Native stun formula (not yet integrated)
 
 Client `Stunned.listenForStunEvent` at `0x1667e20` receives the hit damage,
