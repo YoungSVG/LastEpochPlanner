@@ -4922,8 +4922,6 @@ c["+25% Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="Damage",type="MORE"
 c["+25% Spreading Flames Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_SpreadingFlames",type="BASE",value=25}},nil}
 c["+25% Storm Bolts Shock Chance"]={{[1]={[1]={skillName="Storm Bolt",type="SkillName"},flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Shock",type="BASE",value=25}}," s  "}
 c["+25% Storm Orb Frequency"]={{}," Storm Orb Frequency "}
-c["+25% Strike Two Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=25}}," Strike Two  "}
-c["+25% Strike Two Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=25}}," Strike Two  "}
 c["+25% Stun Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="BASE",value=25}},nil}
 c["+25% Target Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=25}}," Target  "}
 c["+25% Third Strike Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=25}}," Third Strike  "}

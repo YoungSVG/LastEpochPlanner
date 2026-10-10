@@ -102,6 +102,38 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(fireballBleed, ailmentOutput("Ailment_Bleed", "Fireball").TotalDPS)
 	end)
 
+	it("scales Iron Reach damage, ailments and area only on the second strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit\n100% Chance to Ignite on Hit"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			local output = selectPart(part)
+			baseline[part] = { hit = output.TotalDPS, bleed = ailmentOutput("Ailment_Bleed").TotalDPS,
+				ignite = ailmentOutput("Ailment_Ignite").TotalDPS }
+		end
+		local function check(points)
+			allocate("sndr1-26", points)
+			for part = 1, 3 do
+				local output = selectPart(part)
+				local multiplier = part == 2 and 1 + points * 0.25 or 1
+				assert.are.equals(multiplier, round(output.TotalDPS / baseline[part].hit, 2))
+				assert.are.equals(multiplier, round(ailmentOutput("Ailment_Bleed").TotalDPS / baseline[part].bleed, 2))
+				assert.are.equals(multiplier, round(ailmentOutput("Ailment_Ignite").TotalDPS / baseline[part].ignite, 2))
+				local skill = build.calcsTab.mainEnv.player.mainSkill
+				assert.are.equals(part == 2 and points * 25 or 0, skill.skillModList:Sum("INC", skill.skillCfg, "AreaOfEffect"))
+			end
+		end
+		check(4)
+		check(1)
+		check(0)
+		build.skillsTab:SelSkill(1, "Fireball")
+		local before = selectPart(1).TotalDPS
+		allocate("sndr1-26", 4)
+		assert.are.equals(before, selectPart(1).TotalDPS)
+	end)
+
 	it("weights bleed and ignite from each applying strike across the entire combo", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")
@@ -110,6 +142,7 @@ describe("Rive strike calculations", function ()
 		allocate("sndr1-31", 3)
 		allocate("sndr1-15", 4)
 		allocate("sndr1-30", 3)
+		allocate("sndr1-26", 4)
 		local strikes = {}
 		for part = 1, 3 do
 			local out = selectPart(part)

@@ -33,6 +33,15 @@ return {
 			mod("SourceAilmentDamage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
 		},
 	},
+	["sndr1-26"] = {
+		["+25% Strike Two Damage"] = {
+			mod("Damage", "MORE", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+			mod("SourceAilmentDamage", "MORE", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+		["+25% Strike Two Area"] = {
+			mod("AreaOfEffect", "INC", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+	},
 	["sndr1-23"] = {
 		[" Skips Third Strike"] = {
 			mod("Condition:RiveSkipThirdStrike", "FLAG", true),

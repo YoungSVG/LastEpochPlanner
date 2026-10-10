@@ -117,6 +117,15 @@ all source damage modifiers, which could duplicate global bonuses or import
 hit-only modifiers. Tests cover bleed and ignite, point scaling/refunds,
 global damage modifiers, other skills and weighted combo bleed.
 
+Iron Reach (`sndr1-26`) is handled by `RiveTree.updateMutator` at `0x251e91d`.
+At `0x251e986`, the `Stat` constructor receives Damage, no tags, zero added/
+increased value and 0.25 more damage per point; the stat is added to the second
+strike's list (`r12`). The following instructions add 0.25 per point to the
+second strike's area accumulator. Both bonuses now use strike-2 restrictions,
+and the untagged damage multiplier is also forwarded to its ailments. Tests
+cover 1/4/0 points, all three strikes, bleed/ignite, another skill and the combo
+with Iron Reach and Brutality allocated together.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
