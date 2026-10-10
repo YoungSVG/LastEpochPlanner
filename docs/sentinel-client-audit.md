@@ -149,6 +149,44 @@ need a native stun calculation; no stun uptime or guaranteed stun is assumed.
 Tests cover strike switching, bleed inheritance, modifier removal and skill
 isolation. The stun modifier is hit-only and is not inherited by bleed.
 
+### Native stun formula (not yet integrated)
+
+Client `Stunned.listenForStunEvent` at `0x1667e20` receives the hit damage,
+attacker stun increase and attacker duration increase. After state/immunity
+checks, the arithmetic at `0x1668047` through `0x1668116` is:
+
+```
+effectiveHealth = maxHealth + currentWard
+if boss: effectiveHealth *= 1 + bossEffectiveHealthModifierVsStun
+chance = (2 * flatDamage * (1 + attackerStunIncrease) / effectiveHealth
+          - (max(0, stunAvoidance) + 500) / 5000)
+         * (1 + increasedChanceToBeStunned)
+```
+
+Values here are fractions, not percentages. The result is sent to the native
+random-chance routine; its out-of-range handling must be verified before
+porting. `BaseHealth.maxHealth` is at offset `0x90`; `ProtectionClass.ward` is
+at `0x170`. Inherited `PrecalculatedStatsHolder` fields at `0x70` and `0x74`
+are stun avoidance and increased chance to be stunned. The boss modifier is
+read from `GlobalPlayerProperties` offset `0x84` by the getter at `0x27fbdd0`;
+its asset value has not yet been exported. Do not substitute current health,
+ignore ward, or assume the same effective health for bosses.
+
+The duration branch at `0x1668135` through `0x1668170` passes
+`(baseDuration + addedDuration) * (1 + defenderDurationIncrease +
+attackerDurationIncrease) * (1 + moreDuration)` to `Stunned.stun`.
+It does not establish sustained stun uptime: immunity and state transitions
+are separate gates.
+
+`DamageStats.buildDamageStats` reads property 45 only for hits and accumulates
+its added values when the tags apply (`0x108f6a9`). Its final branch at
+`0x108fa40` can transform that increase as `3 * increase + 2` or
+`2 * increase + 1`, depending on a local classification byte. The first form
+is equivalent to tripling `1 + increase`, not adding a flat 200 percentage
+points after the final chance formula. Classification and caller damage
+semantics still need tracing; constants named for player melee/non-melee
+damage are insufficient evidence to apply these branches unconditionally.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
