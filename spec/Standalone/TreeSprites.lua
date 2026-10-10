@@ -4,8 +4,8 @@ local created = 0
 local function newImage()
 	created = created + 1
 	return {
-		Load = function(self, path) self.path = path end,
-		ImageSize = function() return 62, 62 end,
+		Load = function (self, path) self.path = path end,
+		ImageSize = function () return 62, 62 end,
 	}
 end
 

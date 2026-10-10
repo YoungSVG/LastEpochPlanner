@@ -4,7 +4,7 @@ local treeSprites = {}
 function treeSprites.new(mapping, newImage)
 	local sheets = {}
 	local sprites = {}
-	return function(icon)
+	return function (icon)
 		if sprites[icon] then
 			return sprites[icon]
 		end
