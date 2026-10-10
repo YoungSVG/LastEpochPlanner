@@ -941,6 +941,14 @@ local configTable = {
 
 		-- The triggered skill inherits the source skill mods
 		env.player.mainSkill.skillModList:AddList(source.activeEffect.baseMods)
+		if env.player.mainSkill.skillFlags.ailment then
+			-- Evaluate source-specific ailment duration against the applying hit,
+			-- including its strike and skill ID, before passing it to the ailment.
+			local durationStat = "AilmentDuration_" .. env.player.mainSkill.activeEffect.grantedEffect.id
+			for _, entry in ipairs(source.skillModList:Tabulate("INC", source.skillCfg, durationStat)) do
+				env.player.mainSkill.skillModList:NewMod("Duration", "INC", entry.value, entry.mod.source)
+			end
+		end
 		local triggerChance = source.skillModList:Sum("BASE", source.skillCfg,
 			"ChanceToTriggerOnHit_" .. env.player.mainSkill.activeEffect.grantedEffect.id)
 		env.player.output.TriggerChance = triggerChance

@@ -42,6 +42,21 @@ return {
 			mod("Condition:RiveCadence", "FLAG", true),
 		},
 	},
+	["sndr1-9"] = {
+		["+50% First Strike Ignite Chance"] = {
+			mod("ChanceToTriggerOnHit_Ailment_Ignite", "BASE", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 1 }),
+		},
+	},
+	["sndr1-10"] = {
+		["+50% Second Strike Ignite Chance"] = {
+			mod("ChanceToTriggerOnHit_Ailment_Ignite", "BASE", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+	},
+	["sndr1-31"] = {
+		["+10% Bleed Duration On Third Strike"] = {
+			mod("AilmentDuration_Ailment_Bleed", "INC", 10, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["ra1an-21"] = {
 		["+12% Damage"] = { mod("Damage", "MORE", 12) },
 	},

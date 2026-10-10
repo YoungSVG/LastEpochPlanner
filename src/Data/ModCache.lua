@@ -2010,7 +2010,6 @@ c["+10% Basic Spell Damage "]={{[1]={flags=0,keywordFlags=256,name="Damage",type
 c["+10% Bleed Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Bleed",type="BASE",value=10}},nil}
 c["+10% Bleed Chance With Spear"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Bleed",type="BASE",value=10}},"  With Spear "}
 c["+10% Bleed Duration"]={{[1]={[1]={skillName="Bleed",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=10}},nil}
-c["+10% Bleed Duration On Third Strike"]={{[1]={[1]={skillName="Bleed",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=10}},"   On Third Strike "}
 c["+10% Blind Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Blind",type="BASE",value=10}},nil}
 c["+10% Block Chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
 c["+10% Block Chance per stack of Golden Aegis"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},"  per stack of Golden Aegis "}
@@ -7173,7 +7172,6 @@ c["+50% Explosive Trap Area"]={{[1]={[1]={skillName="Explosive Trap",type="Skill
 c["+50% Fester Stack Gain Rate while Channeling"]={{}," Fester Stack Gain Rate  "}
 c["+50% Fire Burst Area While Active"]={{[1]={flags=0,keywordFlags=8,name="AreaOfEffect",type="BASE",value=50}},"  Burst  While Active "}
 c["+50% Fire Res Shred Chance Per Second"]={{},"  Res Shred Chance Per Second "}
-c["+50% First Strike Ignite Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Ignite",type="BASE",value=50}}," First Strike  "}
 c["+50% Flame Burst Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}}," Flame Burst  "}
 c["+50% Forgebreath Ignite Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Ignite",type="BASE",value=50}}," Forgebreath  "}
 c["+50% Forged Weapon Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}}," Forged Weapon  "}
@@ -7219,7 +7217,6 @@ c["+50% Poison Shred Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceTo
 c["+50% Puncture Bleed Chance"]={{[1]={[1]={skillName="Puncture",type="SkillName"},flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Bleed",type="BASE",value=50}},nil}
 c["+50% Recurve Chance"]={{}," Recurve Chance "}
 c["+50% Riposte Ignite Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Ignite",type="BASE",value=50}}," Riposte  "}
-c["+50% Second Strike Ignite Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Ignite",type="BASE",value=50}}," Second Strike  "}
 c["+50% Seed Burst Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=50}}," Seed Burst  "}
 c["+50% Self-Poison Frequency"]={{}," Self- Frequency "}
 c["+50% Shadow Cascade Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_ShadowCascade",type="BASE",value=50}},nil}

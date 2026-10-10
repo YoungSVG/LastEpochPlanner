@@ -15,6 +15,61 @@ describe("Rive strike calculations", function ()
 		build.spec.allocNodes[id] = points > 0 and node or nil
 	end
 
+	local function ailmentOutput(id, source)
+		local env = build.calcsTab.mainEnv
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if skill.activeEffect.grantedEffect.id == id and skill.socketGroup.source == (source or "Rive1") then
+				return GlobalCache.cachedData.CACHE[cacheSkillUUID(skill, env)].Env.player.output
+			end
+		end
+	end
+
+	it("applies ignite chance only on the specified strike and preserves chances above 100 percent", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		allocate("sndr1-9", 3)
+		local first = selectPart(1)
+		local ignite = ailmentOutput("Ailment_Ignite")
+		assert.are.equals(150, ignite.TriggerChance)
+		assert.are.equals(round(first.Speed * 1.5, 6), round(ignite.Speed, 6))
+		selectPart(2)
+		assert.are.equals(nil, ailmentOutput("Ailment_Ignite"))
+		allocate("sndr1-10", 2)
+		local second = selectPart(2)
+		ignite = ailmentOutput("Ailment_Ignite")
+		assert.are.equals(100, ignite.TriggerChance)
+		assert.are.equals(second.Speed, ignite.Speed)
+		selectPart(3)
+		assert.are.equals(nil, ailmentOutput("Ailment_Ignite"))
+	end)
+
+	it("passes Massacre duration only to bleeding applied by the third strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		allocate("sndr1-31", 3)
+		selectPart(1)
+		local baseDuration = ailmentOutput("Ailment_Bleed").Duration
+		assert.are.equals(75, ailmentOutput("Ailment_Bleed").TriggerChance)
+		selectPart(2)
+		assert.are.equals(baseDuration, ailmentOutput("Ailment_Bleed").Duration)
+		selectPart(3)
+		assert.are.equals(round(baseDuration * 1.3, 6), round(ailmentOutput("Ailment_Bleed").Duration, 6))
+		allocate("sndr1-31", 1)
+		selectPart(3)
+		assert.are.equals(round(baseDuration * 1.1, 6), round(ailmentOutput("Ailment_Bleed").Duration, 6))
+		build.configTab.input.customMods = "75% Chance to Bleed on Hit"
+		build.configTab:BuildModList()
+		build.skillsTab:SelSkill(1, "Fireball")
+		selectPart(1)
+		assert.are.equals(baseDuration, ailmentOutput("Ailment_Bleed", "Fireball").Duration)
+		build.configTab.input.customMods = ""
+		build.configTab:BuildModList()
+		build.skillsTab:SelSkill(1, "Rive1")
+		allocate("sndr1-31", 0)
+		selectPart(3)
+		assert.are.equals(nil, ailmentOutput("Ailment_Bleed"))
+	end)
+
 	it("applies Flurry speed only to the first two strikes and scales with allocated points", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

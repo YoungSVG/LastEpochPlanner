@@ -50,6 +50,9 @@ exact exported node text and scopes each bonus to both Rive and its strike.
 | Brutality (`sndr1-30`) | 15% more damage for strike 3 | `0x251f357` |
 | Double Slash (`sndr1-23`) | Remove strike 3 from the sequence | `0x251f041` |
 | Cadence (`sndr1-21`) | Change the sequence to 1, 2, 1, 2, 3 | `0x251ec07` (dispatch); `0x2269840` (list) |
+| Sever (`sndr1-9`) | +50% ignite chance on strike 1 | `0x251ee8f` |
+| Twisting Fangs (`sndr1-10`) | +50% ignite chance on strike 2 | `0x251efb5` |
+| Massacre (`sndr1-31`) | +25% bleed chance on all strikes; 10% increased bleed duration on strike 3 | `0x251f42f` |
 
 The native critical-stat property IDs are 4 (crit chance) and 5 (crit multiplier).
 Focused Strike calls `Stats.MoreStat` for crit chance and `Stats.AddedStat` for
@@ -59,6 +62,15 @@ switching and isolation from another skill. These do not model combo averages,
 echoes or ailment inheritance. Selecting the third strike with Double Slash
 now disables its calculation with an explanation. The strike selector remains
 available and refunding the node restores the third strike.
+
+Massacre calls `Stats.AilmentChanceStat` with ailment ID 2 and 0.25 per point
+for each strike, then `Stats.AilmentDurationStat` with 0.10 per point only for
+strike 3. The latter's argument is increased duration. The trigger calculation
+evaluates `AilmentDuration_<ailment ID>` against the source hit before passing
+the evaluated increase to the ailment's duration modifiers. This preserves
+source skill/strike restrictions. Ignite bonuses above 100% retain multiple
+expected applications per hit; tests cover 150%, strike switching, duration
+scaling/refunds and isolation from Fireball's bleed.
 
 ### Native sequence evidence
 
