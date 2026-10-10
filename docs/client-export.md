@@ -140,6 +140,10 @@ Shield-requiring spells retain their spell damage calculation. Radiant Lance's
 base damage multiplier uses fractional uncapped block chance. Native evidence:
 `RadiantLanceMutator.getTempStats` at RVA `0x224bb40` reads `SP.BlockChance` (29)
 and passes the positive value unchanged to the damage stat's more multiplier.
-This path is skipped when `noShieldRequirement` is set. The staged definitions
-still require specialization mutations (including that shield-removal node)
-before they can replace a complete supported gameplay version.
+This path is skipped when `noShieldRequirement` is set. Cloudless Sky (`ra1an-32`)
+uses node-scoped modifiers: it removes the shield requirement, suppresses block
+scaling, and grants 1% more damage per 25 maximum mana without whole-step rounding.
+The native mana path follows the block path in the same method (division by 25
+at RVA `0x224be23`). Exact client lines select these overrides; unrelated nodes
+continue through the normal parser. The staged definitions still require the
+remaining specialization mutations before replacing a supported gameplay version.

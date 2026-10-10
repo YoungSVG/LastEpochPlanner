@@ -80,4 +80,31 @@ describe("Client skill equipment requirements", function ()
 			assert.are.equals(round(1.7525 * 1.2, 6), round(store:More(nil, "Damage"), 6))
 		end
 	end)
+
+	it("Cloudless Sky replaces block scaling and removes only its skill's shield requirement", function ()
+		data.skills.Fireball.baseFlags.requiresShield = true
+		data.skills.Fireball.stats["damage_+%_final_per_uncapped_block_chance"] = 1
+		build.skillsTab:SelSkill(1, "Fireball")
+		runCallback("OnFrame")
+		local env = build.calcsTab.mainEnv
+		local originalSkill = env.player.mainSkill
+		assert.are.equals("This skill requires a Shield", originalSkill.disableReason)
+		local node = { id = "ra1an-32", alloc = 1, skillId = "Fireball", stats = {
+			" No Longer Requires Shield", "+1% Damage per 25 Max Mana", " No Damage Gain from Block Chance",
+		} }
+		build.spec.tree:ProcessStats(node)
+		assert.are.equals(nil, node.unknown)
+		assert.are.equals(nil, node.extra)
+		env.player.modDB:AddList(node.modList)
+		env.player.output.Mana = 112.5
+		env.player.output.UncappedBlockChance = 150.5
+		local calcs = build.calcsTab.calcs
+		local skill = calcs.createActiveSkill(originalSkill.activeEffect, {}, env.player, originalSkill.socketGroup)
+		calcs.buildActiveSkillModList(env, skill)
+		assert.are.equals(nil, skill.disableReason)
+		assert.are.equals(1.045, round(skill.skillModList:More(skill.skillCfg, "Damage"), 6))
+		local otherCfg = { skillGrantedEffect = { id = "LightningBlast" } }
+		assert.is_true(not env.player.modDB:GetCondition("RadiantLanceNoShield", otherCfg))
+		assert.are.equals(1, env.player.modDB:More(otherCfg, "Damage"))
+	end)
 end)

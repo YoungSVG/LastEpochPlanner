@@ -312,7 +312,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		end
 	end
 
-	if (skillTypes[SkillType.RequiresShield] or skillFlags.requiresShield or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
+	local noShieldRequirement = activeSkill.actor.modDB:GetCondition("RadiantLanceNoShield", { skillGrantedEffect = activeGrantedEffect })
+	if (skillTypes[SkillType.RequiresShield] or skillFlags.requiresShield or skillFlags.shieldAttack) and not noShieldRequirement and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
 		-- Check after weapon compatibility so its fallback cannot hide the missing shield.
 		skillFlags.disable = true
 		activeSkill.disableReason = "This skill requires a Shield"

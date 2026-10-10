@@ -322,7 +322,13 @@ function PassiveTreeClass:ProcessStats(node, startIndex)
 			end
 		end
 		local line = node.sd[i]
-		local list, extra = modLib.parseMod(line)
+		local list, extra
+		local nodeMods = data.skillNodeMods[node.id]
+		if nodeMods and nodeMods[line] then
+			list = copyTable(nodeMods[line])
+		else
+			list, extra = modLib.parseMod(line)
+		end
 		if not list then
 			-- Parser had no idea how to read this modifier
 			node.unknown = true
