@@ -262,11 +262,11 @@ Implicits: 2
 +22% Block Chance
 {range:131}{rounding:Integer}+(350-500) Block Effectiveness
 {range:198}{rounding:Integer}+(241-350) Block Effectiveness
-{range:31}{scalar:0.42}{rounding:Integer}(10-19)% increased Melee Damage
+{range:31}{scalar:0.42}(10-19)% Increased Melee Damage
 {range:225}{scalar:1.17}+(10-14)% Poison Resistance
 {range:193}{scalar:1.17}+(5-9)% Physical Resistance
 {sealed}{range:243}{scalar:1.17}+(30-45)% Void Resistance
-{corrupted}{range:180}(54-58)% chance to gain Haste for 5 seconds after you Block
+{corrupted}{range:180}(54-59)% chance to gain Haste for 5 seconds after you Block
 {corrupted}11% increased Effect of Haste on You]]
 
 		assert.are.same(expected, rawItem)
@@ -326,11 +326,11 @@ Corrupted: {range:166}77_4
 LevelReq: 24
 Implicits: 2
 +28 Melee Damage
-{range:91}+(20-28)% Chance to inflict Bleed on Hit
+{range:91}+(20-28)% Chance to Inflict Bleed on Hit
 {range:51}{rounding:Integer}+(3-6) Melee Physical Damage
 {range:171}{rounding:Integer}+(7-10) Melee Void Damage
 {range:60}(76-95)% Increased Melee Stun Chance
-{sealed}{range:53}{scalar:1.75}{rounding:Integer}(22-30)% increased Poison Damage
+{sealed}{range:53}{scalar:1.75}(22-30)% Increased Poison Damage
 {corrupted}{range:166}{rounding:Integer}+(21-26) Melee Fire Damage]]
 
 		assert.are.same(expected, rawItem)
