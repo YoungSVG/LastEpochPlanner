@@ -6,6 +6,16 @@ describe("Client item descriptions", function ()
 		return mods
 	end
 
+	it("accepts positive and negative resistance rolls without a leading plus", function ()
+		for _, value in ipairs({ -5, 5, 15 }) do
+			local mods = parse(value .. "% to All Resistances", 7)
+			for _, modifier in ipairs(mods) do
+				assert.are.equals("BASE", modifier.type)
+				assert.are.equals(value, modifier.value)
+			end
+		end
+	end)
+
 	it("applies shared resistance once to the player and once to minions", function ()
 		local mods = parse("+60% Cold Resistance for you and your Minions", 2)
 		assert.are.equals("ColdResist", mods[1].name)

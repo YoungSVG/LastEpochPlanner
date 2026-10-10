@@ -73,3 +73,30 @@ This checks atlas bounds, file presence, logical dimensions, shared texture
 handles, sprite caching, and fallback loading. CI also runs the full application
 and saved-build checks. Installing an icon export does not itself change the
 active gameplay data version.
+
+## Item conversion (staged)
+
+```powershell
+python helperScripts/build_client_items.py --source ..\client-export --baseline src/Data --output ..\client-items
+python helperScripts/test_client_items.py
+```
+
+The client exporter also extracts the English localization tables. The item
+converter uses their property descriptors and tooltip ordering, preserves
+descending roll ranges, and records independent roll IDs for compound lines.
+Historical base names are retained as `legacyNames` when the base and subtype
+IDs match; the runtime resolves these without duplicating crafting entries.
+
+The 1.5.2.2 conversion currently produces 922 named bases, 489 uniques, and 6,238
+affix tiers. These outputs are intermediate files, not the active application
+database. Before installing them, compare parsed modifiers against the existing
+data and review combined tooltip descriptions against the underlying modifiers.
+In particular, Chorus of the Anurok has different underlying roll IDs for player
+and minion cold resistance despite a shared tooltip placeholder. Dragonsong's
+speed tooltip refers to roll 7 while its underlying speed modifiers use roll 3.
+Do not assume tooltip placeholder IDs alone prove the saved gameplay roll mapping.
+
+Updated parsing also fixes an existing Druid mastery omission: `20% increased
+health and mana` now contributes both bonuses. In the `tornado_dot` fixture,
+health changes from 3,786 to 4,181 and mana from 304 to 360; its dependent defence
+outputs and serialized player-stat snapshot change accordingly.

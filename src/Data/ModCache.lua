@@ -9270,8 +9270,8 @@ c["1 Talon Blade Stacks"]={{}," Talon Blade Stacks "}
 c["1 Targets to Spread Curses to"]={{}," Targets to Spread Curses to "}
 c["1 Targets to Spread Electrify to"]={{}," Targets to Spread  to "}
 c["1 Targets to Spread Posion to"]={{}," Targets to Spread Posion to "}
-c["1 Totem Limit"]={{}," Totem Limit "}
-c["1 Totem Per Type Limit"]={{}," Totem Per Type Limit "}
+c["1 Totem Limit"]={{},"tem Limit "}
+c["1 Totem Per Type Limit"]={{},"tem Per Type Limit "}
 c["1 Umbral Blades per 20 Dexterity thrown with Aerial Assault's Burst of Feathers"]={{},"   thrown with Aerial Assault's Burst of Feathers "}
 c["1 Vale Spirit Every 5 Spirit Thorn Casts"]={{},"  Every 5 Spirit Thorn Casts "}
 c["1 Viscera gained per 2 seconds"]={{}," Viscera gained per 2 seconds "}
@@ -10010,7 +10010,7 @@ c["108% increased Poison Damage"]={{[1]={flags=0,keywordFlags=0,name="PoisonDama
 c["108% increased Spell Damage"]={{[1]={flags=0,keywordFlags=256,name="Damage",type="INC",value=108}},nil}
 c["108% increased Throwing Physical Damage"]={{[1]={flags=0,keywordFlags=1024,name="PhysicalDamage",type="INC",value=108}},nil}
 c["108% increased Void Damage"]={{[1]={flags=0,keywordFlags=0,name="VoidDamage",type="INC",value=108}},nil}
-c["108% to 75% less Damage depending on Area Level for You and your Minions"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=108},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="MORE",value=108}}}}," to 75% less  depending on Area Level  "}
+c["108% to 75% less Damage depending on Area Level for You and your Minions"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=108},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="BASE",value=108}}}}," 75% less  depending on Area Level  "}
 c["109% Increased Melee Stun Chance"]={{},"  Stun Chance "}
 c["11 Health Gain on Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=11}},nil}
 c["11 Health Gain on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Life",type="BASE",value=11}},"  Gain  "}
@@ -10093,7 +10093,7 @@ c["110 Health Gained on Shadow Creation"]={{[1]={flags=0,keywordFlags=0,name="Li
 c["110% Glyph of Dominion Mana Consumption"]={{[1]={[1]={skillName="Glyph of Dominion",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=110}},"   Consumption "}
 c["110% Healing Hands Mana Consumption"]={{[1]={[1]={skillName="Healing Hands",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=110}},"   Consumption "}
 c["110% Increased Chance To Find Potions"]={{}," Chance To Find Potions "}
-c["110% Tornado Mana Consumption"]={{[1]={[1]={skillName="Tornado",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=110}},"   Consumption "}
+c["110% Tornado Mana Consumption"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=110}},"rnado  Consumption "}
 c["110% Volcanic Orb Mana Consumption"]={{[1]={[1]={skillName="Volcanic Orb",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=110}},"   Consumption "}
 c["110% increased Critical Strike Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=110}},nil}
 c["110% increased Minion Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=110}}}},nil}
@@ -12265,7 +12265,7 @@ c["288% Increased Critical Strike chance with Flurry"]={{[1]={[1]={skillName="Fl
 c["288% increased Necrotic Damage While Transformed"]={{[1]={flags=0,keywordFlags=0,name="NecroticDamage",type="INC",value=288}},"  While Transformed "}
 c["288% increased Physical Damage While Transformed"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=288}},"  While Transformed "}
 c["288% increased Void Damage"]={{[1]={flags=0,keywordFlags=0,name="VoidDamage",type="INC",value=288}},nil}
-c["288% to 200% more Damage Taken depending on Area Level for You and your Minions"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=288},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=288}}}}," to 200% more  depending on Area Level  "}
+c["288% to 200% more Damage Taken depending on Area Level for You and your Minions"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=288},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=288}}}}," 200% more  depending on Area Level  "}
 c["29 Ward gained when you cast Flame Ward"]={{[1]={[1]={skillName="Flame Ward",type="SkillName"},flags=0,keywordFlags=0,name="Ward",type="BASE",value=29}},"  gained when you cast  "}
 c["29% Chance for Lightning Blast to Chain 4 Additional Times"]={{},"  to Chain 4 Additional Times "}
 c["29% Chance to Cast Dragon Fire on Crit"]={{}," to Cast Dragon  on Crit "}
@@ -12375,7 +12375,7 @@ c["3 Spreads After Duration (Seconds)"]={{[1]={flags=0,keywordFlags=0,name="Dura
 c["3 Stacks Consumed"]={{}," Stacks Consumed "}
 c["3 Stacks on Firebrand Use"]={{}," Stacks on  Use "}
 c["3 Taunt Duration (seconds)"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="BASE",value=3}}," Taunt  "}
-c["3 Totem Frenzy Duration (seconds)"]={{[1]={[1]={skillName="Frenzy",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="BASE",value=3}}," Totem   "}
+c["3 Totem Frenzy Duration (seconds)"]={{[1]={[1]={skillName="Frenzy",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="BASE",value=3}},"tem   "}
 c["3 Vanguard Limit"]={{}," Vanguard Limit "}
 c["3 Void Bolts At Arrival"]={{},"  Bolts At Arrival "}
 c["3 Void Bolts At Starting Position"]={{},"  Bolts At Starting Position "}
@@ -12611,7 +12611,7 @@ c["30% Reduced Bonus Damage Taken From Crits"]={{[1]={flags=0,keywordFlags=0,nam
 c["30% Reduced Movespeed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-30}},nil}
 c["30% Shared Reduced Bonus Damage Taken From Crits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=-30},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=-30}}}}," Bonus  From Crits "}
 c["30% Spectral Putrescence Chance"]={{}," Spectral Putrescence Chance "}
-c["30% Tornado Chance On Wind Tempest"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Tornado",type="BASE",value=30}},"  On Wind Tempest "}
+c["30% Tornado Chance On Wind Tempest"]={{},"rnado Chance On Wind Tempest "}
 c["30% Totem Increased Healing"]={{},"totem  "}
 c["30% chance for Wolves to Retaliate with Lightning Strike when hit"]={{}," for Wolves to Retaliate with  Strike when  "}
 c["30% chance to gain Corrupted Heraldry when hit by Shrapnel from Volcanic Orb"]={nil,"Corrupted Heraldry when hit by Shrapnel from Volcanic Orb "}
