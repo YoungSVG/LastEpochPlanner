@@ -50,7 +50,10 @@
     "stats": {
       "chance_to_cast_Ailment_AbyssalDecay_on_hit_%": 100,
       "base_skill_effect_duration": 300,
-      "cooldown": 2.9994001
+      "cost": {
+        "Mana": 35.0
+      },
+      "cooldown": 2.9994
     },
     "baseMods": [
       "+2 Spell Void Damage per player Vitality"
@@ -2406,7 +2409,7 @@
     },
     "stats": {
       "base_skill_effect_duration": 10,
-      "cooldown": 11.990407
+      "cooldown": 11.99041
     },
     "treeId": "an0my"
   },
@@ -2851,7 +2854,7 @@
   "DevouringOrb": {
     "name": "Devouring Orb",
     "skillTypeTags": 4368,
-    "castTime": 0.59090906,
+    "castTime": 0.5909091,
     "baseFlags": {
       "spell": true,
       "hit": true,
@@ -2864,7 +2867,10 @@
       "critChance": 5,
       "base_skill_effect_duration": 10000,
       "damage_interval": 250,
-      "cooldown": 4
+      "cost": {
+        "Mana": 18.0
+      },
+      "cooldown": 4.0
     },
     "baseMods": [
       "+2 Spell Void Damage per player Vitality"
@@ -4465,7 +4471,7 @@
   "Rive1": {
     "name": "Rive",
     "skillTypeTags": 513,
-    "castTime": 0.54545456,
+    "castTime": 0.5454545,
     "baseFlags": {
       "melee": true,
       "attack": true,
@@ -6187,7 +6193,7 @@
   "VoidCleave": {
     "name": "Void Cleave",
     "skillTypeTags": 528,
-    "castTime": 2.272727,
+    "castTime": 2.2727272,
     "baseFlags": {
       "melee": true,
       "attack": true,
@@ -6200,13 +6206,20 @@
       "base_critical_strike_multiplier_+": 100,
       "critChance": 5,
       "base_skill_effect_duration": 150,
-      "cooldown": 4
+      "cost": {
+        "Mana": 15.0
+      },
+      "cooldown": 4.0
     },
     "baseMods": [
       "4% increased Damage per player Strength",
       "4% increased Damage per player Vitality"
     ],
-    "treeId": "v01cv"
+    "treeId": "v01cv",
+    "weaponTypes": {
+      "Two-Handed Axe": true,
+      "Two-Handed Sword": true
+    }
   },
   "VoidRift": {
     "name": "Void Rift",
