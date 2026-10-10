@@ -80,6 +80,23 @@ equal(character.items[1].rarity, "LEGENDARY")
 equal(character.items[1].affixes[1].corrupted, true)
 equal(character.items[1].affixes[1].range, 128)
 equal(character.items[1].explicitMods[1], "{unique}{range: 42}+(5-10) Health")
+
+-- Bluefeather Band-style descriptions contain two independent saved rolls.
+context.data.uniques[7].mods = { "Gain (15-21) Mana and (180-330) Ward" }
+context.data.uniques[7].rollIds = { { 4, 5 } }
+context.applyRange = function (line, ranges)
+	equal(line, "Gain (15-21) Mana and (180-330) Ward")
+	equal(ranges[1], 0)
+	equal(ranges[2], 255)
+	return "Gain 15 Mana and 330 Ward"
+end
+remote.equipment.weapon2.ur = { 128, 128, 128, 128, 0, 255 }
+equal(online.decodeCharacter(remote, context).items[1].explicitMods[1], "{unique}Gain 15 Mana and 330 Ward")
+local unique = offlineItem(5)
+unique.data[6] = 7
+unique.data[11], unique.data[12] = 0, 7
+unique.data[17], unique.data[18] = 0, 255
+equal(offline.decodeItem(unique, context).explicitMods[1], "{unique}Gain 15 Mana and 330 Ward")
 equal(_G.processItemData, nil)
 equal(_G.proccessItemAffix, nil)
 equal(_G.data, nil)

@@ -1,0 +1,64 @@
+"""Regression cases for serialized item values and tooltip roll associations."""
+import unittest
+
+from build_client_items import Properties, tooltip
+
+
+class ItemConversionTests(unittest.TestCase):
+    def setUp(self):
+        self.props = Properties.__new__(Properties)
+        # Relevant flags and descriptor text from the 1.5.2.2 client.
+        self.props.master = {
+            7: {"roundingForAdded": 1},
+            51: {"displayAddedAsPercentage": 1, "displayAddedAsTenthOfValue": 1,
+                 "displayAsPercentageOf": 1},
+            8: {"roundingForAdded": 1},
+        }
+        self.props.indexed = {98: {569: {}, 683: {}, 4: {}}}
+        self.props.english = {"Descriptors": {
+            "7,0,0,0": "Health",
+            "51,0,0,1": "of Damage Leeched as Health",
+            "8,0,0,0,6": "less Mana",
+            "98,569,0,0,0": "Chance to Ignite on Hit per 10% uncapped Fire Resistance",
+            "98,683,0,0,0": "Chance to inflict Bleed on hit per 1 Mana Cost",
+            "98,4,0,0,0": "Bees Per 10 Seconds",
+        }}
+
+    def render(self, prop, low, high, tags=0, mode=0):
+        return self.props.render({"property": prop, "tags": tags, "specialTag": 0, "extraTag": 0, "type": mode}, low, high)
+
+    def test_chance_uses_percentage_units_despite_incomplete_display_flag(self):
+        self.assertEqual("+(4-7)% Chance to Ignite on Hit per 10% uncapped Fire Resistance",
+                         self.render(98, 0.03999999910593033, 0.07000000029802322, tags=569))
+        self.assertEqual("+10% Chance to inflict Bleed on hit per 1 Mana Cost", self.render(98, 0.1, 0.1, tags=683))
+
+    def test_fractional_minion_rate_is_not_a_probability(self):
+        self.assertEqual("+(0.8-1.2) Bees Per 10 Seconds", self.render(98, 0.8, 1.2, tags=4))
+
+    def test_integer_health_keeps_integer_roll_precision(self):
+        self.assertEqual("{rounding:Integer}+(66-113) Health", self.render(7, 66, 113))
+
+    def test_leech_uses_tenths_of_percent(self):
+        self.assertEqual("{rounding:Tenth}(1.5-2.5)% of Damage Leeched as Health", self.render(51, 0.15, 0.25))
+
+    def test_negative_more_modifier_preserves_saved_roll_direction(self):
+        self.assertEqual("(54-48)% less Mana", self.render(8, -0.54, -0.48, mode=2))
+
+    def test_independent_roll_ids_are_retained_in_tooltip_order(self):
+        line, rolls, all_rolls = tooltip("Gain [15,21,4] Mana and [180,330,5] Ward")
+        self.assertEqual("Gain (15-21) Mana and (180-330) Ward", line)
+        self.assertEqual([4, 5], rolls)
+        self.assertEqual([4, 5], all_rolls)
+
+    def test_constant_placeholder_does_not_consume_a_roll_position(self):
+        line, rolls, _ = tooltip("Gain [10,10,0] Health and [15,21,4] Mana")
+        self.assertEqual("Gain 10 Health and (15-21) Mana", line)
+        self.assertEqual(4, rolls)
+
+    def test_missing_descriptor_fails_instead_of_inventing_stat_text(self):
+        with self.assertRaisesRegex(ValueError, "Missing client descriptor"):
+            self.render(7, 10, 20, tags=8192)
+
+
+if __name__ == "__main__":
+    unittest.main()

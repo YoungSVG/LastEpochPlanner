@@ -1086,6 +1086,7 @@ function buildMode:ReadLeToolsSave(saveContent)
 		data = self.data,
 		tree = self.latestTree,
 		hasRange = itemLib.hasRange,
+		applyRange = itemLib.applyRange,
 		defaultAffixQuality = main.defaultItemAffixQuality,
 		sortedPairs = pairsSortByKey,
 	})

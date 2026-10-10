@@ -720,6 +720,7 @@ local function importContext(build)
 		data = build.data,
 		tree = build.latestTree,
 		hasRange = itemLib.hasRange,
+		applyRange = itemLib.applyRange,
 		sortedPairs = pairsSortByKey,
 	}
 end
