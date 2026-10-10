@@ -138,6 +138,17 @@ multi-target hit probability, mana caps and echo recovery are not modelled.
 Tests cover damage/bleed, unchanged maximum mana, 1/3/0 points, all four
 sequences and isolation from Fireball. Ordinary mana regeneration is separate.
 
+Triple Threat (`sndr1-22`, native branch `0x251ed08`) adds 0.50 more untagged
+damage to the third strike at `0x251ed71`, 0.50 to property 45
+(`IncreasedStunChance`) in the same strike's stat list at `0x251edd2`, and 0.50
+to its area accumulator. The planner scopes damage, ailment damage, area and
+the offensive stun increase to strike 3. The sidebar explicitly labels the
+latter **Increased Stun Chance**: it is a modifier, not the final probability
+against an enemy. Enemy health, stun avoidance and reactive immunity still
+need a native stun calculation; no stun uptime or guaranteed stun is assumed.
+Tests cover strike switching, bleed inheritance, modifier removal and skill
+isolation. The stun modifier is hit-only and is not inherited by bleed.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications

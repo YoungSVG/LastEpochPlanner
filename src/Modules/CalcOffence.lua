@@ -315,6 +315,10 @@ function calcs.offence(env, actor, activeSkill)
 		return
 	end
 
+	-- This is the offensive increase, not the final chance against an enemy.
+	local stunChanceInc = skillModList:Sum("INC", skillCfg, "StunChance")
+	output.StunChanceInc = stunChanceInc ~= 0 and stunChanceInc or nil
+
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
 		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)

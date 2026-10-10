@@ -7188,7 +7188,6 @@ c["+50% Ignite Chance per Second"]={{[1]={flags=8388608,keywordFlags=0,name="Cha
 c["+50% Ignite Frequency"]={{},"  Frequency "}
 c["+50% Increased Healing If Recently Transformed"]={{},"  If Recently Transformed "}
 c["+50% Increased Minion Crit Chance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}}}},nil}
-c["+50% Increased Stun Chance"]={{}," Stun Chance "}
 c["+50% Increased Stun Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=50}},nil}
 c["+50% Iron Blade Armor Shred Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_ArmourShred",type="BASE",value=50}}," Iron Blade  "}
 c["+50% Locust Size"]={{}," Locust Size "}
@@ -7234,8 +7233,6 @@ c["+50% Spark Charge Damage Per Sword"]={{[1]={[1]={type="Multiplier",var="Sword
 c["+50% Spreading Distance"]={{}," Spreading Distance "}
 c["+50% Spreading Flames Chance"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_SpreadingFlames",type="BASE",value=50}},nil}
 c["+50% Stun Chance"]={{}," Stun Chance "}
-c["+50% Third Strike Area"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=50}}," Third Strike  "}
-c["+50% Third Strike Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}}," Third Strike  "}
 c["+50% Thunder Tempest Shock Chance "]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_Shock",type="BASE",value=50}}," Thunder Tempest   "}
 c["+50% Time Rot Chance On Skill Echo"]={{[1]={flags=8388608,keywordFlags=0,name="ChanceToTriggerOnHit_Ailment_TimeRot",type="BASE",value=50}},"  On Skill Echo "}
 c["+50% Time Wave Hit Damage"]={{[1]={flags=8388608,keywordFlags=0,name="Damage",type="MORE",value=50}}," Time Wave   "}

@@ -171,6 +171,37 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(0, selectPart(1).ManaOnHit)
 	end)
 
+	it("restricts Triple Threat damage, area and stun increase to the third strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			baseline[part] = selectPart(part).TotalDPS
+		end
+		selectPart(3)
+		local bleed = ailmentOutput("Ailment_Bleed").TotalDPS
+		allocate("sndr1-22", 1)
+		for part = 1, 3 do
+			local out = selectPart(part)
+			assert.are.equals(part == 3 and 1.5 or 1, round(out.TotalDPS / baseline[part], 2))
+			assert.are.equals(part == 3 and 50 or nil, out.StunChanceInc)
+			local skill = build.calcsTab.mainEnv.player.mainSkill
+			assert.are.equals(part == 3 and 50 or 0, skill.skillModList:Sum("INC", skill.skillCfg, "AreaOfEffect"))
+		end
+		assert.are.equals(1.5, round(ailmentOutput("Ailment_Bleed").TotalDPS / bleed, 2))
+		assert.are.equals(nil, ailmentOutput("Ailment_Bleed").StunChanceInc)
+		allocate("sndr1-22", 0)
+		assert.are.equals(baseline[3], selectPart(3).TotalDPS)
+		assert.are.equals(nil, build.calcsTab.mainOutput.StunChanceInc)
+		build.skillsTab:SelSkill(1, "Fireball")
+		local before = selectPart(1).TotalDPS
+		allocate("sndr1-22", 1)
+		assert.are.equals(before, selectPart(1).TotalDPS)
+		assert.are.equals(nil, build.calcsTab.mainOutput.StunChanceInc)
+	end)
+
 	it("weights bleed and ignite from each applying strike across the entire combo", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

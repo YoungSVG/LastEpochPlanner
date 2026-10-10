@@ -51,6 +51,18 @@ return {
 			mod("ManaOnHit", "BASE", 5, 0, 0, { type = "SkillPart", skillPart = 3 }),
 		},
 	},
+	["sndr1-22"] = {
+		["+50% Third Strike Damage"] = {
+			mod("Damage", "MORE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Third Strike Area"] = {
+			mod("AreaOfEffect", "INC", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Increased Stun Chance"] = {
+			mod("StunChance", "INC", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["sndr1-23"] = {
 		[" Skips Third Strike"] = {
 			mod("Condition:RiveSkipThirdStrike", "FLAG", true),
