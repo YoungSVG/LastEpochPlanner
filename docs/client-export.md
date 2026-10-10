@@ -100,3 +100,21 @@ Updated parsing also fixes an existing Druid mastery omission: `20% increased
 health and mana` now contributes both bonuses. In the `tornado_dot` fixture,
 health changes from 3,786 to 4,181 and mana from 304 to 360; its dependent defence
 outputs and serialized player-stat snapshot change accordingly.
+
+## Ability and summoned-actor prefabs
+
+```powershell
+python helperScripts/export_client_skill_prefabs.py --game "D:\Steam\steamapps\common\Last Epoch" --assemblies ..\client-assemblies --source ..\client-export --output ..\client-skills --client-version 1.5.2.2 --ability Fireball --ability Dreamslash --ability RadiantLance --ability PrimalistSummonElemental
+```
+
+This exports the selected ability prefab components, follows `ActorReference`
+for summons, and resolves the summoned actor's keyed ability references through
+`AbilityManager`. It walks only each prefab's object hierarchy. The example
+exports six abilities and one actor, including Elemental Bolt and Geyser, and
+writes a manifest with the source-file fingerprints. Unknown ability names,
+ambiguous prefab roots, external actor references, and nested summons fail
+explicitly instead of producing a silently incomplete export.
+
+Keep the core export and installation on the same client build. These raw
+prefabs contain base damage and actor configuration; they do not by themselves
+implement skill-tree mutations or establish the final combat calculation.
