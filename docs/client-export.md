@@ -115,7 +115,11 @@ writes a manifest with the source-file fingerprints. Unknown ability names,
 ambiguous prefab roots, external actor references, and nested summons fail
 explicitly instead of producing a silently incomplete export.
 
-Keep the core export and installation on the same client build. These raw
+Keep the core export and installation on the same client build. The skill
+converter checks version metadata and matching SHA-256 fingerprints for shared
+source files, requiring the executable, IL2CPP metadata, and PermaLoad bundle.
+It rejects mixed exports before reading property tables or writing definitions.
+These raw
 prefabs contain base damage and actor configuration; they do not by themselves
 implement skill-tree mutations or establish the final combat calculation.
 

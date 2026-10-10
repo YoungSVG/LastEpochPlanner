@@ -1,10 +1,39 @@
 """Regressions for the 1.5.2.2 prefab-to-planner skill conversion."""
 import unittest
+from copy import deepcopy
 
-from build_client_skills import cast_time, convert_skill
+from build_client_skills import cast_time, convert_skill, validate_sources
 
 
 class SkillConversionTests(unittest.TestCase):
+    def test_source_fingerprints_reject_mixed_builds_with_the_same_version(self):
+        core = {"clientVersion": "1.5.2.2", "unityVersion": "6000.4.8f1", "buildHash": "build-a",
+                "sources": [{"path": path, "bytes": 123, "sha256": "a" * 64} for path in (
+                    "GameAssembly.dll", "Last Epoch_Data/il2cpp_data/Metadata/global-metadata.dat",
+                    "Last Epoch_Data/StreamingAssets/LEAssetBundles/PermaLoad.bundle")]}
+        prefabs = deepcopy(core)
+        # Separate bundles are expected; only overlapping sources must match.
+        prefabs["sources"].append({"path": "skill.bundle", "bytes": 456, "sha256": "b" * 64})
+        validate_sources(prefabs, core)
+        for index in range(3):
+            changed = deepcopy(prefabs)
+            changed["sources"][index]["sha256"] = "c" * 64
+            with self.assertRaisesRegex(ValueError, "fingerprints differ"):
+                validate_sources(changed, core)
+        for key in ("clientVersion", "unityVersion", "buildHash"):
+            changed = deepcopy(prefabs)
+            changed[key] = "another build"
+            with self.assertRaisesRegex(ValueError, key):
+                validate_sources(changed, core)
+        changed = deepcopy(prefabs)
+        changed["sources"].pop(0)
+        with self.assertRaisesRegex(ValueError, "lack required"):
+            validate_sources(changed, core)
+        changed = deepcopy(prefabs)
+        changed["sources"].append(changed["sources"][0])
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            validate_sources(changed, core)
+
     def test_player_speed_is_not_applied_to_a_minion(self):
         ability = {"useDuration": 0.6000000238418579, "speedMultiplier": 0.800000011920929,
                    "channelled": 0, "instantCastForPlayer": 0}

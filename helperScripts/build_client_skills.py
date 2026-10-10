@@ -12,6 +12,32 @@ MINION_SKILLS = {"PrimalistElemental 01 ElementalBolt": "TideElementalBolt",
                  "PrimalistElemental 02 Geyser": "TideElementalGeyser"}
 
 
+def validate_sources(prefabs, core):
+    """Reject mixed client builds before combining ability and property data."""
+    for key in ("clientVersion", "unityVersion", "buildHash"):
+        if not prefabs.get(key) or prefabs[key] != core.get(key):
+            raise ValueError(f"Client exports disagree on {key}")
+    sources = []
+    for manifest in (prefabs, core):
+        entries = manifest.get("sources", [])
+        indexed = {entry["path"]: entry for entry in entries}
+        if len(indexed) != len(entries):
+            raise ValueError("Duplicate client source paths")
+        sources.append(indexed)
+    required = {"GameAssembly.dll", "Last Epoch_Data/il2cpp_data/Metadata/global-metadata.dat",
+                "Last Epoch_Data/StreamingAssets/LEAssetBundles/PermaLoad.bundle"}
+    shared = sources[0].keys() & sources[1].keys()
+    if not required <= shared:
+        raise ValueError("Client exports lack required source fingerprints")
+    for path in sorted(shared):
+        first, second = (source[path] for source in sources)
+        digest = first.get("sha256", "")
+        if (len(digest) != 64 or any(char not in "0123456789abcdef" for char in digest)
+                or digest != second.get("sha256") or first.get("bytes", 0) <= 0
+                or first["bytes"] != second.get("bytes")):
+            raise ValueError(f"Client source fingerprints differ or are invalid: {path}")
+
+
 def component(prefab, name):
     values = [row["data"] for row in prefab["objects"] if row["class"] == name]
     if len(values) != 1:
@@ -74,8 +100,9 @@ def convert_skill(prefab, props, actor_speed, minion=False):
 
 
 def build(source, core, output):
-    props = Properties(core)
     manifest = read_json(source / "manifest.json")
+    validate_sources(manifest, read_json(core / "manifest.json"))
+    props = Properties(core)
     prefabs = [read_json(source / row["path"]) for row in manifest["tables"] if row["class"] == "AbilityPrefab"]
     actors = [read_json(source / row["path"]) for row in manifest["tables"] if row["class"] == "ActorPrefab"]
     actors = [actor for actor in actors if actor["actor"]["m_Name"] == "Summoned Shaman Elemental"]
