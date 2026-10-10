@@ -1,10 +1,47 @@
 """Regression cases for serialized item values and tooltip roll associations."""
 import unittest
 
-from build_client_items import Properties, tooltip, legacy_names
+from build_client_items import Properties, tooltip, legacy_names, resolve_legacy_name_conflicts, unique_tooltip
 
 
 class ItemConversionTests(unittest.TestCase):
+    def test_dragonsong_speed_uses_gameplay_roll_instead_of_tooltip_slot(self):
+        item = {"uniqueID": 243, "mods": [{} for _ in range(9)]}
+        for index, prop in ((7, 2), (8, 3)):
+            item["mods"][index] = {"property": prop, "tags": 8, "type": 1, "rollID": 3,
+                                   "canRoll": 1, "specialTag": 0, "value": 0.11999999731779099,
+                                   "maxValue": 0.17000000178813934}
+        text = "+[12,17,7]% increased Attack and Cast Speed with Fire Skills"
+        result = unique_tooltip(self.props, item, 2, text)
+        self.assertEqual([("+(12-17)% increased Attack and Cast Speed with Fire Skills", 3, [3])], result)
+        item["mods"][8]["rollID"] = 4
+        with self.assertRaisesRegex(ValueError, "needs review"):
+            unique_tooltip(self.props, item, 2, text)
+
+    def test_anurok_resistances_keep_independent_player_and_minion_rolls(self):
+        self.props.master[14] = {"displayAddedAsPercentage": 1}
+        self.props.english["Descriptors"].update({"14,0,0,0": "Cold Resistance",
+                                                  "14,8192,0,0": "Minion Cold Resistance"})
+        item = {"uniqueID": 430, "mods": [{}, {}]}
+        for tags, roll_id in ((0, 0), (8192, 1)):
+            item["mods"].append({"property": 14, "tags": tags, "type": 0, "rollID": roll_id,
+                                 "canRoll": 1, "specialTag": 0, "value": 0.5, "maxValue": 0.75})
+        result = unique_tooltip(self.props, item, 1, "+[50,75,0]% Cold Resistance for you and your Minions")
+        self.assertEqual([("+(50-75)% Cold Resistance", 0, [0]),
+                          ("+(50-75)% Minion Cold Resistance", 1, [1])], result)
+
+    def test_reused_current_name_is_not_installed_as_a_legacy_alias(self):
+        bases = {
+            "Roughspun Tunic": {"baseTypeID": 1, "subTypeID": 43, "legacyNames": ["Cloth Armor", "Older Tunic"]},
+            "Cloth Armor": {"baseTypeID": 1, "subTypeID": 72},
+        }
+        conflicts = resolve_legacy_name_conflicts(bases)
+        self.assertEqual(["Older Tunic"], bases["Roughspun Tunic"]["legacyNames"])
+        self.assertEqual(43, conflicts[0]["oldSubTypeID"])
+        self.assertEqual(72, conflicts[0]["currentSubTypeID"])
+        self.assertEqual("Cloth Armor", conflicts[0]["legacyName"])
+        self.assertEqual(conflicts, resolve_legacy_name_conflicts(bases))
+
     def test_renamed_base_keeps_old_names_across_updates(self):
         self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Outcast Cage", {}))
         self.assertEqual(["Outcast Cage"], legacy_names("Pariah Shroud", "Pariah Shroud", {"legacyNames": ["Outcast Cage"]}))

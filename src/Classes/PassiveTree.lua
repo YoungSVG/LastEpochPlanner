@@ -288,20 +288,25 @@ function PassiveTreeClass:ProcessStats(node, startIndex)
 	end
 
 	node.sd = {}
+	local sourceLines = {}
+	local nodeMods = data.skillNodeMods[node.id]
 	if node.stats then
 		for _, stat in ipairs(node.stats) do
+			local source = { text = stat, scale = math.max(1, node.alloc) }
 			if node.alloc > 1 and stat:match("%d") then
 				stat = stat:gsub("(%d[%d.]*)", function (valueStr)
 					value = tonumber(valueStr)
 					return tostring(value * node.alloc)
-				end)
+				end, nodeMods and nodeMods[stat] and 1 or nil)
 			end
 			table.insert(node.sd, stat)
+			table.insert(sourceLines, source)
 		end
 	end
 	if node.noScalingPointThreshold and node.alloc >= node.noScalingPointThreshold then
 		for _, stat in ipairs(node.notScalingStats) do
 			table.insert(node.sd, stat)
+			table.insert(sourceLines, { text = stat, scale = 1 })
 		end
 	end
 
@@ -315,14 +320,27 @@ function PassiveTreeClass:ProcessStats(node, startIndex)
 		if node.sd[i]:match("\n") then
 			local line = node.sd[i]
 			local il = i
+			local source = t_remove(sourceLines, i)
 			t_remove(node.sd, i)
 			for line in line:gmatch("[^\n]+") do
 				t_insert(node.sd, il, line)
+				t_insert(sourceLines, il, { text = line, scale = source.scale })
 				il = il + 1
 			end
 		end
 		local line = node.sd[i]
-		local list, extra = modLib.parseMod(line)
+		local list, extra
+		local source = sourceLines[i]
+		if nodeMods and nodeMods[source.text] then
+			list = copyTable(nodeMods[source.text])
+			for _, mod in ipairs(list) do
+				if type(mod.value) == "number" then
+					mod.value = mod.value * source.scale
+				end
+			end
+		else
+			list, extra = modLib.parseMod(line)
+		end
 		if not list then
 			-- Parser had no idea how to read this modifier
 			node.unknown = true

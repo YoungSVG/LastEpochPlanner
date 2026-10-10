@@ -413,7 +413,7 @@
       "ailment": true
     },
     "stats": {
-      "base_skill_effect_duration": 1E+09,
+      "base_skill_effect_duration": 1000000000.0,
       "maximum_stacks": 0,
       "damageEffectiveness": 1
     },
@@ -6556,5 +6556,124 @@
       "base_skill_effect_duration": 10
     },
     "fromMinion": true
+  },
+  "PrimalistSummonElemental": {
+    "name": "Summon Tide Elemental",
+    "skillTypeTags": 0,
+    "castTime": 0.6818182,
+    "baseFlags": {
+      "minion": true
+    },
+    "stats": {
+      "cooldown": 4.0,
+      "cost": {
+        "Mana": 15.0
+      }
+    },
+    "baseMods": [
+      "+16 Minion Health per player Attunement",
+      "4% Increased Minion Damage per player Attunement"
+    ],
+    "treeId": "su3lem",
+    "minionList": [
+      "TideElemental"
+    ]
+  },
+  "TideElementalBolt": {
+    "name": "Elemental Bolt",
+    "skillTypeTags": 260,
+    "castTime": 0.75,
+    "baseFlags": {
+      "hit": true,
+      "spell": true
+    },
+    "stats": {
+      "damageEffectiveness": 2.0,
+      "base_critical_strike_multiplier_+": 100.0,
+      "critChance": 5.0,
+      "spell_base_cold_damage": 40.0,
+      "cost": {
+        "Mana": 1.0
+      }
+    },
+    "fromMinion": true
+  },
+  "TideElementalGeyser": {
+    "name": "Geyser",
+    "skillTypeTags": 260,
+    "castTime": 1.1,
+    "baseFlags": {
+      "hit": true,
+      "spell": true
+    },
+    "stats": {
+      "damageEffectiveness": 4.0,
+      "base_critical_strike_multiplier_+": 100.0,
+      "critChance": 5.0,
+      "spell_base_cold_damage": 80.0,
+      "cooldown": 4.0
+    },
+    "fromMinion": true
+  },
+  "RadiantLance": {
+    "name": "Radiant Lance",
+    "skillTypeTags": 258,
+    "castTime": 0.8181818,
+    "baseFlags": {
+      "hit": true,
+      "spell": true,
+      "requiresShield": true
+    },
+    "stats": {
+      "damageEffectiveness": 5.0,
+      "base_critical_strike_multiplier_+": 100.0,
+      "critChance": 5.0,
+      "spell_base_lightning_damage": 100.0,
+      "cost": {
+        "Mana": 24.0
+      },
+      "damage_+%_final_per_uncapped_block_chance": 1
+    },
+    "baseMods": [
+      "4% Increased Damage per player Attunement"
+    ],
+    "treeId": "ra1an"
+  },
+  "Dreamslash": {
+    "name": "Dreamslash",
+    "skillTypeTags": 513,
+    "castTime": 0.6363636,
+    "baseFlags": {
+      "hit": true,
+      "melee": true,
+      "attack": true
+    },
+    "stats": {
+      "damageEffectiveness": 1.5,
+      "base_critical_strike_multiplier_+": 100.0,
+      "critChance": 5.0,
+      "melee_base_physical_damage": 2.0,
+      "cost": {
+        "Mana": 3.0
+      }
+    },
+    "weaponTypes": {
+      "One-Handed Axe": true,
+      "Dagger": true,
+      "One-Handed Mace": true,
+      "Sceptre": true,
+      "One-Handed Sword": true,
+      "Wand": true,
+      "Fist": true,
+      "Two-Handed Axe": true,
+      "Two-Handed Mace": true,
+      "Two-Handed Spear": true,
+      "Two-Handed Staff": true,
+      "Two-Handed Sword": true
+    },
+    "baseMods": [
+      "4% Increased Damage per player Dexterity"
+    ],
+    "treeId": "dr4sl"
   }
 }

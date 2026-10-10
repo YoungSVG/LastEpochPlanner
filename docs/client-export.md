@@ -140,6 +140,49 @@ Shield-requiring spells retain their spell damage calculation. Radiant Lance's
 base damage multiplier uses fractional uncapped block chance. Native evidence:
 `RadiantLanceMutator.getTempStats` at RVA `0x224bb40` reads `SP.BlockChance` (29)
 and passes the positive value unchanged to the damage stat's more multiplier.
-This path is skipped when `noShieldRequirement` is set. The staged definitions
-still require specialization mutations (including that shield-removal node)
-before they can replace a complete supported gameplay version.
+This path is skipped when `noShieldRequirement` is set. Cloudless Sky (`ra1an-32`)
+uses node-scoped modifiers: it removes the shield requirement, suppresses block
+scaling, and grants 1% more damage per 25 maximum mana without whole-step rounding.
+The native mana path follows the block path in the same method (division by 25
+at RVA `0x224be23`). Exact client lines select these overrides; unrelated nodes
+continue through the normal parser. The staged definitions still require the
+remaining specialization mutations before replacing a supported gameplay version.
+
+## Assembling the staged release
+
+The item converter writes `base-name-conflicts.json` when an old base name is
+reused by another current base. Current names take priority over legacy aliases;
+the renamed base retains the conflicting name in `legacyNameConflicts` for a
+future version-aware migration. In client 1.5.2.2, old Cloth Armor (base type 1,
+subtype 43) is Roughspun Tunic, while current Cloth Armor is subtype 72. A saved
+name-only item cannot be migrated safely without knowing its source version.
+This report does not itself migrate saved builds.
+
+Two client 1.5.2.2 unique tooltips disagree with the gameplay roll slots.
+Dragonsong's fire attack/cast speed text names roll 7, but both underlying stats
+use roll 3. Chorus of Anurok's shared cold-resistance text names roll 0, but the
+player and minion stats use rolls 0 and 1 respectively. The converter corrects
+the first association and emits separate resistance lines for the second.
+It validates the known stat signatures and tooltip text before applying either
+correction, so changed source layouts require review. Native evidence:
+`ItemEquipManager.UpdateStats` at RVA `0x1439510` loads `UniqueItemMod.rollID`
+(offset `0x15`) at `0x143a426`, calls `ItemData.getUniqueRoll`, then passes that
+byte to `UniqueItemMod.getValue`. Tooltip placeholders are not used for gameplay.
+
+Trigger restrictions also require native checks. For example,
+`CharacterMutator.AttemptSmiteFromThrowingHit` at RVA `0x262d5b0` counts timestamps
+from the previous two seconds and rejects another cast at ten entries (comparison
+at `0x262d7c1`). The shorter generated modifier description omits this limit.
+This is a shared rolling window, not a 0.2-second cooldown; a rate-only model
+cannot reproduce its burst timing or allocate its shared budget among sources.
+
+```powershell
+python helperScripts/build_client_release.py --baseline src --trees ..\client-trees-compiled --skills ..\client-skills-compiled --icons ..\client-icons-compiled --output src
+```
+
+The assembler validates tree connections, registered native icons, skill tree IDs,
+and minion attack references before writing the five `TreeData/1_5` trees and
+merging the new skill/minion definitions. It reuses only the existing tree render
+geometry. It does not enable 1.5 in GameVersions or change the default version.
+The system tests explicitly load the staged trees (4,517 nodes) and calculate
+Radiant Lance, Dreamslash, and Tide Elemental using their exported definitions.

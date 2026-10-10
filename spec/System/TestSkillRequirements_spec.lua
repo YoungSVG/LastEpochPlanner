@@ -80,4 +80,51 @@ describe("Client skill equipment requirements", function ()
 			assert.are.equals(round(1.7525 * 1.2, 6), round(store:More(nil, "Damage"), 6))
 		end
 	end)
+
+	it("Cloudless Sky replaces block scaling and removes only its skill's shield requirement", function ()
+		data.skills.Fireball.baseFlags.requiresShield = true
+		data.skills.Fireball.stats["damage_+%_final_per_uncapped_block_chance"] = 1
+		build.skillsTab:SelSkill(1, "Fireball")
+		runCallback("OnFrame")
+		local env = build.calcsTab.mainEnv
+		local originalSkill = env.player.mainSkill
+		assert.are.equals("This skill requires a Shield", originalSkill.disableReason)
+		local node = { id = "ra1an-32", alloc = 1, skillId = "Fireball", stats = {
+			" No Longer Requires Shield", "+1% Damage per 25 Max Mana", " No Damage Gain from Block Chance",
+		} }
+		build.spec.tree:ProcessStats(node)
+		assert.are.equals(nil, node.unknown)
+		assert.are.equals(nil, node.extra)
+		env.player.modDB:AddList(node.modList)
+		env.player.output.Mana = 112.5
+		env.player.output.UncappedBlockChance = 150.5
+		local calcs = build.calcsTab.calcs
+		local skill = calcs.createActiveSkill(originalSkill.activeEffect, {}, env.player, originalSkill.socketGroup)
+		calcs.buildActiveSkillModList(env, skill)
+		assert.are.equals(nil, skill.disableReason)
+		assert.are.equals(1.045, round(skill.skillModList:More(skill.skillCfg, "Damage"), 6))
+		local otherCfg = { skillGrantedEffect = { id = "LightningBlast" } }
+		assert.is_true(not env.player.modDB:GetCondition("RadiantLanceNoShield", otherCfg))
+		assert.are.equals(1, env.player.modDB:More(otherCfg, "Damage"))
+	end)
+
+	it("scales specialization values by points without scaling their stat divisors", function ()
+		local cfg = { skillGrantedEffect = { id = "RadiantLance" }, flags = ModFlag.Spell, keywordFlags = KeywordFlag.Spell }
+		local wrath = { id = "ra1an-21", alloc = 3, skillId = "RadiantLance", stats = { "+12% Damage", "+1 Mana Cost" } }
+		build.spec.tree:ProcessStats(wrath)
+		assert.are.equals(1.36, wrath.modList:More(cfg, "Damage"))
+		assert.are.equals(3, wrath.modList:Sum("BASE", cfg, "ManaCost"))
+		wrath.alloc = 1
+		build.spec.tree:ProcessStats(wrath)
+		assert.are.equals(1.12, wrath.modList:More(cfg, "Damage"))
+		local aegis = { id = "ra1an-14", alloc = 3, skillId = "RadiantLance",
+			stats = { "+1 Lightning Spell Damage per 300 Block Effectiveness" } }
+		build.spec.tree:ProcessStats(aegis)
+		aegis.modList.actor.output = { BlockEffectiveness = 450 }
+		assert.are.equals("+3 Lightning Spell Damage per 300 Block Effectiveness", aegis.sd[1])
+		assert.are.equals(4.5, aegis.modList:Sum("BASE", cfg, "LightningMin"))
+		assert.are.equals(4.5, aegis.modList:Sum("BASE", cfg, "LightningMax"))
+		cfg.skillGrantedEffect.id = "LightningBlast"
+		assert.are.equals(0, aegis.modList:Sum("BASE", cfg, "LightningMin"))
+	end)
 end)

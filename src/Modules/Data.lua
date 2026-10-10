@@ -388,6 +388,7 @@ end
 -- Load skills
 data.skills = readJsonFile("Data/skills.json")
 data.skillStatMap = LoadModule("Data/SkillStatMap", makeSkillMod, makeFlagMod, makeSkillDataMod)
+data.skillNodeMods = LoadModule("Data/SkillNodeMods", makeSkillMod)
 
 data.treeSkills = {}
 for skillId, skill in pairs(data.skills) do
