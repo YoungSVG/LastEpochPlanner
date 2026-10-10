@@ -147,3 +147,16 @@ The native mana path follows the block path in the same method (division by 25
 at RVA `0x224be23`). Exact client lines select these overrides; unrelated nodes
 continue through the normal parser. The staged definitions still require the
 remaining specialization mutations before replacing a supported gameplay version.
+
+## Assembling the staged release
+
+```powershell
+python helperScripts/build_client_release.py --baseline src --trees ..\client-trees-compiled --skills ..\client-skills-compiled --icons ..\client-icons-compiled --output src
+```
+
+The assembler validates tree connections, registered native icons, skill tree IDs,
+and minion attack references before writing the five `TreeData/1_5` trees and
+merging the new skill/minion definitions. It reuses only the existing tree render
+geometry. It does not enable 1.5 in GameVersions or change the default version.
+The system tests explicitly load the staged trees (4,517 nodes) and calculate
+Radiant Lance, Dreamslash, and Tide Elemental using their exported definitions.

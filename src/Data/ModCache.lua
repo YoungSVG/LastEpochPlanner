@@ -3397,6 +3397,7 @@ c["+16 Melee Fire Damage"]={{[1]={flags=0,keywordFlags=512,name="FireDamage",typ
 c["+16 Melee Physical Damage if wielding a Mace"]={{[1]={flags=0,keywordFlags=512,name="PhysicalDamage",type="BASE",value=16}},"   if wielding a Mace "}
 c["+16 Minion Armor"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=16}}}},nil}
 c["+16 Minion Health Regen"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=16}}}},nil}
+c["+16 Minion Health per player Attunement"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="Att",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=16}}}},nil}
 c["+16 Minion Melee Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=512,name="FireDamage",type="BASE",value=16}}}},nil}
 c["+16 Physical Throwing Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=1024,name="PhysicalDamage",type="BASE",value=16}},nil}
 c["+16 Spell Cold Damage"]={{[1]={flags=0,keywordFlags=256,name="ColdDamage",type="BASE",value=16}},nil}
@@ -13215,6 +13216,8 @@ c["4% Increased Crimson Shroud Duration "]={{[1]={[1]={skillName="Crimson Shroud
 c["4% Increased Crit Chance Per Symbol"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=4}},"  Per Symbol "}
 c["4% Increased Critical Strike Chance while using a Catalyst"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=4}},"  while using a Catalyst "}
 c["4% Increased Damage Over Time"]={{[1]={flags=4096,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
+c["4% Increased Damage per player Attunement"]={{[1]={[1]={actor="parent",stat="Att",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
+c["4% Increased Damage per player Dexterity"]={{[1]={[1]={actor="parent",stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% Increased Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% Increased Damage while wielding a Bow"]={{[1]={[1]={type="Condition",var="UsingBow"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% Increased Dodge Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=4}},nil}
@@ -13241,6 +13244,7 @@ c["4% Increased Melee Attack Speed"]={{[1]={flags=3584,keywordFlags=512,name="Sp
 c["4% Increased Minion Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=3584,keywordFlags=0,name="Speed",type="INC",value=4}}}},nil}
 c["4% Increased Minion Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=256,keywordFlags=0,name="Speed",type="INC",value=4}}}},nil}
 c["4% Increased Minion Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=4}}}},nil}
+c["4% Increased Minion Damage per player Attunement"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="Att",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}}}},nil}
 c["4% Increased Minion Health Per Vitality"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="Vit",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="INC",value=4}}}},nil}
 c["4% Increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=4}},nil}
 c["4% Increased Poison Duration "]={{[1]={[1]={skillName="Poison",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=4}},nil}

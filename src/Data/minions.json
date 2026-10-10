@@ -182,5 +182,14 @@
     "modList": [],
     "name": "Thorn Totem",
     "life": "120"
+  },
+  "TideElemental": {
+    "name": "Tide Elemental",
+    "life": "400",
+    "modList": [],
+    "skillList": [
+      "TideElementalBolt",
+      "TideElementalGeyser"
+    ]
   }
 }
