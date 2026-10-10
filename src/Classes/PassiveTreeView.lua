@@ -819,6 +819,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 			node.alloc = node.alloc - 1
 			build.spec.tree:ProcessStats(node)
 		end
+		tooltip:AddSeparator(14)
 		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.")
 	else
 		tooltip:AddSeparator(14)
