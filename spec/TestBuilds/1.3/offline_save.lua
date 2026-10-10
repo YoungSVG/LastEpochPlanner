@@ -170,7 +170,7 @@ return {
 		["FistOfWarHitEffect"] = 1,
 		["FrostShieldDamageMitigation"] = 0,
 		["FrostShieldLife"] = 0,
-		["FullDPS"] = 2222.8507,
+		["FullDPS"] = 2240.8705,
 		["FullLifePercentage"] = 100,
 		["HealingEffectiveness"] = 107,
 		["HitChance"] = 100,
@@ -434,7 +434,7 @@ return {
 			},
 			[2] = {
 				["count"] = 1,
-				["dps"] = 331.1122,
+				["dps"] = 349.1319,
 				["name"] = "Bleed",
 				["trigger"] = "Flay 1",
 			},

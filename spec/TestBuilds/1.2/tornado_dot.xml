@@ -118,14 +118,14 @@ Unbound Locket
 Prefix: {range:215}6_6
 LevelReq: 80
 Implicits: 3
-{range:221}{rounding:Integer}(1-12)% increased Health
-{range:151}{rounding:Integer}(1-12)% increased Mana
-{range:247}(-4-8)% increased Movement Speed
+{range:221}(1-12)% Increased Health
+{range:151}(1-12)% Increased Mana
+{range:247}(-4-8)% Increased Movement Speed
 {range:215}{scalar:1.17}+(41-50)% Critical Strike Multiplier
 {unique}{range:213}{rounding:Integer}+(1-2) to All Skills
-{unique}{range:122}{rounding:Integer}(-20-50)% increased Mana Regen
-{unique}{range:135}{rounding:Integer}(-10-20)% more Armor
-{unique}{range:222}+(-5-15)% to All Resistances
+{unique}{range:122}(-20-50)% Increased Mana Regen
+{unique}{range:135}(-10-20)% More Armor
+{unique}{range:222}(-5-15)% to All Resistances
 {unique}{range:86}(10-20)% of Current Health and Ward lost when you use Evade
 {unique}{range:249}{rounding:Tenth}(1.2-4) Seconds of Frenzy after you use Evade
 		</Item>
@@ -144,7 +144,7 @@ Implicits: 2
 {range:37}{rounding:Integer}+(72-372) Stun Avoidance
 {range:129}{scalar:1.5}{rounding:Integer}+(14-16) Strength
 {range:84}{scalar:1.5}{rounding:Integer}(20-30) Damage Reflected to Attackers
-{range:251}{scalar:1.5}{rounding:Integer}(10-12)% increased Health
+{range:251}{scalar:1.5}(10-12)% Increased Health
 {range:214}{scalar:1.5}{rounding:Integer}+(61-90) Health
 {sealed}{range:162}{scalar:1.5}+(5-9)% Necrotic Resistance
 		</Item>
@@ -156,9 +156,9 @@ Prefix: {range:219}28_6
 LevelReq: 16
 Implicits: 2
 +35 Armor
-{range:17}(8-10)% increased Movement Speed
-{range:219}(26-30)% increased Movement Speed
-{unique}30% increased Movement Speed
+{range:17}(8-10)% Increased Movement Speed
+{range:219}(26-30)% Increased Movement Speed
+{unique}30% Increased Movement Speed
 {unique}{range:171}(30-67)% Increased Bleed Duration
 {unique}{range:142}(30-40)% more Physical Ailment Damage to Moving Enemies
 {unique}{range:234}{rounding:Integer}+(5-8) Strength
@@ -177,12 +177,12 @@ LevelReq: 54
 Implicits: 3
 +36 Armor
 {range:30}{rounding:Integer}+(20-36) Mana
-{range:181}{rounding:Integer}(12-24)% increased Mana Regen
-{range:249}(12-15)% increased Cast Speed
+{range:181}(12-24)% Increased Mana Regen
+{range:249}(12-15)% Increased Cast Speed
 {range:190}{rounding:Integer}+(7-8) Strength
 {range:102}{rounding:Integer}+(61-90) Health
 {range:217}{rounding:Integer}+(106-135) Health
-{range:217}{rounding:Integer}(8-10)% increased Health
+{range:217}(8-10)% Increased Health
 		</Item>
 		<Item id="5">
 			Rarity: EXALTED
@@ -201,7 +201,7 @@ Implicits: 3
 {range:42}{rounding:Integer}+(61-90) Minion Health Regen
 {range:179}{rounding:Integer}+(14-16) Strength
 {range:226}{rounding:Integer}+(61-90) Health
-{range:130}{rounding:Integer}(10-12)% increased Health
+{range:130}(10-12)% Increased Health
 {sealed}{range:93}+(10-14)% Physical Resistance
 		</Item>
 		<Item id="6">
@@ -214,17 +214,18 @@ Suffix: {range:98}25_5
 Suffix: {range:91}825_5
 LevelReq: 61
 Implicits: 2
-{range:67}{rounding:Integer}(20-40)% increased Cold Damage
-{range:15}{rounding:Integer}(20-40)% increased Lightning Damage
+{range:67}(20-40)% Increased Cold Damage
+{range:15}(20-40)% Increased Lightning Damage
 {range:116}(48-60)% Increased Healing Effectiveness
 {range:196}+(41-50)% Critical Strike Multiplier
 {range:98}{rounding:Integer}+(100-130) Health
 {range:91}{rounding:Integer}+(85-105) Health
-{range:91}{rounding:Integer}+(15-19) Health Regen
+{range:91}{rounding:Integer}+(15-19) Health Regeneration
 {unique}{range:231}{rounding:Integer}+(20-40) Mana
-{unique}{range:101}+(20-40)% Cold Resistance
-{unique}{range:101}+(20-40)% Lightning Resistance
+{unique}{range:101}+(20-40)% Cold and Lightning Resistance
 {unique}100% Chance to Cast Water Orb when you hit a Boss or Rare Enemy (3 second cooldown)
+{unique}3 Water Orbs per cast if your Attunement is Equal to your Intelligence
+{unique}20% increased Cold and Lightning Damage for each Water Orb you have cast in the past 12 seconds
 		</Item>
 		<Item id="7">
 			Rarity: LEGENDARY
@@ -237,14 +238,12 @@ Implicits: 1
 {range:99}{rounding:Integer}+(42-110) Ward Decay Threshold
 {range:219}{rounding:Integer}+(14-16) Intelligence
 {range:4}{rounding:Integer}+(61-90) Health
-{unique}100% Evade is replaced by Spirit Step
-{unique}100% Swiftness
-{unique}100% of Wandering Spirits Base Damage Converted to Fire
-{unique}100% Create a Wandering Spirit on direct Fire, Necrotic, or Void Skill Use
-{unique}{range:150}+(7-11)% Fire Penetration
-{unique}{range:150}+(7-11)% Necrotic Penetration
-{unique}{range:150}+(7-11)% Void Penetration
+{unique}Evade is replaced by Spirit Step
+{unique}You have Swiftness
+{unique}When you directly use a Fire, Necrotic, or Void skill you create a Wandering Spirit near the target location (4 second cooldown for each skill type).
 {unique}{range:114}{rounding:Integer}+(4-7) Ward gained each second per Active Wandering Spirit
+{unique}100% of Wandering Spirits Base Damage Converted to Fire
+{unique}{range:150}+(7-11)% Fire, Necrotic, and Void Penetration
 		</Item>
 		<Item id="8">
 			Rarity: LEGENDARY
@@ -253,13 +252,13 @@ Silver Ring
 Prefix: {range:199}501_6
 LevelReq: 0
 Implicits: 1
-{range:52}(3-8)% increased Movement Speed
+{range:52}(3-8)% Increased Movement Speed
 {range:199}{rounding:Integer}+(14-16) Strength
 {unique}{range:176}{rounding:Integer}+(4-5) to All Attributes
 {unique}{range:248}+(15-20)% to All Resistances
-{unique}{range:69}{rounding:Integer}(15-20)% increased Health Regen
-{unique}{range:69}{rounding:Integer}(15-20)% increased Mana Regen
-{unique}{range:69}{rounding:Integer}(15-20)% increased Dodge Rating
+{unique}{range:69}(15-20)% Increased Health Regen
+{unique}{range:69}(15-20)% Increased Mana Regen
+{unique}{range:69}(15-20)% Increased Dodge Rating
 {unique}10% less Damage Taken if you have at least 180 Total Attributes
 		</Item>
 		<Item id="9">
@@ -276,14 +275,14 @@ Implicits: 3
 +4 Potion Slots
 {range:9}{rounding:Integer}(76-100) Ward Gained on Potion Use
 100% chance to Cleanse All Ailments on Potion Use
-{range:230}{rounding:Integer}(21-26)% increased Health
+{range:230}(21-26)% Increased Health
 {range:43}(16-20)% Increased Cooldown Recovery Speed
-{unique}{range:175}{rounding:Integer}(144-216) Ward Gained on Potion Use
-{unique}{range:254}{rounding:Integer}(144-216) Health Gained on Potion Use
-{unique}{range:233}(12-24)% increased Critical Strike Chance
-{unique}{range:166}+(12-24)% Critical Strike Multiplier
-{unique}100% of Critical Strike Chance applies to Potion Use Crit Chance
+{unique}Your critical strike chance also applies to your potion uses. When a potion use crits, the health and ward you immediately gain from it is multiplied by a percentage of your critical strike multiplier.
 {unique}25% of Critical Strike Multiplier applies to Potions
+{unique}{range:254}{rounding:Integer}(144-216) Health Gained on Potion Use
+{unique}{range:175}{rounding:Integer}(144-216) Ward Gained on Potion Use
+{unique}{range:233}(12-24)% Increased Critical Strike Chance
+{unique}{range:166}+(12-24)% Critical Strike Multiplier
 		</Item>
 		<Item id="10">
 			Rarity: LEGENDARY
@@ -295,12 +294,15 @@ LevelReq: 60
 Implicits: 3
 {range:238}{rounding:Integer}+(50-60) Spell Damage
 {range:29}{rounding:Integer}+(50-60) Mana
--3 to -5 Spell Mana Cost
-{range:219}{scalar:1.75}(24-30)% increased Cast Speed
+{range:197}{rounding:Integer}(-3--5) Spell Mana Cost
+{range:219}{scalar:1.75}(24-30)% Increased Cast Speed
 {range:216}{scalar:1.75}+(21-25)% Critical Strike Multiplier
+{unique}When you cast Teleport or Transplant you are teleported to a random nearby location, become immune to all damage for 1 second, and gain Chronowarp for 10 seconds.
+{unique}Chronowarp grants 35% increased cast speed and movement speed
+{unique}When you cast teleport or transplant you time lock up to 10 enemies around the destination for 1 second. Bosses are slowed instead of time locked.
 {unique}{range:181}(10-35)% Chance to gain Haste for 1 second on Hit
 {unique}2% increased Spell Damage per 1% increased Movement Speed
-{unique}+1 Wrongwarp with Teleport or Transplant
+{unique}Teleport and Transplant have a minimum cooldown of 3 seconds
 		</Item>
 		<Item id="11">
 			Rarity: LEGENDARY
@@ -314,15 +316,14 @@ Implicits: 3
 +28 Melee Damage
 {range:216}{rounding:Integer}+(14-28) Melee Lightning Damage
 {range:243}+(7-14)% Lightning Penetration
-{range:242}{scalar:1.75}(76-100)% increased Critical Strike Chance
+{range:242}{scalar:1.75}(76-100)% Increased Critical Strike Chance
 {range:71}{scalar:1.75}+(41-50)% Critical Strike Multiplier
 {range:197}{scalar:1.75}+(56-70)% Chance to Shred Armor on Hit
 {unique}{range:41}{rounding:Integer}+(17-21) Melee Lightning Damage
 {unique}{range:161}{rounding:Integer}+(17-21) Spell Lightning Damage
-{unique}-6 to -3 Totem Mana Cost
-{unique}{range:94}{rounding:Integer}+(3-6) Attunement
-{unique}{range:94}{rounding:Integer}+(3-6) Strength
-{unique}4 Storm Sprites summoned around totem (up to 2 times per 6 seconds)
+{unique}{range:127}{rounding:Integer}(-6--3) Totem Mana Cost
+{unique}{range:94}+(3-6) Strength and Attunement
+{unique}When you summon a totem you also summon 4 Storm Sprites around the totem (up to 2 times per 6 seconds)
 		</Item>
 		<Item id="12">
 			Rarity: IDOL
@@ -333,7 +334,7 @@ Suffix: {range:190}111_0
 LevelReq: 0
 Implicits: 0
 {range:151}{rounding:Integer}(9-20) Health Gain on Kill
-{range:151}{rounding:Integer}(5-6)% increased Health
+{range:151}(5-6)% Increased Health
 {range:190}{scalar:0.38}+(20-45)% Fire Resistance
 		</Item>
 		<Item id="13">
@@ -344,7 +345,7 @@ Prefix: {range:220}878_0
 Suffix: {range:101}887_0
 LevelReq: 0
 Implicits: 0
-{range:220}(22-30)% increased Critical Strike Chance
+{range:220}(22-30)% Increased Critical Strike Chance
 {range:220}+(3-6)% Critical Strike Multiplier
 {range:101}+(18-24)% Fire Resistance
 {range:101}+(18-24)% Minion Fire Resistance
@@ -357,7 +358,7 @@ Prefix: {range:91}878_0
 Suffix: {range:26}111_0
 LevelReq: 0
 Implicits: 0
-{range:91}(22-30)% increased Critical Strike Chance
+{range:91}(22-30)% Increased Critical Strike Chance
 {range:91}+(3-6)% Critical Strike Multiplier
 {range:26}{scalar:0.38}+(20-45)% Fire Resistance
 		</Item>
@@ -382,7 +383,7 @@ Prefix: {range:56}138_0
 Suffix: {range:25}870_0
 LevelReq: 0
 Implicits: 0
-{range:56}{scalar:0.38}+(13-36)% Chance to inflict Bleed on Hit
+{range:56}{scalar:0.38}+(13-36)% Chance to Inflict Bleed on Hit
 {range:25}+(18-24)% Physical Resistance
 {range:25}+(18-24)% Minion Physical Resistance
 		</Item>
@@ -398,7 +399,7 @@ Implicits: 0
 {range:207}+(1-2)% Minion Melee Critical Strike Chance
 {range:222}+(15-40)% Critical Strike Avoidance
 {range:222}+(15-40)% Minion Critical Strike Avoidance
-1% increased Minion Melee Attack Speed
+1% Increased Minion Melee Attack Speed
 +2 Minion Melee Damage
 		</Item>
 		<Item id="18">
@@ -497,7 +498,7 @@ Grand Hunger of the Void
 Grand Hunger of the Void
 LevelReq: 0
 Implicits: 1
-{range:239}(2.2-3.5)% of Spell Damage Leeched as Health
+{range:239}{rounding:Tenth}(2.2-3.5)% of Spell Damage Leeched as Health
 		</Item>
 		<Item id="27">
 			Rarity: NORMAL
@@ -505,7 +506,7 @@ Grand Rhythm of the Tide
 Grand Rhythm of the Tide
 LevelReq: 0
 Implicits: 2
-{range:0}{rounding:Integer}(120-200)% increased Health Regen
+{range:0}(120-200)% Increased Health Regen
 {range:0}{rounding:Integer}+(12-20) Health Regen
 		</Item>
 		<Item id="28">
@@ -523,7 +524,7 @@ Grand Bulwark of the Tundra
 Grand Bulwark of the Tundra
 LevelReq: 0
 Implicits: 1
-{range:0}{rounding:Integer}(25-55)% increased Armor
+{range:0}(25-55)% Increased Armor
 		</Item>
 		<Item id="30">
 			Rarity: NORMAL
