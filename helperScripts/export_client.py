@@ -19,6 +19,7 @@ CORE_CLASSES = {
     "UniqueList", "ExtraStatData", "ItemList", "AffixList", "CharacterClass",
     "GearSpriteList", "GlobalTreeData", "PassivePanelData", "SkillTreeData",
     "IdolAltarPropertyList", "TrackerPropertyList", "Ability", "AbilityManager", "Ailment",
+    "GlobalPlayerProperties",
 }
 
 

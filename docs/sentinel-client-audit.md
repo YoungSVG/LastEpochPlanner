@@ -163,13 +163,19 @@ chance = (2 * flatDamage * (1 + attackerStunIncrease) / effectiveHealth
          * (1 + increasedChanceToBeStunned)
 ```
 
-Values here are fractions, not percentages. The result is sent to the native
-random-chance routine; its out-of-range handling must be verified before
-porting. `BaseHealth.maxHealth` is at offset `0x90`; `ProtectionClass.ward` is
+Values here are fractions, not percentages. The random-chance routine at
+`0xf6a6d0` returns false for values <= 0 and true for values >= 1; values
+between those bounds are compared against the generated random fraction.
+`BaseHealth.maxHealth` is at offset `0x90`; `ProtectionClass.ward` is
 at `0x170`. Inherited `PrecalculatedStatsHolder` fields at `0x70` and `0x74`
 are stun avoidance and increased chance to be stunned. The boss modifier is
-read from `GlobalPlayerProperties` offset `0x84` by the getter at `0x27fbdd0`;
-its asset value has not yet been exported. Do not substitute current health,
+read from `GlobalPlayerProperties` offset `0x84` by the getter at `0x27fbdd0`.
+The 1.5.2.2 asset in `PermaLoad.bundle`, path ID `5042677237873432156`, contains
+`bossEffectiveHealthModifierVsStun = 0.5` (and the same value for freeze).
+The core exporter now includes this class, so future exports retain the
+serialized constant and source fingerprint rather than hardcoding a guessed
+boss multiplier. Boss effective health is therefore `(maxHealth + ward) * 1.5`
+for this client. Do not substitute current health,
 ignore ward, or assume the same effective health for bosses.
 
 The duration branch at `0x1668135` through `0x1668170` passes
