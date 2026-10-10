@@ -72,6 +72,24 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(otherDPS, selectPart(1).TotalDPS)
 	end)
 
+	it("disables only the skipped third strike and restores it when Double Slash is refunded", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		local firstDPS = selectPart(1).TotalDPS
+		local thirdDPS = selectPart(3).TotalDPS
+		allocate("sndr1-23", 1)
+		selectPart(3)
+		local skill = build.calcsTab.mainEnv.player.mainSkill
+		assert.are.equals(true, skill.skillFlags.disable)
+		assert.are.equals(true, skill.skillFlags.multiPart)
+		assert.are.equals("Double Slash skips Rive's third strike", skill.disableReason)
+		assert.are.equals(0, build.calcsTab.mainOutput.TotalDPS or 0)
+		assert.are.equals(firstDPS, selectPart(1).TotalDPS)
+		assert.are.equals(firstDPS, selectPart(2).TotalDPS)
+		allocate("sndr1-23", 0)
+		assert.are.equals(thirdDPS, selectPart(3).TotalDPS)
+	end)
+
 	it("uses native damage effectiveness and timing for each strike without leaking overrides", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

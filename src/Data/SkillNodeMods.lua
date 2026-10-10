@@ -32,6 +32,11 @@ return {
 			mod("Damage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
 		},
 	},
+	["sndr1-23"] = {
+		[" Skips Third Strike"] = {
+			mod("Condition:RiveSkipThirdStrike", "FLAG", true),
+		},
+	},
 	["ra1an-21"] = {
 		["+12% Damage"] = { mod("Damage", "MORE", 12) },
 	},

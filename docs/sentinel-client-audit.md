@@ -43,13 +43,31 @@ exact exported node text and scopes each bonus to both Rive and its strike.
 | Concentration (`sndr1-16`) | +1% base crit for strikes 1 and 2; +2% for strike 3 | `0x251f071` |
 | Focused Strike (`sndr1-18`) | Strikes 1 and 2 cannot crit; strike 3 has double crit chance and +50% crit multiplier | `0x251eb57` |
 | Brutality (`sndr1-30`) | 15% more damage for strike 3 | `0x251f357` |
+| Double Slash (`sndr1-23`) | Remove strike 3 from the sequence | `0x251f041` |
 
 The native critical-stat property IDs are 4 (crit chance) and 5 (crit multiplier).
 Focused Strike calls `Stats.MoreStat` for crit chance and `Stats.AddedStat` for
 the multiplier. Brutality calls `Stats.MoreStat` for damage (property 0).
 Runtime tests cover point scaling/removal, combined critical modifiers, strike
 switching and isolation from another skill. These do not model combo averages,
-echoes or ailment inheritance.
+echoes or ailment inheritance. Selecting the third strike with Double Slash
+now disables its calculation with an explanation. The strike selector remains
+available and refunding the node restores the third strike.
+
+### Native sequence evidence
+
+`ComboInfo.GetAbilityFromIndex` (`0x244e830`) resolves index 0 to the base ability;
+positive indices resolve to `getComboAbilities()[index - 1]`. The sequential
+branch in `ComboAbilityList.incrementCombo` (`0x244c770`) increments that index,
+then resets after it exceeds the maximum. Thus the base Rive1 precedes the list:
+
+- Standard: base Rive1 + [Rive2, Rive3] = 1, 2, 3.
+- Cadence: base Rive1 + [Rive2, Rive1, Rive2, Rive3] = 1, 2, 1, 2, 3.
+- Double Slash removes Rive3 from that list; with Cadence the cycle is 1, 2, 1, 2.
+
+The lists are constructed by `RiveMutator.GetCurrentComboList` (`0x2269840`).
+This evidence is for the upcoming time-weighted combo calculation; individual
+strike mode does not yet average these sequences.
 
 ## Mechanics still to implement and validate
 

@@ -1025,7 +1025,6 @@ c[" Silver Shroud on ability use"]={nil," Silver Shroud on ability use "}
 c[" Single Projectile"]={nil," Single Projectile "}
 c[" Single Target"]={nil," Single Target "}
 c[" Skeleton Warriors Cast Bone Armor"]={nil," Skeleton Warriors Cast Bone Armor "}
-c[" Skips Third Strike"]={nil," Skips Third Strike "}
 c[" Sky Beam while Channelling"]={nil," Sky Beam while Channelling "}
 c[" Slow -> Chill Chance"]={nil," Slow -> Chill Chance "}
 c[" Slow -> Haste On You"]={nil," Slow -> Haste On You "}

@@ -485,9 +485,17 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.disableReason = "Skills of this type are disabled"
 	end
 
+	if activeSkill.skillPart == 3 and skillModList:GetCondition("RiveSkipThirdStrike", activeSkill.skillCfg) then
+		skillFlags.disable = true
+		activeSkill.disableReason = "Double Slash skips Rive's third strike"
+	end
+
 	if skillFlags.disable then
+		local multiPart = skillFlags.multiPart
 		wipeTable(skillFlags)
 		skillFlags.disable = true
+		-- Keep the selector available so a disabled strike can be changed.
+		skillFlags.multiPart = multiPart
 		return
 	end
 
