@@ -831,7 +831,7 @@ end
 -- Global Cache related
 function cacheData(uuid, env)
 	local mode = env.mode
-	if mode == "CALCULATOR" then return end
+	if mode == "CALCULATOR" or env.skipCache then return end
 
 	-- If we previously had global data, we are about to over-ride it, set tables to `nil` for Lua Garbage Collection
 	if GlobalCache.cachedData[mode][uuid] then

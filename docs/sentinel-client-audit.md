@@ -17,11 +17,12 @@ components. Rive now exposes First strike, Second strike and Third strike throug
 the existing skill-part selector. Main and calculation-tab selections persist
 independently in saved builds. The default is still First strike, not a weighted
 full-combo estimate. A separate sidebar summary now shows Rive Combo Hit DPS,
-Combo Attacks/sec and Combo Duration for a continuous sequence. The summary
+Combo Attacks/sec and Combo Duration for a continuous sequence, with separate
+Combo Bleed DPS and Combo Ignite DPS rows when applicable. The summary
 sums each strike's damage and time, including strike-specific speed and critical
 modifiers. It does not replace selected-strike DPS or Full DPS: integrating
-ailment application, triggered abilities and echoes across the cycle remains
-unfinished. This is a direct-hit summary, not total build damage.
+other ailments, triggered abilities and echoes across the cycle remains
+unfinished. These separate components are not total build damage.
 
 | Ability | Base mana cost | Native weapon requirement |
 | --- | ---: | --- |
@@ -91,6 +92,21 @@ damage is strike DPS multiplied by that time. Combo hit DPS is total damage
 divided by total time, rather than the arithmetic mean of strike DPS values.
 Runtime tests cover all four Cadence/Double Slash combinations with Flurry,
 Concentration, Focused Strike and Brutality, plus selection/cache isolation.
+
+Bleed and ignite are evaluated separately for each applying strike, with that
+strike's trigger chance and source-specific duration. An isolated source
+override avoids reading the currently selected strike from the global cache.
+Temporary ailment calculations do not publish cache entries or add saved skill
+groups. For these stacking ailments, each strike's sustained DPS is weighted
+by its fraction of cycle time; this retains the lifetime damage of applications
+that continue ticking during subsequent strikes. Tests compare all four
+Cadence/Double Slash sequences against independently selected-strike outputs,
+including a selected third strike with no ignite of its own.
+
+The summary still uses the planner's existing ailment damage model. Remaining
+source-damage inheritance and feedback from debuff stacks must be audited before
+claiming complete combo/build DPS support. Other ailments and echo applications
+are not included in these two rows.
 
 ## Mechanics still to implement and validate
 

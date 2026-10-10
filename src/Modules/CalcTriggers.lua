@@ -923,7 +923,12 @@ end
 local configTable = {
 	["cast on hit"] = function (env)
 		local source, trigRate, uuid
-		for _, skill in ipairs(env.player.activeSkillList) do
+		local sourceOverride = env.triggerSourceOverride
+		if sourceOverride then
+			source = sourceOverride.skill
+			trigRate = sourceOverride.hitRate
+		end
+		for _, skill in ipairs(source and {} or env.player.activeSkillList) do
 			local skillSource = skill.activeEffect.grantedEffect.id
 			if skill.activeEffect.srcInstance.source then
 				skillSource = skillSource .. "/" .. skill.activeEffect.srcInstance.source

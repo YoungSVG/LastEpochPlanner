@@ -70,6 +70,44 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(nil, ailmentOutput("Ailment_Bleed"))
 	end)
 
+	it("weights bleed and ignite from each applying strike across the entire combo", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		allocate("sndr1-9", 3)
+		allocate("sndr1-10", 2)
+		allocate("sndr1-31", 3)
+		allocate("sndr1-15", 4)
+		local strikes = {}
+		for part = 1, 3 do
+			local out = selectPart(part)
+			local ignite = ailmentOutput("Ailment_Ignite")
+			strikes[part] = { time = 1 / out.Speed, bleed = ailmentOutput("Ailment_Bleed").TotalDPS,
+				ignite = ignite and ignite.TotalDPS or 0 }
+		end
+		local function check(sequence)
+			local time, bleed, ignite = 0, 0, 0
+			for _, part in ipairs(sequence) do
+				local strike = strikes[part]
+				time = time + strike.time
+				bleed = bleed + strike.bleed * strike.time
+				ignite = ignite + strike.ignite * strike.time
+			end
+			local output = selectPart(3)
+			assert.are.equals(round(bleed / time, 6), round(output.RiveComboBleedDPS, 6))
+			assert.are.equals(round(ignite / time, 6), round(output.RiveComboIgniteDPS, 6))
+			assert.are.equals(true, output.RiveComboIgniteDPS > 0)
+			assert.are.equals(nil, ailmentOutput("Ailment_Ignite"))
+			assert.are.equals(3, build.skillsTab.socketGroupList[1].skillPart)
+		end
+		check({ 1, 2, 3 })
+		allocate("sndr1-21", 1)
+		check({ 1, 2, 1, 2, 3 })
+		allocate("sndr1-23", 1)
+		check({ 1, 2, 1, 2 })
+		allocate("sndr1-21", 0)
+		check({ 1, 2 })
+	end)
+
 	it("applies Flurry speed only to the first two strikes and scales with allocated points", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

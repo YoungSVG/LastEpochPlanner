@@ -1,6 +1,31 @@
--- Direct-hit damage over one uninterrupted Rive cycle. Individual strike
+-- Hit, bleed and ignite damage over one uninterrupted Rive cycle. Each strike's
 -- calculations retain their own modifiers, critical chance and attack timing.
 local calcs = ...
+
+-- Evaluate an ailment with the actual applying strike instead of the globally
+-- cached selection. CACHE skips circular debuff-stack lookups; skipCache keeps
+-- this temporary environment out of the shared cache.
+local function ailmentOutput(env, source, output, uuid, part, ailmentId)
+	local chance = source.skillModList:Sum("BASE", source.skillCfg, "ChanceToTriggerOnHit_" .. ailmentId)
+	if chance <= 0 then
+		return
+	end
+	local ailmentEnv = calcs.initEnv(env.build, "CACHE", { skillPartOverrides = { [uuid] = part } })
+	ailmentEnv.skipCache = true
+	ailmentEnv.triggerSourceOverride = {
+		skill = source,
+		hitRate = (output.HitSpeed or output.Speed) * (output.HitChance or 100) / 100,
+	}
+	local group = { grantedEffect = env.data.skills[ailmentId], skillId = ailmentId,
+		source = "Rive1", triggered = true, triggeredOnHit = true }
+	local effect = { grantedEffect = group.grantedEffect, srcInstance = group }
+	local ailment = calcs.createActiveSkill(effect, {}, ailmentEnv.player, group)
+	ailmentEnv.player.mainSkill = ailment
+	table.insert(ailmentEnv.player.activeSkillList, ailment)
+	calcs.buildActiveSkillModList(ailmentEnv, ailment)
+	calcs.perform(ailmentEnv, true)
+	return ailmentEnv.player.output
+end
 
 function calcs.riveCombo(env)
 	local skill = env.player.mainSkill
@@ -16,7 +41,9 @@ function calcs.riveCombo(env)
 	end
 	local uuid = cacheSkillUUID(skill, env)
 	local outputs = {}
+	local ailments = {}
 	local duration, damage = 0, 0
+	local bleedDamage, igniteDamage = 0, 0
 	for _, part in ipairs(sequence) do
 		if not outputs[part] then
 			-- CALCULATOR does not write to the shared skill-output cache. Override
@@ -37,6 +64,10 @@ function calcs.riveCombo(env)
 			end
 			calcs.perform(partEnv, true)
 			outputs[part] = partEnv.player.output
+			ailments[part] = {
+				bleed = ailmentOutput(env, found, outputs[part], uuid, part, "Ailment_Bleed"),
+				ignite = ailmentOutput(env, found, outputs[part], uuid, part, "Ailment_Ignite"),
+			}
 		end
 		local output = outputs[part]
 		if not output.Speed or output.Speed <= 0 or not output.TotalDPS then
@@ -45,6 +76,8 @@ function calcs.riveCombo(env)
 		local time = 1 / output.Speed
 		duration = duration + time
 		damage = damage + output.TotalDPS * time
+		bleedDamage = bleedDamage + (ailments[part].bleed and ailments[part].bleed.TotalDPS or 0) * time
+		igniteDamage = igniteDamage + (ailments[part].ignite and ailments[part].ignite.TotalDPS or 0) * time
 	end
 	return {
 		sequence = sequence,
@@ -53,5 +86,8 @@ function calcs.riveCombo(env)
 		hitDPS = damage / duration,
 		attackRate = #sequence / duration,
 		strikes = outputs,
+		ailments = ailments,
+		bleedDPS = bleedDamage / duration,
+		igniteDPS = igniteDamage / duration,
 	}
 end
