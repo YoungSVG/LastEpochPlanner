@@ -37,6 +37,11 @@ return {
 			mod("Condition:RiveSkipThirdStrike", "FLAG", true),
 		},
 	},
+	["sndr1-21"] = {
+		[" Change Sequence Of Strikes"] = {
+			mod("Condition:RiveCadence", "FLAG", true),
+		},
+	},
 	["ra1an-21"] = {
 		["+12% Damage"] = { mod("Damage", "MORE", 12) },
 	},

@@ -316,6 +316,9 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		},
 		{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack" },
 		{ stat = "TotalDPS", label = "Hit DPS", fmt = ".1f", compPercent = true, flag = "notAverage" },
+		{ stat = "RiveComboHitDPS", label = "Rive Combo Hit DPS", fmt = ".1f" },
+		{ stat = "RiveComboAttackRate", label = "Combo Attacks/sec", fmt = ".2f" },
+		{ stat = "RiveComboDuration", label = "Combo Duration", fmt = ".2fs" },
 		{ stat = "PvpTotalDPS", label = "PvP Hit DPS", fmt = ".1f", compPercent = true, flag = "notAveragePvP" },
 		{
 			stat = "TotalDPS",

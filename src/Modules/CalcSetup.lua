@@ -324,6 +324,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 		enemyDB = env.enemyDB
 	end
 
+	-- Temporary strike calculations must not change the saved skill selection.
+	env.skillPartOverrides = override.skillPartOverrides
+
 	-- Set buff mode
 	local buffMode
 	if mode == "CALCS" then

@@ -19,6 +19,7 @@ LoadModule("Modules/CalcDefence", calcs)
 LoadModule("Modules/CalcOffence", calcs)
 LoadModule("Modules/CalcTriggers", calcs)
 LoadModule("Modules/CalcMirages.lua", calcs)
+LoadModule("Modules/CalcRiveCombo", calcs)
 
 -- Get the average value of a table -- note this is unused
 function math.average(t)
@@ -366,6 +367,13 @@ function calcs.buildOutput(build, mode)
 	env.player.output.FullDPS = fullDPS.combinedDPS
 
 	if mode == "MAIN" then
+		local combo = calcs.riveCombo(env)
+		if combo then
+			output.RiveComboHitDPS = combo.hitDPS
+			output.RiveComboAttackRate = combo.attackRate
+			output.RiveComboDuration = combo.duration
+			env.riveCombo = combo
+		end
 		for _, skill in ipairs(env.player.activeSkillList) do
 			local uuid = cacheSkillUUID(skill, env)
 			if not GlobalCache.cachedData["CACHE"][uuid] then

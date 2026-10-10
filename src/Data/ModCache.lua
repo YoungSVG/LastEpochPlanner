@@ -257,7 +257,6 @@ c[" Chains To Allies"]={nil," Chains To Allies "}
 c[" Chakram Returns"]={nil," Chakram Returns "}
 c[" Chance Doubled While Above 80% Mana"]={nil," Chance Doubled While Above 80% Mana "}
 c[" Chance Tripled while Active"]={nil," Chance Tripled while Active "}
-c[" Change Sequence Of Strikes"]={nil," Change Sequence Of Strikes "}
 c[" Channel Furnace While Charging"]={nil," Channel Furnace While Charging "}
 c[" Channeled"]={nil," Channeled "}
 c[" Channeled Elemental Nova"]={nil," Channeled Elemental Nova "}

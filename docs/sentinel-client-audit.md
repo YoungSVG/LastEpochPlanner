@@ -16,7 +16,12 @@ three Rive strike definitions read from their respective DamageEnemyOnHit
 components. Rive now exposes First strike, Second strike and Third strike through
 the existing skill-part selector. Main and calculation-tab selections persist
 independently in saved builds. The default is still First strike, not a weighted
-full-combo estimate.
+full-combo estimate. A separate sidebar summary now shows Rive Combo Hit DPS,
+Combo Attacks/sec and Combo Duration for a continuous sequence. The summary
+sums each strike's damage and time, including strike-specific speed and critical
+modifiers. It does not replace selected-strike DPS or Full DPS: integrating
+ailment application, triggered abilities and echoes across the cycle remains
+unfinished. This is a direct-hit summary, not total build damage.
 
 | Ability | Base mana cost | Native weapon requirement |
 | --- | ---: | --- |
@@ -44,6 +49,7 @@ exact exported node text and scopes each bonus to both Rive and its strike.
 | Focused Strike (`sndr1-18`) | Strikes 1 and 2 cannot crit; strike 3 has double crit chance and +50% crit multiplier | `0x251eb57` |
 | Brutality (`sndr1-30`) | 15% more damage for strike 3 | `0x251f357` |
 | Double Slash (`sndr1-23`) | Remove strike 3 from the sequence | `0x251f041` |
+| Cadence (`sndr1-21`) | Change the sequence to 1, 2, 1, 2, 3 | `0x251ec07` (dispatch); `0x2269840` (list) |
 
 The native critical-stat property IDs are 4 (crit chance) and 5 (crit multiplier).
 Focused Strike calls `Stats.MoreStat` for crit chance and `Stats.AddedStat` for
@@ -66,18 +72,23 @@ then resets after it exceeds the maximum. Thus the base Rive1 precedes the list:
 - Double Slash removes Rive3 from that list; with Cadence the cycle is 1, 2, 1, 2.
 
 The lists are constructed by `RiveMutator.GetCurrentComboList` (`0x2269840`).
-This evidence is for the upcoming time-weighted combo calculation; individual
-strike mode does not yet average these sequences.
+`CalcRiveCombo.lua` calculates each distinct strike in an isolated calculator
+environment without changing either saved strike selection or overwriting the
+selected strike's cached output. For each occurrence, time is 1 / attack rate;
+damage is strike DPS multiplied by that time. Combo hit DPS is total damage
+divided by total time, rather than the arithmetic mean of strike DPS values.
+Runtime tests cover all four Cadence/Double Slash combinations with Flurry,
+Concentration, Focused Strike and Brutality, plus selection/cache isolation.
 
 ## Mechanics still to implement and validate
 
-- Rive: weighted combo damage and speed,
-  Cadence and Double Slash sequences, remaining strike-specific modifiers,
+- Rive: integrate the combo summary with full DPS, ailments and triggers;
+  remaining strike-specific modifiers,
   Temporal Warrior, Weapon Specialist and Foe Cleaver. Native prefabs give the
   first two strikes 125% added-damage effectiveness and the third 250%. The first
   two use duration 0.75 / speed 1.25; the third uses duration 0.7 / speed 1.0,
   before the player's speed multiplier. Individual strike calculations do not
-  yet represent the complete combo. Native `RiveMutator.GetCurrentComboList` at
+  yet represent the complete combo's ailments or proc rates. Native `RiveMutator.GetCurrentComboList` at
   RVA `0x2269840` selects the Cadence list through `skipEveryOtherStrike3`, and
   removes the third strike through `noStrike3`. Those sequence rules still need
   integration with weighted damage, ailment application and proc rates.

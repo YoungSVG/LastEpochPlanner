@@ -90,6 +90,60 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(thirdDPS, selectPart(3).TotalDPS)
 	end)
 
+	it("weights combo hit damage by strike duration with Flurry and Focused Strike", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "+40 Melee Physical Damage"
+		build.configTab:BuildModList()
+		allocate("sndr1-15", 4)
+		allocate("sndr1-16", 3)
+		allocate("sndr1-18", 1)
+		allocate("sndr1-30", 3)
+		local strikes = {}
+		for part = 1, 3 do
+			local output = selectPart(part)
+			strikes[part] = { time = 1 / output.Speed, dps = output.TotalDPS }
+		end
+		local function check(sequence)
+			local time, damage = 0, 0
+			for _, part in ipairs(sequence) do
+				time = time + strikes[part].time
+				damage = damage + strikes[part].dps * strikes[part].time
+			end
+			local out = selectPart(3)
+			assert.are.equals(round(damage / time, 6), round(out.RiveComboHitDPS, 6))
+			assert.are.equals(round(#sequence / time, 6), round(out.RiveComboAttackRate, 6))
+			assert.are.equals(round(time, 6), round(out.RiveComboDuration, 6))
+			assert.are.equals(table.concat(sequence, ","), table.concat(build.calcsTab.mainEnv.riveCombo.sequence, ","))
+		end
+		check({ 1, 2, 3 })
+		allocate("sndr1-21", 1)
+		check({ 1, 2, 1, 2, 3 })
+		allocate("sndr1-23", 1)
+		check({ 1, 2, 1, 2 })
+		allocate("sndr1-21", 0)
+		check({ 1, 2 })
+	end)
+
+	it("keeps combo calculations independent of saved selections and cached strike outputs", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		local group = build.skillsTab.socketGroupList[1]
+		group.skillPartCalcs = 2
+		local first = selectPart(1)
+		local comboDPS = first.RiveComboHitDPS
+		local third = selectPart(3)
+		assert.are.equals(comboDPS, third.RiveComboHitDPS)
+		assert.are.equals(3, group.skillPart)
+		assert.are.equals(2, group.skillPartCalcs)
+		local env = build.calcsTab.mainEnv
+		local cached = GlobalCache.cachedData.MAIN[cacheSkillUUID(env.player.mainSkill, env)]
+		assert.are.equals(third.TotalDPS, cached.TotalDPS)
+		assert.are.equals(3, cached.ActiveSkill.skillPart)
+		build.skillsTab:SelSkill(1, "Fireball")
+		assert.are.equals(nil, selectPart(1).RiveComboHitDPS)
+	end)
+
 	it("uses native damage effectiveness and timing for each strike without leaking overrides", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")
