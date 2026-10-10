@@ -7,10 +7,21 @@ from copy import deepcopy
 from pathlib import Path
 
 from build_client_items import Properties, clean_number, read_json, write_json
-from build_client_skills import cast_time, component, validate_sources
+from build_client_skills import cast_time, component, convert_skill, validate_sources
 
 
 SKILLS = {"Rive1", "VoidCleave", "AbyssalEchoes", "DevouringOrb", "Anomaly"}
+
+
+def rive_parts(prefabs, props, player_speed):
+    """Keep each strike's timing and damage, without inventing a combo average."""
+    parts = []
+    for name, label in (("Rive1", "First strike"), ("Rive2", "Second strike"), ("Rive3", "Third strike")):
+        converted = convert_skill(prefabs[name], props, player_speed)
+        if converted["baseFlags"] != {"hit": True, "melee": True, "attack": True}:
+            raise ValueError("Unexpected Rive strike flags")
+        parts.append({"name": label, "castTime": converted["castTime"], "stats": converted["stats"]})
+    return parts
 
 
 def update_basics(existing, ability, player_speed, weapon_types):
@@ -52,19 +63,24 @@ def build(source, core, baseline, output):
                for row in props.table("ItemList")["EquippableItems"] if row["isWeapon"]}
     skills = read_json(baseline)
     seen = set()
+    prefabs = {}
     for row in manifest["tables"]:
-        if row["class"] != "AbilityPrefab" or row.get("name") not in SKILLS:
+        if row["class"] != "AbilityPrefab" or row.get("name") not in SKILLS | {"Rive2", "Rive3"}:
             continue
-        ability = read_json(source / row["path"])["ability"]
+        prefab = read_json(source / row["path"])
+        ability = prefab["ability"]
         name = ability["m_Name"]
         if name != row["name"] or name in seen:
             raise ValueError("Duplicate or mismatched Sentinel ability")
         seen.add(name)
-        skills[name] = update_basics(skills[name], ability, player_speed, weapons)
-    if seen != SKILLS:
+        prefabs[name] = prefab
+        if name in SKILLS:
+            skills[name] = update_basics(skills[name], ability, player_speed, weapons)
+    if seen != SKILLS | {"Rive2", "Rive3"}:
         raise ValueError("Missing priority Sentinel abilities")
+    skills["Rive1"]["parts"] = rive_parts(prefabs, props, player_speed)
     write_json(output, skills)
-    print(f"Updated basic ability data for {len(seen)} Sentinel skills")
+    print(f"Updated {len(SKILLS)} Sentinel skills and three Rive strike definitions")
 
 
 if __name__ == "__main__":

@@ -4,10 +4,30 @@ from copy import deepcopy
 from unittest.mock import Mock
 
 from build_client_skills import cast_time, convert_skill, validate_sources
-from build_client_sentinel import update_basics
+from build_client_sentinel import rive_parts, update_basics
 
 
 class SkillConversionTests(unittest.TestCase):
+    def test_rive_parts_keep_third_strike_damage_and_timing_separate(self):
+        prefabs = {}
+        for index, (duration, speed, effectiveness) in enumerate(((0.75, 1.25, 1.25),
+                                                               (0.75, 1.25, 1.25),
+                                                               (0.699999988079071, 1, 2.5)), 1):
+            name = f"Rive{index}"
+            ability = {"m_Name": name, "abilityName": "Rive", "tags": 513,
+                       "playerAbilityID": "sndr1", "useDuration": duration,
+                       "speedMultiplier": speed, "channelled": 0, "instantCastForPlayer": 0,
+                       "maxCharges": 0, "manaCost": 0, "attributeScaling": []}
+            damage = {"damage": [2, 0, 0, 0, 0, 0, 0], "critChance": 0.05,
+                      "critMultiplier": 2, "isHit": 1, "addedDamageScaling": effectiveness}
+            prefabs[name] = {"ability": ability, "objects": [{"class": "DamageEnemyOnHit",
+                             "data": {"damageTags": 512, "baseDamageStats": damage}}]}
+        parts = rive_parts(prefabs, None, 1.100000023841858)
+        self.assertEqual([1.25, 1.25, 2.5], [part["stats"]["damageEffectiveness"] for part in parts])
+        self.assertEqual([0.5454545, 0.5454545, 0.6363636], [part["castTime"] for part in parts])
+        self.assertEqual([2, 2, 2], [part["stats"]["melee_base_physical_damage"] for part in parts])
+        self.assertEqual([5, 5, 5], [part["stats"]["critChance"] for part in parts])
+
     def test_sentinel_basics_keep_damage_and_require_the_native_weapon_types(self):
         existing = {"treeId": "v01cv", "baseFlags": {"melee": True, "hit": True},
                     "stats": {"melee_base_void_damage": 2, "damageEffectiveness": 4}}
