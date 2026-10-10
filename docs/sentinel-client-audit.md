@@ -193,6 +193,29 @@ points after the final chance formula. Classification and caller damage
 semantics still need tracing; constants named for player melee/non-melee
 damage are insufficient evidence to apply these branches unconditionally.
 
+`CharacterStats.SetInitialValues` (`0x1695070`) supplies the player-specific
+marker: at `0x1695730` through `0x1695765`, it calls the stat modifier setter
+with property 45, value 1, modification type 1, tags `0xA00` (Melee | Bow),
+and override enabled. The exported MainPlayer `CharacterStats` component has
+an empty serialized `stats` list; this modifier is initialized in code and
+cannot be recovered by reading that prefab alone. In `buildDamageStats`, a
+positive increased-value field on property 45 with exactly these tags sets
+the local classification byte to 1 at `0x108f70e`. The byte-2 branch remains
+unproven and must not be selected just from the name of a melee constant.
+
+The caller also matters: `ProtectionClass.ApplyDamage` (`0x1122a10`) passes
+its running damage total in `xmm15` to the stun event at `0x1125628`. This
+total is accumulated after per-type mitigation (`0x11242a1`), multiplied by
+ordinary block mitigation (`0x11244ae`) and the damage-taken buff
+(`0x11244f5`), then adjusted by mana-before-ward (`0x11245eb`) and the later
+health/endurance path (`0x1124ac2`). Ward is written before the stun event
+(`0x1124823` in the fully absorbed path); `TryGainBossWard` is also called
+before it (`0x1124adf`). The listener therefore reads ward at the time of the
+event, after that hit's ward processing, not necessarily the pre-hit ward.
+The event is gated by a surviving target and hit damage (`0x1125591` through
+`0x11255be`). A calculator must distinguish these stages and handle critical
+and noncritical outcomes separately before averaging clamped probabilities.
+
 The summary still uses the planner's existing ailment damage model. Remaining
 source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
