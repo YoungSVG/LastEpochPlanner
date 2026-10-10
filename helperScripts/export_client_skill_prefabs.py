@@ -105,6 +105,20 @@ class SkillExporter:
                             if ref["m_PathID"]:
                                 pending.append(ref["m_PathID"])
                         pending.extend(self.ability_keys[ref["key"]] for ref in data.get("abilityRefs", []) if ref["key"])
+        # The player and summoned actors can have different base use speeds.
+        env = self.environment("PermaLoad.bundle")
+        players = [obj for obj in env.objects if obj.type.name == "MonoBehaviour"
+                   and obj.peek_name() == "MainPlayer"
+                   and self.client.script_class(obj) == "ActorData"]
+        if len(players) != 1:
+            raise ValueError("Expected one MainPlayer actor definition")
+        actor = players[0].read_typetree()
+        player, _ = self.prefab(actor["ActorSoftRef"])
+        player["objects"] = [obj for obj in player["objects"] if obj["class"] == "UsingAbilityPlayer"]
+        if len(player["objects"]) != 1:
+            raise ValueError("Expected one player ability-use component")
+        write_json(self.client.output / "player-ability-use.json", player)
+        self.client.records.append({"class": "PlayerAbilityUse", "path": "player-ability-use.json"})
         self.client.finish()
         print(f"Exported {len(seen_abilities)} abilities and {len(seen_actors)} actors")
 

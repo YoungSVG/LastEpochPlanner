@@ -13,6 +13,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Test client item conversion
         run: python3 helperScripts/test_client_items.py
+      - name: Test client skill conversion
+        run: python3 helperScripts/test_client_skills.py
   lint:
     runs-on: ubuntu-latest
     container: ghcr.io/musholic/lastepochplanner-tests:latest

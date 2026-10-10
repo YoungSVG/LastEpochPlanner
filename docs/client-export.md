@@ -118,3 +118,17 @@ explicitly instead of producing a silently incomplete export.
 Keep the core export and installation on the same client build. These raw
 prefabs contain base damage and actor configuration; they do not by themselves
 implement skill-tree mutations or establish the final combat calculation.
+
+The export also records the MainPlayer ability-use component. To convert the
+new 1.5 base definitions without replacing the active database:
+
+```powershell
+python helperScripts/build_client_skills.py --source ..\client-skills --core ..\client-export --output ..\client-skills-compiled
+python helperScripts/test_client_skills.py
+```
+
+This produces three player skills and two Tide Elemental attacks. Cast times
+use the actor's own base speed multiplier (1.1 for MainPlayer, 1.0 for the tide
+elemental), multiplied by the ability's speed multiplier. The staged definitions
+still require the separate runtime mutations, including Radiant Lance's block
+scaling, before they can replace a complete supported gameplay version.
