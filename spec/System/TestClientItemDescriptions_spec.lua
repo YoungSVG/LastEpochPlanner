@@ -1,0 +1,96 @@
+describe("Client item descriptions", function ()
+	local function parse(line, count)
+		local mods, extra = modLib.parseMod(line)
+		assert.are.equals(nil, extra)
+		assert.are.equals(count, #mods)
+		return mods
+	end
+
+	it("applies shared resistance once to the player and once to minions", function ()
+		local mods = parse("+60% Cold Resistance for you and your Minions", 2)
+		assert.are.equals("ColdResist", mods[1].name)
+		assert.are.equals(60, mods[1].value)
+		assert.are.equals("MinionModifier", mods[2].name)
+		assert.are.equals("ColdResist", mods[2].value.mod.name)
+		assert.are.equals(60, mods[2].value.mod.value)
+	end)
+
+	it("keeps minion-only bonuses off the player", function ()
+		local mods = parse("+7 Melee Physical Damage for Minions", 1)
+		assert.are.equals("MinionModifier", mods[1].name)
+		assert.are.equals("PhysicalDamage", mods[1].value.mod.name)
+		assert.are.equals(7, mods[1].value.mod.value)
+		assert.are.equals(KeywordFlag.Melee, mods[1].value.mod.keywordFlags)
+	end)
+
+	it("handles the shared subject at the start of a sentence", function ()
+		local mods = parse("You and your minions have 24% increased healing effectiveness", 2)
+		assert.are.equals("HealingEffectiveness", mods[1].name)
+		assert.are.equals("INC", mods[1].type)
+		assert.are.equals(24, mods[1].value)
+		assert.are.equals("MinionModifier", mods[2].name)
+		assert.are.equals("HealingEffectiveness", mods[2].value.mod.name)
+	end)
+
+	it("keeps both attributes in a combined bonus", function ()
+		local mods = parse("+5 Strength and Attunement", 2)
+		assert.are.equals("Str", mods[1].name)
+		assert.are.equals("Att", mods[2].name)
+		assert.are.equals(5, mods[1].value)
+		assert.are.equals(5, mods[2].value)
+	end)
+
+	it("keeps the scaling condition on both health and mana", function ()
+		local mods = parse("+4 Health and Mana per Attunement", 2)
+		assert.are.equals("Life", mods[1].name)
+		assert.are.equals("Mana", mods[2].name)
+		for _, value in ipairs(mods) do
+			assert.are.equals(4, value.value)
+			assert.are.equals("PerStat", value[1].type)
+			assert.are.equals("Att", value[1].stat)
+		end
+	end)
+
+	it("distinguishes player and minion critical strike restrictions", function ()
+		local player = parse("You cannot deal critical strikes", 1)
+		assert.are.equals("NeverCrit", player[1].name)
+		assert.are.equals(true, player[1].value)
+		local minion = parse("Minions cannot deal Critical Strikes", 1)
+		assert.are.equals("MinionModifier", minion[1].name)
+		assert.are.equals("NeverCrit", minion[1].value.mod.name)
+		local multiplier = parse("Your critical strikes do not deal additional damage", 1)
+		assert.are.equals("NoCritMultiplier", multiplier[1].name)
+	end)
+
+	it("keeps enemy conditions on both minion damage types", function ()
+		local mods = parse("Minions deal 20% more Cold and Necrotic Damage to Chilled Enemies", 2)
+		for index, damageType in ipairs({ "ColdDamage", "NecroticDamage" }) do
+			assert.are.equals("MinionModifier", mods[index].name)
+			local value = mods[index].value.mod
+			assert.are.equals(damageType, value.name)
+			assert.are.equals("MORE", value.type)
+			assert.are.equals(20, value.value)
+			assert.are.equals("ActorCondition", value[1].type)
+			assert.are.equals("enemy", value[1].actor)
+			assert.are.equals("Chilled", value[1].var)
+		end
+	end)
+
+	it("creates each ailment chance with its melee hit restriction", function ()
+		local mods = parse("30% chance to ignite, chill, shock, bleed, slow, poison, and blind on melee hit", 7)
+		for index, ailment in ipairs({ "Ignite", "Chill", "Shock", "Bleed", "Slow", "Poison", "Blind" }) do
+			assert.are.equals("ChanceToTriggerOnHit_Ailment_" .. ailment, mods[index].name)
+			assert.are.equals(30, mods[index].value)
+			assert.are.equals(bit.bor(ModFlag.Melee, ModFlag.Hit), mods[index].flags)
+		end
+	end)
+
+	it("keeps damage-over-time protection distinct from hit protection", function ()
+		local mods = parse("18% less Fire and Necrotic Damage Over Time Taken", 2)
+		assert.are.equals("FireDamageTakenOverTime", mods[1].name)
+		assert.are.equals("NecroticDamageTakenOverTime", mods[2].name)
+		assert.are.equals("MORE", mods[1].type)
+		assert.are.equals(-18, mods[1].value)
+		assert.are.equals(-18, mods[2].value)
+	end)
+end)

@@ -64,6 +64,7 @@ local modNameList = {
 	["maximum health"] = "Life",
 	["mana"] = "Mana",
 	["maximum mana"] = "Mana",
+	["health and mana"] = { "Life", "Mana" },
 	["mana regen"] = "ManaRegen",
 	["mana cost"] = "ManaCost",
 	-- Primary defences
@@ -160,6 +161,11 @@ local modNameList = {
 
 for i, stat in ipairs(LongAttributes) do
 	modNameList[stat:lower()] = Attributes[i]
+	for j, other in ipairs(LongAttributes) do
+		if i ~= j then
+			modNameList[stat:lower() .. " and " .. other:lower()] = { Attributes[i], Attributes[j] }
+		end
+	end
 end
 
 for skillId, skill in pairs(data.skills) do
@@ -200,6 +206,29 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 modNameList["penetration"] = "Penetration"
+modNameList["penetration against all resistances"] = "Penetration"
+modNameList["fire, necrotic, and void penetration"] = { "FirePenetration", "NecroticPenetration", "VoidPenetration" }
+for _, first in ipairs(DamageTypes) do
+	for _, second in ipairs(DamageTypes) do
+		if first ~= second then
+			local prefix = first:lower() .. " and " .. second:lower()
+			for phrase, suffix in pairs({ damage = "Damage", penetration = "Penetration", ["damage over time taken"] = "DamageTakenOverTime" }) do
+				modNameList[prefix .. " " .. phrase] = { first .. suffix, second .. suffix }
+			end
+		end
+	end
+end
+for phrase, ailments in pairs({
+	["to electrify and slow"] = { "Electrify", "Slow" },
+	["to shock ignite and chill"] = { "Shock", "Ignite", "Chill" },
+	["to ignite, chill, shock, bleed, slow, poison, and blind"] = { "Ignite", "Chill", "Shock", "Bleed", "Slow", "Poison", "Blind" },
+}) do
+	local names = { flags = ModFlag.Hit }
+	for _, ailment in ipairs(ailments) do
+		t_insert(names, "ChanceToTriggerOnHit_Ailment_" .. ailment)
+	end
+	modNameList[phrase] = names
+end
 
 -- List of modifier flags
 local modFlagList = {
@@ -211,6 +240,10 @@ local modFlagList = {
 	["minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["with elemental spells"] = { keywordFlags = bor(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire) },
 	["minion"] = { addToMinion = true },
+	["for you and your minions"] = { addToMinion = true, shared = true },
+	["for your minions"] = { addToMinion = true },
+	["for minions"] = { addToMinion = true },
+	["%(multiplicative with other modifiers%)"] = {},
 	["shared"] = { addToMinion = true, shared = true },
 	-- can be ignored since the cooldown is already part of the triggered skill data
 	["%(%d+ second cooldown%)"] = {},
@@ -238,7 +271,10 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 -- List of modifier flags/tags that appear at the start of a line
-local preFlagList = {}
+local preFlagList = {
+	["^you and your minions have "] = { addToMinion = true, shared = true },
+	["^minions deal "] = { addToMinion = true },
+}
 
 -- List of modifier tags
 local modTagList = {
@@ -333,6 +369,9 @@ for _, damageType in ipairs(DamageTypes) do
 end
 
 local specialModList = {
+	["^you cannot deal critical strikes$"] = { flag("NeverCrit") },
+	["^minions cannot deal critical strikes$"] = { mod("MinionModifier", "LIST", { mod = flag("NeverCrit") }) },
+	["^your critical strikes do not deal additional damage$"] = { flag("NoCritMultiplier") },
 	["no cooldown"] = { flag("NoCooldown") },
 	[" ?always crits?.* above (%d+) mana"] = function (num)
 		num = tonumber(num)
