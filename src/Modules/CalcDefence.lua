@@ -4,6 +4,7 @@
 -- Performs defence calculations.
 --
 local calcs = ...
+local defenceMath = LoadModule("Modules/DefenceMath")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -193,7 +194,7 @@ function calcs.defence(env, actor)
 	end
 
 	-- Block
-	output.BlockChanceMax = modDB:Sum("BASE", nil, "BlockChanceMax")
+	output.BlockChanceMax = m_max(0, m_min(100, 100 + modDB:Sum("BASE", nil, "BlockChanceMax")))
 	if modDB:Flag(nil, "MaximumBlockAttackChanceIsEqualToParent") then
 		output.BlockChanceMax = actor.parent.output.BlockChanceMax
 	elseif modDB:Flag(nil, "MaximumBlockAttackChanceIsEqualToPartyMember") then
@@ -217,7 +218,7 @@ function calcs.defence(env, actor)
 	else
 		local totalBlockChance = (baseBlockChance + modDB:Sum("BASE", nil, "BlockChance")) *
 			calcLib.mod(modDB, nil, "BlockChance")
-		output.BlockChance = m_min(totalBlockChance, output.BlockChanceMax)
+		output.BlockChance = m_max(0, m_min(totalBlockChance, output.BlockChanceMax))
 		output.BlockChanceOverCap = m_max(0, totalBlockChance - output.BlockChanceMax)
 	end
 	
@@ -231,14 +232,17 @@ function calcs.defence(env, actor)
 	if modDB:Flag(nil, "CannotBlockAttacks") or enemyDB:Flag(nil, "CannotBeBlocked") then
 		output.BlockChance = 0
 	end
-	output.AverageBlockChance = (output.BlockChance) /
-		4
-	output.BlockEffect = m_max(100 - modDB:Sum("BASE", nil, "BlockEffect"), 0)
-	if output.BlockEffect == 0 or output.BlockEffect == 100 then
-		output.BlockEffect = 100
-	else
-		output.ShowBlockEffect = true
-		output.DamageTakenOnBlock = 100 - output.BlockEffect
+	output.AverageBlockChance = output.BlockChance
+	output.BlockEffect = defenceMath.blockReduction(output.BlockEffectiveness or 0, env.config.enemyLevel)
+	output.ShowBlockEffect = output.BlockChance > 0
+	output.DamageTakenOnBlock = 100 - output.BlockEffect
+	if breakdown then
+		breakdown.BlockEffect = {
+			s_format("%d ^8(block effectiveness)", output.BlockEffectiveness or 0),
+			s_format("%d ^8(enemy level)", env.config.enemyLevel),
+			s_format("%.2f%% ^8(damage prevented by a blocked hit)", output.BlockEffect),
+			s_format("%.2f%% ^8(damage taken from a blocked hit)", output.DamageTakenOnBlock),
+		}
 	end
 
 	-- Primary defences: Energy shield, evasion and armour
@@ -1454,8 +1458,6 @@ function calcs.buildDefenceEstimations(env, actor)
 					gainMult * (output.LifeRecoverable or 0))
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1),
 					gainMult * (output.Mana or 0))
-				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1),
-					gainMult * output.EnergyShieldRecoveryCap)
 			end
 			poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
 
@@ -1466,8 +1468,6 @@ function calcs.buildDefenceEstimations(env, actor)
 			if DamageIn.GainWhenHit and poolTable.Life > 0 then
 				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.Mana or 0)
-				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit,
-					output.EnergyShieldRecoveryCap)
 			end
 			iterationMultiplier = 1
 			-- to speed it up, run recursively but accelerated
@@ -1482,7 +1482,6 @@ function calcs.buildDefenceEstimations(env, actor)
 					Damage.GainWhenHit = true
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
 					Damage.ManaWhenHit = DamageIn.ManaWhenHit
-					Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
 				end
 				Damage["cycles"] = DamageIn["cycles"] * speedUp
 				Damage["iterations"] = DamageIn["iterations"]
@@ -1541,10 +1540,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		local averageAvoidChance = 0
 		local worstOf = env.config.EHPUnluckyWorstOf or 1
 		-- block effect
-		if damageCategoryConfig == "Melee" then
+		if damageCategoryConfig ~= "Untyped" then
 			BlockChance = output.BlockChance / 100
-		elseif damageCategoryConfig ~= "Untyped" then
-			BlockChance = output[damageCategoryConfig .. "BlockChance"] / 100
 		end
 		BlockChance = m_max(BlockChance - enemyDB:Sum("BASE", nil, "reduceEnemyBlock"), 0)
 		-- unlucky config to lower the value of block, dodge, evade etc for ehp
@@ -1597,11 +1594,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackPoolLoss"] or DamageIn["TrackLifeLossOverTime"]) and
 			numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]
 		if breakdown then
-			breakdown["ConfiguredDamageChance"] = { s_format("%.2f ^8(chance for block to fail)", 1 - BlockChance) }
-			if output.ShowBlockEffect then
-				t_insert(breakdown["ConfiguredDamageChance"],
-					s_format("x %.2f ^8(block effect)", output.BlockEffect / 100))
-			end
+			breakdown["ConfiguredDamageChance"] = {
+				s_format("1 - %.3f x %.3f = %.3f ^8(damage multiplier after block)",
+					BlockChance, output.BlockEffect / 100, blockEffect),
+			}
 			if suppressionEffect ~= 1 then
 				t_insert(breakdown["ConfiguredDamageChance"],
 					s_format("x %.3f ^8(suppression effect)", suppressionEffect))

@@ -47,10 +47,10 @@ return {
 		["BaseVoidDamageReductionWhenHit"] = 0,
 		["BlindAvoidChance"] = 0,
 		["BlockChance"] = 0,
-		["BlockChanceMax"] = 0,
+		["BlockChanceMax"] = 100,
 		["BlockChanceOverCap"] = 0,
 		["BlockDuration"] = 0.35,
-		["BlockEffect"] = 100,
+		["BlockEffect"] = 0,
 		["BlockEffectiveness"] = 0,
 		["BonusCritDotMultiplier"] = 0,
 		["CastRate"] = 1.573,
@@ -101,6 +101,7 @@ return {
 		["CurseAvoidChance"] = 0,
 		["CurseEffectOnSelf"] = 100,
 		["DamageReductionMax"] = 90,
+		["DamageTakenOnBlock"] = 100,
 		["DebuffExpirationModifier"] = 100,
 		["DebuffExpirationRate"] = 0,
 		["Dex"] = 22,
@@ -423,6 +424,7 @@ return {
 		["SelfIgniteEffect"] = 100,
 		["SelfStunChance"] = 100,
 		["ShieldBlockChance"] = 0,
+		["ShowBlockEffect"] = false,
 		["ShowBurst"] = false,
 		["SkillDPS"] = {
 			[1] = {
