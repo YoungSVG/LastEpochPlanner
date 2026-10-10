@@ -2,6 +2,36 @@
 -- Keep the exact client text as the key so changed descriptions need review.
 local mod = ...
 return {
+	-- RiveTree.updateMutator, client 1.5.2.2: bonuses target individual strikes.
+	["sndr1-15"] = {
+		["+10% First And Second Strike Attack Speed"] = {
+			mod("Speed", "INC", 10, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+	},
+	["sndr1-16"] = {
+		["+1% First And Second Strike Base Crit Chance"] = {
+			mod("CritChance", "BASE", 1, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+		["+2% Third Strike Base Crit Chance"] = {
+			mod("CritChance", "BASE", 2, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-18"] = {
+		[" Third Strike Double Crit Chance"] = {
+			mod("CritChance", "MORE", 100, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Third Strike Critical Multiplier"] = {
+			mod("CritMultiplier", "BASE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		[" First And Second Strike Never Crit"] = {
+			mod("NeverCrit", "FLAG", true, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+	},
+	["sndr1-30"] = {
+		["+15% Third Strike Damage"] = {
+			mod("Damage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["ra1an-21"] = {
 		["+12% Damage"] = { mod("Damage", "MORE", 12) },
 	},

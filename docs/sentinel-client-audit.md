@@ -31,10 +31,30 @@ python helperScripts/export_client_skill_prefabs.py --game "D:\STEAM\steamapps\c
 python helperScripts/build_client_sentinel.py --source ..\client-sentinel-export --core ..\client-export-1.5.2.2 --baseline src\Data\skills.json --output src\Data\skills.json
 ```
 
+## Verified Rive specialization modifiers
+
+`RiveTree.updateMutator` (RVA `0x251e1e0`, client fingerprint above) applies
+these modifiers to separate strike mutators. `SkillNodeMods.lua` matches the
+exact exported node text and scopes each bonus to both Rive and its strike.
+
+| Node | Per-point behavior | Native branch RVA |
+| --- | --- | --- |
+| Flurry (`sndr1-15`) | 10% increased attack speed for strikes 1 and 2 | `0x251f549` |
+| Concentration (`sndr1-16`) | +1% base crit for strikes 1 and 2; +2% for strike 3 | `0x251f071` |
+| Focused Strike (`sndr1-18`) | Strikes 1 and 2 cannot crit; strike 3 has double crit chance and +50% crit multiplier | `0x251eb57` |
+| Brutality (`sndr1-30`) | 15% more damage for strike 3 | `0x251f357` |
+
+The native critical-stat property IDs are 4 (crit chance) and 5 (crit multiplier).
+Focused Strike calls `Stats.MoreStat` for crit chance and `Stats.AddedStat` for
+the multiplier. Brutality calls `Stats.MoreStat` for damage (property 0).
+Runtime tests cover point scaling/removal, combined critical modifiers, strike
+switching and isolation from another skill. These do not model combo averages,
+echoes or ailment inheritance.
+
 ## Mechanics still to implement and validate
 
 - Rive: weighted combo damage and speed,
-  Cadence and Double Slash sequences, strike-specific critical chance and damage,
+  Cadence and Double Slash sequences, remaining strike-specific modifiers,
   Temporal Warrior, Weapon Specialist and Foe Cleaver. Native prefabs give the
   first two strikes 125% added-damage effectiveness and the third 250%. The first
   two use duration 0.75 / speed 1.25; the third uses duration 0.7 / speed 1.0,
