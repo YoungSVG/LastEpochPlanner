@@ -220,7 +220,10 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillTypes = activeSkill.skillTypes
 	local skillFlags = activeSkill.skillFlags
 	local activeEffect = activeSkill.activeEffect
-	local activeGrantedEffect = activeEffect.grantedEffect
+	-- Rebuild from the unmodified definition when changing a multipart skill.
+	activeSkill.baseGrantedEffect = activeSkill.baseGrantedEffect or activeEffect.grantedEffect
+	local activeGrantedEffect = activeSkill.baseGrantedEffect
+	activeEffect.grantedEffect = activeGrantedEffect
 	local effectiveRange = 0
 
 	-- Set mode flags
@@ -237,14 +240,26 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	-- Handle multipart skills
 	local activeGemParts = activeGrantedEffect.parts
 	if activeGemParts and #activeGemParts > 1 then
-		if env.mode == "CALCS" and activeSkill == env.player.mainSkill then
-			activeEffect.srcInstance.skillPartCalcs = m_min(#activeGemParts, activeEffect.srcInstance.skillPartCalcs or 1)
+		local partOverride = env.skillPartOverrides and env.skillPartOverrides[cacheSkillUUID(activeSkill, env)]
+		if partOverride then
+			activeSkill.skillPart = m_max(1, m_min(#activeGemParts, m_floor(partOverride)))
+		elseif env.mode == "CALCS" and activeSkill == env.player.mainSkill then
+			activeEffect.srcInstance.skillPartCalcs = m_max(1, m_min(#activeGemParts, m_floor(activeEffect.srcInstance.skillPartCalcs or 1)))
 			activeSkill.skillPart = activeEffect.srcInstance.skillPartCalcs
 		else
-			activeEffect.srcInstance.skillPart = m_min(#activeGemParts, activeEffect.srcInstance.skillPart or 1)
+			activeEffect.srcInstance.skillPart = m_max(1, m_min(#activeGemParts, m_floor(activeEffect.srcInstance.skillPart or 1)))
 			activeSkill.skillPart = activeEffect.srcInstance.skillPart
 		end
 		local part = activeGemParts[activeSkill.skillPart]
+		if part.stats or part.castTime then
+			activeGrantedEffect = copyTable(activeGrantedEffect, true)
+			activeGrantedEffect.stats = copyTable(activeGrantedEffect.stats, true)
+			for stat, value in pairs(part.stats or {}) do
+				activeGrantedEffect.stats[stat] = value
+			end
+			activeGrantedEffect.castTime = part.castTime or activeGrantedEffect.castTime
+			activeEffect.grantedEffect = activeGrantedEffect
+		end
 		for k, v in pairs(part) do
 			if v == true then
 				skillFlags[k] = true
@@ -473,9 +488,17 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.disableReason = "Skills of this type are disabled"
 	end
 
+	if activeSkill.skillPart == 3 and skillModList:GetCondition("RiveSkipThirdStrike", activeSkill.skillCfg) then
+		skillFlags.disable = true
+		activeSkill.disableReason = "Double Slash skips Rive's third strike"
+	end
+
 	if skillFlags.disable then
+		local multiPart = skillFlags.multiPart
 		wipeTable(skillFlags)
 		skillFlags.disable = true
+		-- Keep the selector available so a disabled strike can be changed.
+		skillFlags.multiPart = multiPart
 		return
 	end
 

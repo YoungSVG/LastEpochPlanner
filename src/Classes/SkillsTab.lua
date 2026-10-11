@@ -146,6 +146,8 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 	socketGroup.source = node.attrib.source
 	socketGroup.mainActiveSkill = tonumber(node.attrib.mainActiveSkill) or 1
 	socketGroup.mainActiveSkillCalcs = tonumber(node.attrib.mainActiveSkillCalcs) or 1
+	socketGroup.skillPart = tonumber(node.attrib.skillPart)
+	socketGroup.skillPartCalcs = tonumber(node.attrib.skillPartCalcs)
 	socketGroup.gemList = {}
 	local skillId = node.attrib.skillId
 	local grantedEffect = self.build.data.skills[skillId]
@@ -216,6 +218,8 @@ function SkillsTabClass:Save(xml)
 					source = socketGroup.source,
 					mainActiveSkill = tostring(socketGroup.mainActiveSkill),
 					mainActiveSkillCalcs = tostring(socketGroup.mainActiveSkillCalcs),
+					skillPart = socketGroup.skillPart and tostring(socketGroup.skillPart),
+					skillPartCalcs = socketGroup.skillPartCalcs and tostring(socketGroup.skillPartCalcs),
 					skillId = socketGroup.skillId,
 				}
 			}

@@ -923,7 +923,12 @@ end
 local configTable = {
 	["cast on hit"] = function (env)
 		local source, trigRate, uuid
-		for _, skill in ipairs(env.player.activeSkillList) do
+		local sourceOverride = env.triggerSourceOverride
+		if sourceOverride then
+			source = sourceOverride.skill
+			trigRate = sourceOverride.hitRate
+		end
+		for _, skill in ipairs(source and {} or env.player.activeSkillList) do
 			local skillSource = skill.activeEffect.grantedEffect.id
 			if skill.activeEffect.srcInstance.source then
 				skillSource = skillSource .. "/" .. skill.activeEffect.srcInstance.source
@@ -941,6 +946,19 @@ local configTable = {
 
 		-- The triggered skill inherits the source skill mods
 		env.player.mainSkill.skillModList:AddList(source.activeEffect.baseMods)
+		if env.player.mainSkill.skillFlags.ailment then
+			-- Only explicitly audited source bonuses are inherited. Copying Damage
+			-- wholesale would also duplicate global modifiers and include hit-only bonuses.
+			for _, entry in ipairs(source.skillModList:Tabulate("MORE", source.skillCfg, "SourceAilmentDamage")) do
+				env.player.mainSkill.skillModList:NewMod("Damage", "MORE", entry.value, entry.mod.source)
+			end
+			-- Evaluate source-specific ailment duration against the applying hit,
+			-- including its strike and skill ID, before passing it to the ailment.
+			local durationStat = "AilmentDuration_" .. env.player.mainSkill.activeEffect.grantedEffect.id
+			for _, entry in ipairs(source.skillModList:Tabulate("INC", source.skillCfg, durationStat)) do
+				env.player.mainSkill.skillModList:NewMod("Duration", "INC", entry.value, entry.mod.source)
+			end
+		end
 		local triggerChance = source.skillModList:Sum("BASE", source.skillCfg,
 			"ChanceToTriggerOnHit_" .. env.player.mainSkill.activeEffect.grantedEffect.id)
 		env.player.output.TriggerChance = triggerChance

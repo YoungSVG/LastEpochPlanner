@@ -2,6 +2,125 @@
 -- Keep the exact client text as the key so changed descriptions need review.
 local mod = ...
 return {
+	-- KnightTree.updateMutator: additive echo probabilities, before Rive's multiplier.
+	["Sentinel-40"] = {
+		["+2% Echo Chance"] = { mod("EchoChance", "BASE", 2) },
+	},
+	["Sentinel-79"] = {
+		["+1% Echo Chance"] = { mod("EchoChance", "BASE", 1) },
+	},
+	["Sentinel-102"] = {
+		["+10% Echo Chance"] = { mod("EchoChance", "BASE", 10) },
+	},
+	["sndr1-5"] = {
+		[" Doubles Echo Chance"] = { mod("EchoChance", "MORE", 100) },
+	},
+	["sndr1-13"] = {
+		["+15% More Hit Damage Vs Ignited Enemies"] = {
+			mod("Damage", "MORE", 15, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+		},
+	},
+	-- RiveTree.updateMutator, client 1.5.2.2: bonuses target individual strikes.
+	["sndr1-2"] = {
+		["+8% Damage"] = {
+			-- SkillId already matches ailments from this skill. Unlike strike-specific
+			-- bonuses, this must not also use SourceAilmentDamage.
+			mod("Damage", "MORE", 8),
+		},
+		["10% Increased Stun Chance"] = {
+			mod("StunChance", "INC", 10, ModFlag.Hit),
+		},
+	},
+	["sndr1-15"] = {
+		["+10% First And Second Strike Attack Speed"] = {
+			mod("Speed", "INC", 10, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+	},
+	["sndr1-16"] = {
+		["+1% First And Second Strike Base Crit Chance"] = {
+			mod("CritChance", "BASE", 1, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+		["+2% Third Strike Base Crit Chance"] = {
+			mod("CritChance", "BASE", 2, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-18"] = {
+		[" Third Strike Double Crit Chance"] = {
+			mod("CritChance", "MORE", 100, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Third Strike Critical Multiplier"] = {
+			mod("CritMultiplier", "BASE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		[" First And Second Strike Never Crit"] = {
+			mod("NeverCrit", "FLAG", true, 0, 0, { type = "SkillPart", skillPartList = { 1, 2 } }),
+		},
+	},
+	["sndr1-30"] = {
+		["+15% Third Strike Damage"] = {
+			mod("Damage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 15, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-26"] = {
+		["+25% Strike Two Damage"] = {
+			mod("Damage", "MORE", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+			mod("SourceAilmentDamage", "MORE", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+		["+25% Strike Two Area"] = {
+			mod("AreaOfEffect", "INC", 25, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+	},
+	["sndr1-7"] = {
+		["+12% Third Strike Damage"] = {
+			mod("Damage", "MORE", 12, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 12, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["5 Mana Gained"] = {
+			mod("ManaOnHit", "BASE", 5, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-22"] = {
+		["+50% Third Strike Damage"] = {
+			mod("Damage", "MORE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+			mod("SourceAilmentDamage", "MORE", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Third Strike Area"] = {
+			mod("AreaOfEffect", "INC", 50, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+		["+50% Increased Stun Chance"] = {
+			mod("StunChance", "INC", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-23"] = {
+		[" Skips Third Strike"] = {
+			mod("Condition:RiveSkipThirdStrike", "FLAG", true),
+		},
+	},
+	["sndr1-32"] = {
+		["15% Strike Three Kill Threshold"] = {
+			mod("CullPercent", "MAX", 15, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
+	["sndr1-21"] = {
+		[" Change Sequence Of Strikes"] = {
+			mod("Condition:RiveCadence", "FLAG", true),
+		},
+	},
+	["sndr1-9"] = {
+		["+50% First Strike Ignite Chance"] = {
+			mod("ChanceToTriggerOnHit_Ailment_Ignite", "BASE", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 1 }),
+		},
+	},
+	["sndr1-10"] = {
+		["+50% Second Strike Ignite Chance"] = {
+			mod("ChanceToTriggerOnHit_Ailment_Ignite", "BASE", 50, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+	},
+	["sndr1-31"] = {
+		["+10% Bleed Duration On Third Strike"] = {
+			mod("AilmentDuration_Ailment_Bleed", "INC", 10, 0, 0, { type = "SkillPart", skillPart = 3 }),
+		},
+	},
 	["ra1an-21"] = {
 		["+12% Damage"] = { mod("Damage", "MORE", 12) },
 	},
