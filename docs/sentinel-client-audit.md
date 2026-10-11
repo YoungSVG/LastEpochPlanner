@@ -286,10 +286,34 @@ the ordinary contribution through this ratio, not multiply it by another
   initial delay and `UseType` 5. Instant casts and several eligibility checks
   can reject an echo before creation; the roll alone is not sufficient.
 
-Before exposing echo DPS, trace the delayed cast's source-stat merge and
-strike identity, the passive/item sources of the base echo chance, and the
-caller eligibility rules. In particular, do not model generic increased echo
-damage as a separate More multiplier or assume triggered casts can echo.
+The delayed cast and stat merge are now traced as well:
+
+- The coroutine's `MoveNext` at `0x2404580` has two waits: the initial delay,
+  then the ability's visual-to-cast delay. After both, `0x2404627` passes its
+  saved `statsForCast` list to `AbilityObjectConstructor.AddStatsForNextAbilityUse`.
+  At `0x2404690` it loads the saved Ability reference (offset `0x58`), and at
+  `0x24046d9` the saved UseType (`0x90`); `0x24046e3` calls
+  `constructAbilityObject` with those values. It reconstructs that specific
+  strike; there is no saved damage result copied here. The saved `combo` field
+  is passed to the echo visuals at `0x2404829`, separately from the Ability
+  reference used for the actual cast.
+- `AddStatsForNextAbilityUse` (`0x24205b0`) appends to the constructor's
+  next-use list (`0xf0`). `applyTemporaryStats` (`0x2422440`) evaluates the
+  mutator's temporary-stat hooks before appending that next-use list to its
+  active temporary stats (`0xe8`) at `0x24226ad`. It then clears the next-use
+  list (`0x24226b2` onwards). The extra echo stats supplement the repeated
+  cast's own modifiers and do not persist for subsequent unrelated casts.
+- `constructAbilityObject` adds the active temporary list to the skill's
+  scaling stats at `0x24245d1`. This supports a separate per-strike echo
+  calculation with extra increased damage and the normalized Ripples More
+  modifier. Reusing final ordinary-hit DPS would miss additive increased
+  damage interactions and any modifiers conditional on Echo use type.
+
+Before exposing echo DPS, audit the passive/item sources of the base echo
+chance and caller eligibility rules. In particular, do not model generic
+increased echo damage as a separate More multiplier or assume triggered casts
+can echo. A steady-state combo model also needs to state that its echo damage
+arrives after these delays, rather than on the original attack's frame.
 
 ## Mechanics still to implement and validate
 
