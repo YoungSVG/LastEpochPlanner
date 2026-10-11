@@ -232,6 +232,40 @@ describe("Rive strike calculations", function ()
 		assert.are.equals(0, selectPart(1).CullPercent)
 	end)
 
+	it("applies Savagery only to Rive hits against an ignited enemy", function ()
+		newBuild()
+		build.skillsTab:SelSkill(1, "Rive1")
+		build.configTab.input.customMods = "100% Chance to Bleed on Hit\n100% Chance to Ignite on Hit"
+		build.configTab:BuildModList()
+		local baseline = {}
+		for part = 1, 3 do
+			local output = selectPart(part)
+			baseline[part] = { hit = output.TotalDPS, combo = output.RiveComboHitDPS,
+				bleed = ailmentOutput("Ailment_Bleed").TotalDPS, ignite = ailmentOutput("Ailment_Ignite").TotalDPS }
+		end
+		for _, ignited in ipairs({ false, true, false }) do
+			build.configTab.input.conditionEnemyIgnited = ignited
+			build.configTab:BuildModList()
+			for _, points in ipairs({ 4, 1, 0 }) do
+				allocate("sndr1-13", points)
+				for part = 1, 3 do
+					local output = selectPart(part)
+					local multiplier = ignited and 1 + points * 0.15 or 1
+					assert.are.equals(multiplier, round(output.TotalDPS / baseline[part].hit, 2))
+					assert.are.equals(multiplier, round(output.RiveComboHitDPS / baseline[part].combo, 2))
+					assert.are.equals(baseline[part].bleed, ailmentOutput("Ailment_Bleed").TotalDPS)
+					assert.are.equals(baseline[part].ignite, ailmentOutput("Ailment_Ignite").TotalDPS)
+				end
+			end
+		end
+		build.configTab.input.conditionEnemyIgnited = true
+		build.configTab:BuildModList()
+		build.skillsTab:SelSkill(1, "Fireball")
+		local other = selectPart(1).TotalDPS
+		allocate("sndr1-13", 4)
+		assert.are.equals(other, selectPart(1).TotalDPS)
+	end)
+
 	it("applies Champion to every Rive strike and its ailments without duplicating global damage", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

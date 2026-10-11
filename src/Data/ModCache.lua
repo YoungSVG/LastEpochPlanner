@@ -3216,7 +3216,6 @@ c["+15% Minimum Abyssal Orb Frequency"]={{}," Minimum Abyssal Orb Frequency "}
 c["+15% Minion Critical Strike Multiplier"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=15}}}},nil}
 c["+15% Mirror Image Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="MORE",value=15}}," Mirror Image  "}
 c["+15% More Hit Damage Per Ignite Stack"]={{[1]={[1]={skillName="Ignite",type="SkillName"},flags=8388608,keywordFlags=0,name="Damage",type="MORE",value=15}},"   Per  Stack "}
-c["+15% More Hit Damage Vs Ignited Enemies"]={{[1]={[1]={skillName="Ignite",type="SkillName"},flags=8388608,keywordFlags=0,name="Damage",type="MORE",value=15}},"   Vs d Enemies "}
 c["+15% Movespeed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
 c["+15% Movespeed with buff"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},"  with buff "}
 c["+15% Necrotic Resistance"]={{[1]={flags=0,keywordFlags=0,name="NecroticResist",type="BASE",value=15}},nil}

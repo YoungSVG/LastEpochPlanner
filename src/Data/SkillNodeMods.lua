@@ -2,6 +2,11 @@
 -- Keep the exact client text as the key so changed descriptions need review.
 local mod = ...
 return {
+	["sndr1-13"] = {
+		["+15% More Hit Damage Vs Ignited Enemies"] = {
+			mod("Damage", "MORE", 15, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+		},
+	},
 	-- RiveTree.updateMutator, client 1.5.2.2: bonuses target individual strikes.
 	["sndr1-2"] = {
 		["+8% Damage"] = {

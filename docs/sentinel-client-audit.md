@@ -161,6 +161,17 @@ threshold. It does not multiply combo hit/ailment DPS or assume instant
 access to strike 3 when a target crosses the threshold. Tests cover competing
 10%/20% thresholds, all four sequences, refunds and skill isolation.
 
+Savagery (`sndr1-13`, branch `0x251f312`) adds 0.15 per point to
+`moreDamageAgainstIgnited` (offset `0x128`) on all three Rive mutators
+at `0x251fb66` onwards. The second-strike mutation at `0x2266571` builds
+a conditional effect with ailment ID 1 (Ignite) and the damage multiplier,
+then attaches it to the strike's damage holders; the third strike also
+reads the field at `0x2267d11`. This is a hit effect, not an inherited
+ailment stat. An exact node override replaces the generic parser's incorrect
+Ignite skill-name restriction with an enemy-Ignited condition and Hit flag.
+Runtime coverage checks all strikes and combo hit DPS with the condition
+on/off, point scaling/refunds, unchanged bleed/ignite DPS and Fireball isolation.
+
 Champion (`sndr1-2`, native branch `0x251f6e2`) adds 0.08 more untagged damage
 and 0.10 increased stun chance per point to each of the three strike lists.
 The damage constructors are at `0x251f74b`, `0x251f807`, `0x251f8c3`; the
