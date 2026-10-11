@@ -254,6 +254,43 @@ source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
 are not included in these two rows.
 
+## Rive echo audit (not yet integrated into calculations)
+
+In the fingerprinted 1.5.2.2 binary, Ripples of Oblivion (`sndr1-8`,
+`RiveTree.updateMutator` branch `0x251f1b7`) uses **0.08 per point** at
+`0x251f1f8`, despite the exported description saying 5%. It adds an untagged
+damage `Stats.MoreStat` to each of the three strike lists (`0x251f214`,
+`0x251f248`, `0x251f27c`). For `p` points, it then computes
+`(1 + 3 * 0.08 * p) / (1 + 0.08 * p) - 1` at `0x251f29c` through
+`0x251f2b8`, storing this in `CharacterMutator.moreEchoDamageWithRive`
+(offset `0x1604`, write at `0x251fd70`). The echo multiplier must replace
+the ordinary contribution through this ratio, not multiply it by another
+`1 + 0.24 * p` and count the ordinary bonus twice.
+
+`CharacterMutator.TryToEchoAbility` (RVA `0x2672450`) confirms both consumers:
+
+- The ordinary roll reads `chanceToRepeatMeleeThrowingAttacksAndVoidSpells`
+  at offset `0x5c8`. For Rive it multiplies this by
+  `1 + echoChanceModifierWithRive` (`0x267261c` through `0x2672663`). A
+  nonzero explicit roll override bypasses this adjustment. The random roll
+  uses the previously audited clamped probability routine at `0xf6a6d0`;
+  a chance above one is not evidence of multiple echoes.
+- The Rive test helper at `0x2673b50` matches ability IDs 91, 250 and 251,
+  so these adjustments cover all three strikes.
+- `increasedEchoDamage` at offset `0xc78` enters the cast-stat list as an
+  ordinary increased damage stat (`0x2672950`). The normalized Rive bonus
+  at `0x1604` enters that list as a separate untagged damage MoreStat
+  (`0x26729d4`). Echo Time Rot chance is also added there (`0x2672a2a`).
+- At `0x2672d0b`, the list is passed as `statsForCast` to
+  `AbilityCoroutineHandler.CreateVoidKnightEchoAfterDelay`, with a one-second
+  initial delay and `UseType` 5. Instant casts and several eligibility checks
+  can reject an echo before creation; the roll alone is not sufficient.
+
+Before exposing echo DPS, trace the delayed cast's source-stat merge and
+strike identity, the passive/item sources of the base echo chance, and the
+caller eligibility rules. In particular, do not model generic increased echo
+damage as a separate More multiplier or assume triggered casts can echo.
+
 ## Mechanics still to implement and validate
 
 - Rive: integrate the combo summary with full DPS, ailments and triggers;
@@ -261,11 +298,9 @@ are not included in these two rows.
   Temporal Warrior, Weapon Specialist and Foe Cleaver. Native prefabs give the
   first two strikes 125% added-damage effectiveness and the third 250%. The first
   two use duration 0.75 / speed 1.25; the third uses duration 0.7 / speed 1.0,
-  before the player's speed multiplier. Individual strike calculations do not
-  yet represent the complete combo's ailments or proc rates. Native `RiveMutator.GetCurrentComboList` at
-  RVA `0x2269840` selects the Cadence list through `skipEveryOtherStrike3`, and
-  removes the third strike through `noStrike3`. Those sequence rules still need
-  integration with weighted damage, ailment application and proc rates.
+  before the player's speed multiplier. The separate combo rows already weight
+  hits, bleed and ignite using the native Cadence and Double Slash sequences.
+  Other ailments, proc rates, echoes and integration with full DPS remain open.
 - Void Cleave: movement/use timing, charges, conditional damage, conversion,
   Resonating Cleave and its interaction with Abyssal Echoes, Ravaging Aura.
 - Abyssal Echoes: Abyssal Decay, chains/repeats, direct-hit conversion, buffs and
