@@ -318,6 +318,13 @@ function calcs.offence(env, actor, activeSkill)
 	-- This is the offensive increase, not the final chance against an enemy.
 	local stunChanceInc = skillModList:Sum("INC", skillCfg, "StunChance")
 	output.StunChanceInc = stunChanceInc ~= 0 and stunChanceInc or nil
+	if activeSkill.activeEffect.grantedEffect.id == "Rive1" and not isTriggered(activeSkill) then
+		-- Native 1.5.2.2: Void Knight adds 10 percentage points; Rive's
+		-- Temporal Warrior multiplies the sum, then the random roll clamps it.
+		local baseEchoChance = env.spec.curAscendClassName == "Void Knight" and 10 or 0
+		output.RiveEchoChance = m_min(100, m_max(0, (baseEchoChance + skillModList:Sum("BASE", skillCfg, "EchoChance"))
+			* skillModList:More(skillCfg, "EchoChance")))
+	end
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")

@@ -316,6 +316,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		},
 		{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack" },
 		{ stat = "StunChanceInc", label = "Increased Stun Chance", fmt = ".0f%%" },
+		{ stat = "RiveEchoChance", label = "Rive Echo Chance", fmt = ".0f%%" },
 		{ stat = "TotalDPS", label = "Hit DPS", fmt = ".1f", compPercent = true, flag = "notAverage" },
 		{ stat = "RiveComboHitDPS", label = "Rive Combo Hit DPS", fmt = ".1f" },
 		{ stat = "RiveComboBleedDPS", label = "Combo Bleed DPS", fmt = ".1f" },

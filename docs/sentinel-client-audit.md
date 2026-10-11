@@ -254,7 +254,31 @@ source-damage inheritance and feedback from debuff stacks must be audited before
 claiming complete combo/build DPS support. Other ailments and echo applications
 are not included in these two rows.
 
-## Rive echo audit (not yet integrated into calculations)
+## Rive echo chance and pending echo damage
+
+The sidebar now reports the random echo chance for direct Rive strikes.
+`KnightTree.updateMutator` (`0x2695790`) starts the additive chance at zero
+(`0x2696563`), adds the three passive contributions below, then adds **0.10**
+when `LocalTreeData.chosenMastery` (offset `0xb0`) is 1 (Void Knight):
+`0x269f516` selects the branch and `0x269f671` adds the value loaded at
+`0x269f4fc`. It writes the result to the character's `0x5c8` field at
+`0x269fdae`.
+
+| Passive | Internal client name | Additive chance per point | Native addition |
+| --- | --- | --- | --- |
+| Echoing Strikes (`Sentinel-40`) | VK Echo | 0.02 | `0x2698b4b` through `0x2698b5a` |
+| Time Legion (`Sentinel-79`) | VK Echo And Attack Speed | 0.01 | `0x2698ce2` through `0x2698cf1` |
+| Avatar of Regret (`Sentinel-102`) | VK Super Echo | 0.10 | `0x2698e6a` through `0x2698e79` |
+
+The branch-name string literals were resolved from metadata indices 36472,
+36473 and 36490, referenced by native addresses `0x1853721a8`, `0x1853723a0`
+and `0x1853744d0`. Temporal Warrior's exact echo line supplies a Rive-only
+100% More chance modifier. The displayed probability is the additive chance
+times this multiplier, clamped to 0–100%; it does not multiply ordinary DPS.
+The regression covers all three strikes, passive allocation/refunds, mastery
+changes, both clamps, and exclusion from Fireball. Other lines on these nodes
+are outside this change; in particular, Temporal Warrior's ailment conversion
+and echo-specific Time Rot still require implementation.
 
 In the fingerprinted 1.5.2.2 binary, Ripples of Oblivion (`sndr1-8`,
 `RiveTree.updateMutator` branch `0x251f1b7`) uses **0.08 per point** at

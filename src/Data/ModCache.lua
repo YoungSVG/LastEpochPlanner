@@ -430,7 +430,6 @@ c[" Doubled with 60+ Attunement"]={nil," Doubled with 60+ Attunement "}
 c[" Doubled with 90+ Vitality"]={nil," Doubled with 90+ Vitality "}
 c[" Doubled with a 2h Weapon"]={nil," Doubled with a 2h Weapon "}
 c[" Doubled with at least 1200 ward"]={nil," Doubled with at least 1200 ward "}
-c[" Doubles Echo Chance"]={nil," Doubles Echo Chance "}
 c[" Dragonfang On Recurve"]={nil," Dragonfang On Recurve "}
 c[" Drain Life Is Cast"]={nil," Drain Life Is Cast "}
 c[" Drops Caltrops"]={nil," Drops Caltrops "}
@@ -1800,7 +1799,6 @@ c["+1% Damage per Int"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",
 c["+1% Damage per Meter Travelled"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=1}},"  per Meter Travelled "}
 c["+1% DoT per 20 Missing Health"]={{[1]={flags=0,keywordFlags=4096,name="Life",type="BASE",value=1}},"  per 20 Missing  "}
 c["+1% Double Damage Chance"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=1}}," Double  Chance "}
-c["+1% Echo Chance"]={{}," Echo Chance "}
 c["+1% Elemental Penetration Per 3 Intelligence"]={{[1]={[1]={div=3,stat="Int",type="PerStat"},flags=0,keywordFlags=14,name="Penetration",type="BASE",value=1}},nil}
 c["+1% Elemental Penetration with Elemental Nova per 10% uncapped Total Elemental Resistance"]={{[1]={[1]={skillName="Elemental Nova",type="SkillName"},flags=0,keywordFlags=14,name="Penetration",type="BASE",value=1}},"   with  per 10% uncapped Total  Resistance "}
 c["+1% Endurance"]={{[1]={flags=0,keywordFlags=0,name="Endurance",type="BASE",value=1}},nil}
@@ -2088,7 +2086,6 @@ c["+10% Double Shot Chance"]={{}," Double Shot Chance "}
 c["+10% Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},nil}
 c["+10% Duration and Range"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},"  and Range "}
 c["+10% Duration with Scepter"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},"  with Scepter "}
-c["+10% Echo Chance"]={{}," Echo Chance "}
 c["+10% Elemental Penetration"]={{[1]={flags=0,keywordFlags=14,name="Penetration",type="BASE",value=10}},nil}
 c["+10% Elemental Penetration with Frost Claw"]={{[1]={[1]={skillName="Frost Claw",type="SkillName"},flags=0,keywordFlags=14,name="Penetration",type="BASE",value=10}},"   with  "}
 c["+10% Elemental Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=10},[3]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=10}},nil}
@@ -4066,7 +4063,6 @@ c["+2% Damage to Feared per Berserk Stack"]={{[1]={[1]={skillName="Fear",type="S
 c["+2% Damned Duration per Intelligence"]={{[1]={[1]={stat="Int",type="PerStat"},[2]={skillName="Damned",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=2}},nil}
 c["+2% Death Wave Hit Damage Per Poison"]={{[1]={[1]={skillName="Poison",type="SkillName"},flags=8388608,keywordFlags=0,name="Damage",type="MORE",value=2}}," Death Wave   Per  "}
 c["+2% Direct Damage per Shock"]={{[1]={[1]={skillName="Shock",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}}," Direct  per  "}
-c["+2% Echo Chance"]={{}," Echo Chance "}
 c["+2% Elemental Penetration"]={{[1]={flags=0,keywordFlags=14,name="Penetration",type="BASE",value=2}},nil}
 c["+2% Elemental Penetration with Damage Over Time"]={{[1]={flags=0,keywordFlags=14,name="Penetration",type="BASE",value=2}},"   with Damage Over Time "}
 c["+2% Elemental Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=2},[3]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=2}},nil}

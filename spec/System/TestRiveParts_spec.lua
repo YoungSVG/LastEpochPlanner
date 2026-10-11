@@ -25,6 +25,55 @@ describe("Rive strike calculations", function ()
 		return nil
 	end
 
+	it("adds Sentinel echo chance before Temporal Warrior and clamps the resulting Rive probability", function ()
+		newBuild()
+		for id, class in pairs(build.spec.tree.classes) do
+			if class.name == "Sentinel" then
+				build.spec:SelectClass(id)
+				break
+			end
+		end
+		build.skillsTab:SelSkill(1, "Rive1")
+		assert.are.equals(0, selectPart(1).RiveEchoChance)
+		build.spec:SelectAscendClass(1)
+		assert.are.equals("Void Knight", build.spec.curAscendClassName)
+		local hitDPS = selectPart(1).TotalDPS
+		assert.are.equals(10, build.calcsTab.mainOutput.RiveEchoChance)
+		local function echoNode(id, points)
+			-- Other lines on these nodes still have unaudited mechanics. Only
+			-- their exact echo-chance lines are covered by this regression.
+			local node = build.spec.nodes[id]
+			node.alloc = points
+			build.spec.tree:ProcessStats(node)
+			build.spec.allocNodes[id] = points > 0 and node or nil
+		end
+		echoNode("Sentinel-40", 5)
+		assert.are.equals(20, selectPart(1).RiveEchoChance)
+		assert.are.equals(hitDPS, build.calcsTab.mainOutput.TotalDPS)
+		echoNode("Sentinel-79", 3)
+		assert.are.equals(23, selectPart(2).RiveEchoChance)
+		echoNode("Sentinel-102", 1)
+		assert.are.equals(33, selectPart(3).RiveEchoChance)
+		echoNode("sndr1-5", 1)
+		for part = 1, 3 do
+			assert.are.equals(66, selectPart(part).RiveEchoChance)
+		end
+		build.configTab.modList:NewMod("EchoChance", "BASE", 100, "Test")
+		assert.are.equals(100, selectPart(1).RiveEchoChance)
+		build.configTab:BuildModList()
+		build.configTab.modList:NewMod("EchoChance", "BASE", -100, "Test")
+		assert.are.equals(0, selectPart(1).RiveEchoChance)
+		build.configTab:BuildModList()
+		for _, id in ipairs({ "Sentinel-40", "Sentinel-79", "Sentinel-102", "sndr1-5" }) do
+			echoNode(id, 0)
+		end
+		assert.are.equals(10, selectPart(1).RiveEchoChance)
+		build.spec:SelectAscendClass(2)
+		assert.are.equals(0, selectPart(1).RiveEchoChance)
+		build.skillsTab:SelSkill(1, "Fireball")
+		assert.are.equals(nil, selectPart(1).RiveEchoChance)
+	end)
+
 	it("applies ignite chance only on the specified strike and preserves chances above 100 percent", function ()
 		newBuild()
 		build.skillsTab:SelSkill(1, "Rive1")

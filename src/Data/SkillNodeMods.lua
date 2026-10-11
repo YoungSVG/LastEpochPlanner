@@ -2,6 +2,19 @@
 -- Keep the exact client text as the key so changed descriptions need review.
 local mod = ...
 return {
+	-- KnightTree.updateMutator: additive echo probabilities, before Rive's multiplier.
+	["Sentinel-40"] = {
+		["+2% Echo Chance"] = { mod("EchoChance", "BASE", 2) },
+	},
+	["Sentinel-79"] = {
+		["+1% Echo Chance"] = { mod("EchoChance", "BASE", 1) },
+	},
+	["Sentinel-102"] = {
+		["+10% Echo Chance"] = { mod("EchoChance", "BASE", 10) },
+	},
+	["sndr1-5"] = {
+		[" Doubles Echo Chance"] = { mod("EchoChance", "MORE", 100) },
+	},
 	["sndr1-13"] = {
 		["+15% More Hit Damage Vs Ignited Enemies"] = {
 			mod("Damage", "MORE", 15, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
